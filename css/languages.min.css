@@ -1,0 +1,18 @@
+.flag {
+    display: inline-block;
+    width: 16px;
+    height: 11px;
+    background: url('../images/formhelpers/flags.png') no-repeat;
+}
+
+.flag.flag-us {
+    background-position: 0 -11px;
+}
+
+.flag.flag-es {
+    background-position: -16px 0;
+}
+
+.flag.flag-cat {
+    background-position: 0 0;
+}

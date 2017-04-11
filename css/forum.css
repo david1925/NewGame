@@ -1,0 +1,22 @@
+body {
+	margin-left: 10%;
+	margin-right: 10%;
+	color: white;
+	background-color: white;
+}
+
+body main {
+	width: 100%;
+	height: 100vh;
+	background-color: #000d1a;
+	padding: 10%;
+}
+
+body main button {
+	margin-top: 1%;
+	width: 100%;
+}
+
+.btn-primary {
+	background-color: #001a33;
+}

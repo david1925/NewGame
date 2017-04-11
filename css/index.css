@@ -1,0 +1,36 @@
+body {
+	margin-left: 5%;
+	margin-right: 5%;
+	color: white;
+	background-color: white;
+}
+
+body main {
+	padding: 6% 10% 10% 10%;
+	width: 100%;
+	height: 100vh;
+	display: inline-block;
+	background-color: #000d1a;
+}
+
+body main #title2 {
+	margin-top: 5%;
+}
+
+.carousel {
+	background-color: #001a33;
+	width: 78%;
+}
+
+body main .carousel figcaption {
+	padding: 1% 3% 1% 3%;
+}
+
+body main article figure img{
+	width: 45%;
+}
+
+body main article figure figcaption {
+	float: right;
+	width: 55%;
+}

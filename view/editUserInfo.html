@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/editUserInfo.css">
+	<link rel="stylesheet" type="text/css" href="../../css/languages.min.css">
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/register.js" type="text/javascript" xml:space="preserve"></script>
+
+</head>
+<body>	
+
+	<header ng-include="'header.html'"></header>
+
+	<main>
+		<div class="container">
+			<form>  
+				<h3 class="h3" translate="USER INFO"></h3>
+				<hr>
+				<div class="form-group">
+               		<div class="input-group">
+               			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				    	<input type="text" class="form-control" id="name" placeholder="Enter your name."></input>
+			    	</div>
+			    </div>
+			  	<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" id="surname" placeholder="Enter your surnames.">
+					</div>
+				</div>  
+
+				<div class="form-group">
+
+			  	<div class='form-group'>
+                    <div class='input-group'>
+                        <span class='input-group-addon'><i class='glyphicon glyphicon-globe'></i></span>
+        				<select name='country' class='form-control' ng-options='item as item.countries_name for item in countries' ng-model='country_selected' ng-change='myFunc()' ng-value='{{country_selected.countries_id_country}}'>
+        					<option value=''>Select country</option>
+    					</select>
+        			</div>
+    			</div>
+
+			  	<div class='form-group'>
+                    <div class='input-group'>
+                        <span class='input-group-addon'><i class='glyphicon glyphicon-globe'></i></span>
+        				<select name='country' class='form-control' ng-options='item as item.countries_name for item in countries' ng-model='country_selected' ng-change='myFunc()' ng-value='{{country_selected.countries_id_country}}'>
+        					<option value=''>Select province</option>
+    					</select>
+        			</div>
+    			</div>
+
+			  	<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+						<input type="text" class="form-control" id="address" placeholder="Enter your address.">
+					</div>
+				</div>  
+
+			  	<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+						<input type="text" class="form-control" id="surname" placeholder="Enter your phone number.">
+					</div>
+				</div>  
+				<label class="file">Profile image
+					<input type="file" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
+				</label>
+				<hr>				
+			  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" translate="Submit"></span></button>
+			  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

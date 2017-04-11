@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+  	<!--Angular pagination-->
+  	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/userProfile.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/generalFunctions.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/userProfile.js" type="text/javascript" xml:space="preserve"></script>
+
+</head>
+<body ng-controller="UserProfileController as UserProfileCtrl">	
+
+	<header ng-include="'header.html'"></header>
+
+	<main>
+		<div id="subHeader">
+			<div id="heading">
+				<h4 class="h4" translate="USER PROFILE"></h3>
+				<hr>
+				<ul id="headingUl">
+				    <li><h4><span class="h4" translate="Username"></span><small>{{username[0].users_username}}</small></h4></li>
+				    <li><h4><span class="h4" translate="Country"></span><small></small></h4></li>
+				    <li><h4><span class="h4" translate="Province"></span><small></small></h4></li>
+				    <li><h4><span class="h4" translate="Language"></span><small>{{language}}</small></h4></li>
+			    </ul>
+	  			<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Add friend</button>			  	
+	  			<div class='form-group'>
+                    <div class='input-group col-sm-2 pull-right'>
+                        <span class='input-group-addon'><i class='glyphicon glyphicon-th-list'></i></span>
+        				<select name='tools' class='form-control'>
+        					<option value=''>Tools</option>
+    					</select>
+        			</div>
+    			</div>
+			</div>
+			<img src="../images/profile/{{user_image[0].users_image}}" alt="profile"></img>
+		</div>
+
+		<div id="friendsList">
+			<h4 class="h4">FRIENDS LIST</h3>
+			<hr>
+			<ul>
+			    <li ng-repeat="friend in friends">{{friend.users_username}}</li>
+			</ul>
+		</div>
+
+		<div id="gamesList">
+			<h4 class="h4">PURCHASED GAMES</h3>
+			<hr>
+			<div class="images" ng-repeat="image in images">
+				<figure>
+					<img class="images" src="../images/games/{{image.games_url_image}}/{{image.games_url_image}}" alt="{{image.games_name}}">
+					<figcaption>{{image.games_name}}</figcaption>
+				</figure>
+			</div>
+		</div>
+		<span ng-if="messages!=null">
+			<div id="wall">
+				<h4 class="h4">WALL</h4>
+				<hr>
+			<div class="thread" dir-paginate="message in messages | itemsPerPage: pageSize" current-page="currentPage">	
+				<p>{{message.messages_text}}</p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i>{{message.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{message.messages_datetime}}</h6>
+			</div>
+			<div class="text-left" boundary-links="true">
+	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
+	          </div>
+        	</span>
+			<hr>
+	        <div class="form-group">		        
+	       		<div class="input-group">
+	       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+			  		<textarea class="form-control" id="description" placeholder="Write here your answer." rows="3"></textarea>
+		  		</div>
+		    </div>
+	  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
+	  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+		</div>
+	</main>
+</body>
+</html>

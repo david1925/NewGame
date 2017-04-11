@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/gameProfile.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+
+</head>
+<body>	
+
+	<header ng-include="'header.html'"></header>
+
+	<main>
+		<div id="subHeader">
+			<h4 class="h4">TERRARIA</h4>
+			<hr>
+			<div id="subHeadBackgrd">
+				<article>
+					<div id="divCarousel" class="container">
+					    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+						    <!-- Indicators -->
+						    <ol class="carousel-indicators">
+						        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						        <li data-target="#myCarousel" data-slide-to="1"></li>
+						        <li data-target="#myCarousel" data-slide-to="2"></li>
+						        <li data-target="#myCarousel" data-slide-to="3"></li>
+						    </ol>
+
+						    <!-- Wrapper for slides -->
+						    <div class="carousel-inner" role="listbox">
+						        <div class="item active">
+						      		<figure>
+						        		<img src="../images/games/terraria/terraria1.png" alt="terraria1">
+						     	    </figure>
+						        </div>
+
+						        <div class="item">
+						      		<figure>
+						       		 	<img src="../images/games/terraria/terraria2.png" alt="terraria2">
+						       		</figure>
+						        </div>
+						    
+						        <div class="item">
+						      		<figure>
+						        		<img src="../images/games/terraria/terraria3.png" alt="terraria3">
+						        	</figure>
+						        </div>
+
+						        <div class="item">
+							      	<figure>
+							        	<img src="../images/games/terraria/terraria4.png" alt="terraria4">
+							        </figure>
+						        </div>
+					      	</div>
+
+						    <!-- Left and right controls -->
+						    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+						        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						        <span class="sr-only">Previous</span>
+						    </a>
+						    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+						        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						        <span class="sr-only">Next</span>
+						    </a>
+						</div>
+					</div>
+				</article>
+
+				<aside id="subHeaderAside">				
+			      	<figure>
+			        	<img src="../images/games/terraria/terraria.png" alt="terraria">
+			        	<figcaption>
+			        		<p>Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!</p>
+			        	</figcaption>
+			        </figure>
+				</aside>
+			</div>
+		</div>
+
+		<div id="information">
+			<h4 class="h4">REQUIREMENTS</h4>
+			<hr>
+
+			<div id="requirements">
+				<table class="table">
+					<thead class="thead-inverse">
+						<th></th>
+						<th>MINIMUM</th>
+						<th>RECOMMENDED</th>
+					</thead>
+					<tr>
+						<td>OS</td>
+						<td>Windows Xp, Vista, 7, 8/8.1, 10</td>
+						<td>Windows 7, 8/8.1, 10</td>
+					</tr>
+					<tr>
+						<td>Processor</td>
+						<td>2.0 Ghz</td>
+						<td>Dual Core 3.0 Ghz</td>
+					</tr>
+					<tr>
+						<td>Memory</td>
+						<td>2.5GB</td>
+						<td>4GB</td>
+					</tr>
+					<tr>
+						<td>Hard Disk Space</td>
+						<td>200MB</td>
+						<td>200MB</td>
+					</tr>
+					<tr>
+						<td>Video Card</td>
+						<td>128mb Video Memory, capable of Shader Model 2.0+</td>
+						<td>256mb Video Memory, capable of Shader Model 2.0+</td>
+					</tr>
+					<tr>
+						<td>DirectX®</td>
+						<td>9.0c or Greater</td>
+						<td>9.0c or Greater</td>
+					</tr>
+				</table>			
+			</div>			
+		  	<button type="submit" class="btn btn-primary">9.99€ Add to cart</button>
+		  	<button type="submit" class="btn btn-primary">Community forum</button>
+		</div>
+
+		<div id="valorations">
+			<h4 class="h4">VALORATIONS</h4>
+			<hr>
+			<div class="thread">		
+				<p>Before you say that this game doesn't have mods,	It does</p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Juan<br><i class="glyphicon glyphicon-time"></i> 14:23 23/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
+			</div>
+			<div class="thread">	
+				<p>Better than Minecraft. This game is fantastic.</p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> David<br><i class="glyphicon glyphicon-time"></i> 19:49 23/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
+			</div>
+			<div class="thread">	
+				<p>Recieved this game as a gift from my friend long ago and I was very confused by it at first, but now down the road I look back at that time and think, wow this has been a great game for a long time. I would really reccomend this game, it's the right combination of know-how, skill and good ol fashion luck to keep me wanting to play again. Not to mention the item diversity makes multiplayer that much cooler! </p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Blancafort<br><i class="glyphicon glyphicon-time"></i> 11:03 24/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
+			</div>
+			<div class="thread">	
+				<p>Terraria got a 9/10 IGN. Breath of The Wild got a 10/10 IGN</p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Blancafort<br><i class="glyphicon glyphicon-time"></i> 11:03 24/02<i class="glyphicon glyphicon-thumbs-down"></i></h6>
+			</div>
+			<hr>
+	        <div class="form-group">		        
+	       		<div class="input-group">
+	       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+			  		<textarea class="form-control" id="description" placeholder="Write here tour answer." rows="3"></textarea>
+		  		</div>
+		    </div>
+		  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
+		  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+		</div>
+	</main>
+</body>
+</html>

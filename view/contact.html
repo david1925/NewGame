@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/contact.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+	<!--<script src="../js/controller/register.js" type="text/javascript" xml:space="preserve"></script>-->
+	<script src="../js/controller/generalFunctions.js" type="text/javascript" xml:space="preserve"></script>
+
+</head>
+<body ng-controller="NewGameAppController as NewGameAppCtrl">	
+
+	<header ng-include="'header.html'"></header>
+
+	<main>
+		<div class="container">
+			<form>  
+				<h3 class="h3" translate="FILL THE FORM"></h3>
+				<hr>
+				<div class="form-group">
+               		<div class="input-group">
+               			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+				    	<input class="form-control" id="name" placeholder="Enter your name." disabled></input>
+			    	</div>
+			    </div>
+			  	<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+						<input type="email" class="form-control" id="email" placeholder="Enter your email." disabled>
+					</div>
+				</div>  
+
+				<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+				    	<input class="form-control" id="subject" placeholder="Enter the subject."></input>
+			    	</div>
+			    </div>
+
+		        <div class="form-group">		        
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+				  		<textarea class="form-control" id="description" placeholder="Describe us your problem/question." rows="3"></textarea>
+			  		</div>
+			    </div>
+				<hr>
+			  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" translate="Submit"></span></button>
+			  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

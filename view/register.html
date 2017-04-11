@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="NewGameApp">
+<head>
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/register.js" type="text/javascript" xml:space="preserve"></script>
+	<!--CSS-->
+	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+	<title>Register login</title>
+</head>
+<body ng-controller="NewGameAppController as NewGameAppCtrl">
+	<header ng-include="'header.html'"></header>
+	<main>
+		<div class="container">
+			<form  action='../php/controller/insert_user.php' method="post" name="registerManagement" novalidate ng-submit="registerManagement.$valid && NewGameAppCtrl.submit()">
+			<h3 class='h3' translate="SIGN"></h3>
+			<hr>
+				<div class='form-group'>
+	               		<div class='input-group'>
+	               			<span class='input-group-addon'><i class='glyphicon glyphicon-user'></i></span>
+							<input type='text' name='username' ng-model="register.username" ng-click='NewGameAppCtrl.prueba()' class='form-control' ng-pattern="/[a-z][0-9]*$/" placeholder="Username*" required/>
+						</div>
+						<p ng-if="!register.username && !registerManagement.username.$pristine">Username must be with this format : [user, User, user123, User123]</p>
+				</div>
+				<div class='form-group'>
+	               		<div class='input-group'>
+	               			<span class='input-group-addon'><i class='glyphicon glyphicon-lock'></i></span>
+							<input type='password' name='password' ng-model="register.password" ng-click='NewGameAppCtrl.prueba()' class='form-control' placeholder="Password*">
+						</div>
+				</div>
+				<div class='form-group'>
+	               		<div class='input-group'>
+	               			<span class='input-group-addon'><i class='glyphicon glyphicon-lock'></i></span>
+							<input type='password' name='repeatpassword' ng-model="register.repeatpassword" ng-click='NewGameAppCtrl.prueba()' class='form-control' placeholder="Repeat password*">
+							<p ng-if="!(register.password === register.repeatpassword) && !registerManagement.username.$pristine"> Passwords do not match</p>
+						</div>
+				</div>
+				<div class='form-group'>
+	               		<div class='input-group'>
+	               			<span class='input-group-addon'><i class='glyphicon glyphicon-envelope'></i></span>
+							<input type='email' name='email' ng-click='NewGameAppCtrl.prueba()' class='form-control' placeholder="Email*">
+						</div>
+				</div>
+
+			<hr>
+				<button type="submit" class="btn btn-primary" name="insert_user" value="ok" ng-disabled="registerManagement.$invalid"><span class="glyphicon glyphicon-send"></span> Submit</button>
+			</form>
+	</div>
+</main>
+<input type="button" name="change" ng-click="changeLanguage('en')" translate="BUTTON_LANG_DE" value="English">
+<input type="button" name="change" ng-click="changeLanguage('es')" translate="BUTTON_LANG_DE" value="Spanish">
+</body>
+</html>

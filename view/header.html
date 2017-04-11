@@ -1,0 +1,50 @@
+<nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+   		<div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#desplegable">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html"><i class="glyphicon glyphicon-home"></i> NewGame</a>
+   		</div>
+        <div class="collapse navbar-collapse" id="desplegable">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Shop"><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+	                    <li><a href="/view/shop.html" translate="All"></a></li>
+                        <li class="divider"></li>
+	                    <li><a href="#" translate="Action"></a></li>
+	                    <li><a href="#" translate="Horror"></a></li>
+	                    <li><a href="#">RPG</a></li>
+	                    <li><a href="#" translate="Sports"></a></li>
+                    </ul>
+                </li>
+                <li><a href="/view/store.html" translate="Store"></a></li>
+                <li><a href="/view/forum.html" translate="Community"></a></li>
+                <li><a href="/view/contact.html" translate="Contact"></a></li>
+		        <li class="dropdown">
+                    <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+	                    <li><a href="#" ng-click="changeLanguage('es')"><h6 class="h6"><span class="flag flag-es"></span> Spanish</h6></a></li>
+	                    <li><a href="#" ng-click="changeLanguage('ca')"><h6 class="h6"><span class="flag flag-cat"></span> Catalan</h6></a></li>
+	                    <li><a href="#" ng-click="changeLanguage('en')"><h6 class="h6"><span class="flag flag-us"></span> English</h6></a></li>
+                    </ul>
+                </li>                    
+                <a href="login.html"><button type="button" class="btn btn-primary pull-right">Login</button></a>
+                <div class="col-sm-3 col-md-4 pull-right">
+			        <form class="navbar-form" role="search">
+			        <div class="input-group">
+			            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+			            <div class="input-group-btn">
+			                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+			            </div>
+			        </div>
+			        </form>
+		        </div>
+            </ul>
+        </div> 
+	</div>
+</nav>
