@@ -45,6 +45,9 @@
 							<input type='password' name='password' ng-model="password" class='form-control' ng-pattern="/[a-z][0-9]*$/" placeholder="Password*" required/>
 						</div>
 				</div>
+			<div class="alert alert-danger" ng-if="flag==false">
+  				<strong>Username or password incorrect!</strong>
+			</div>
 			<hr>
 				<button type="button" class="btn btn-primary" name="insert_user" value="ok" ng-disabled="loginManagement.$invalid" ng-click="LoginCtrl.login()"><span class="glyphicon glyphicon-send"></span> Submit</button>
 			</form>

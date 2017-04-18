@@ -17,6 +17,8 @@
 	<!--Angular Translate-->
 	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
   	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+  	<!--Angular pagination-->
+  	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
 	<!--Angular-Bootstrap-->
 	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Dropdown menu -->
@@ -29,9 +31,10 @@
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/store.js" type="text/javascript" xml:space="preserve"></script>
 
 </head>
-<body>
+<body ng-controller="storeController as storeCtrl">
 	
 	<!-- HEADER -->	
 	<header ng-include="'header.html'"></header>	
@@ -39,16 +42,17 @@
 	<main>			
 		<h3 class="h3"></h3>
 		<hr>
-		<button class="btn btn-primary chivalry" type="submit">Chivalry medieval warfare</button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
-		<button class="btn btn-primary chivalry" type="submit"></button>
+		<!--<button class="btn btn-primary chivalry" type="submit">Chivalry medieval warfare</button>-->
+		<div class="games" ng-repeat="game in games">
+			<figure><a href="gameProfile.html">
+						<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+						<figcaption>{{game.games_name}}</figcaption>
+					</a>
+				</figure>
+		</div>
+		<div class="text-left" boundary-links="true">
+	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
+	          </div>
 	</main>
 </body>
 </html>

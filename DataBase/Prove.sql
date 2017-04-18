@@ -2,6 +2,7 @@
 /*********************Inserts******************************************/
 INSERT INTO Genders (genders_name) VALUES ("Shooter");
 INSERT INTO Genders (genders_name) VALUES ("Action");
+INSERT INTO Genders (genders_name) VALUES ("RPG");
 
 
 INSERT INTO `Countries` VALUES (null, 'AF', 'Afghanistan');
@@ -306,17 +307,22 @@ VALUES
 	(50,'Zaragoza','202');
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-
 VALUES ("Bioshock","Shooter game",20,date(now()),"1.jpg",1);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-
 VALUES ("Borderlands","Shooter cartoon game",15,date(now()),"2.jpg",1);
 
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's Creed","Historical fiction",30,date(now()),"3.jpg",2);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Dark Souls","RPG",40,date(now()),"4.jpg",3);
 
-VALUES ("Assassin's Creed","Historical fiction",30,date(now()),"3.jpg",2);
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Dark Souls2","RPG",50,date(now()),"5.jpg",3);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Dark Souls3","RPG",40,date(now()),"6.jpg",3);
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,0,"en");

@@ -57,4 +57,12 @@
   $translateProvider.useSanitizeValueStrategy("escapeParameters"); 
 }]); 
   
+   angular.module("NewGameApp").factory('LoginService', [function() {
+  return {
+    isLogged: false,
+    username: ''
+  };
+}]);
+
+
 })();
