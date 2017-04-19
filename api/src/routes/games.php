@@ -27,7 +27,7 @@ $app->get('/games/image/{id}', function(Request $request, Response $response){
 
 // Get games id,name and image
 $app->get('/games', function(Request $request, Response $response){
-    $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name FROM Games";
+    $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_price,Games.games_rating FROM Games";
     try{
         // Get DB Object
         $db = new db();

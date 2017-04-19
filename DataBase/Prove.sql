@@ -368,8 +368,20 @@ INSERT INTO Bills (bills_price,bills_date,bills_payment,Users_users_id_user) VAL
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,1,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,2,"1");
 
-INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡This game is awesome!",10,1,1);
-INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Best shooter ever!",9,1,2);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡This game is awesome!",1,1,1);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Best shooter ever!",1,1,2);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡The best game I've ever played!",1,1,3);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Incredible history!",1,1,4);
+----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I love this game!",1,4,1);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I hate this game!",0,4,2);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I've nightmares with Dark Souls!",0,4,3);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Impossible!",0,4,4);
+----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("A great second part",1,5,1);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("The best RPG game",1,5,2);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("The first Dark Souls was pretty much better",0,5,3);
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("I'm bored of died and died and died...",0,5,4);
 
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first level","Anyone knows the path to finish the first level?",1,1);
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first boss","Anyone knows how to defeat the first boss?",2,1);

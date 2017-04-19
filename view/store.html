@@ -46,7 +46,7 @@
 		<div class="games" ng-repeat="game in games">
 			<figure><a href="gameProfile.html">
 						<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-						<figcaption>{{game.games_name}}</figcaption>
+						<figcaption>{{game.games_name}} {{game.games_price}}€ <i ng-if="game.games_rating>=0.5" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="game.games_rating<0.5 && game.games_rating!=null" class='glyphicon glyphicon-thumbs-down'></i><i ng-if="game.games_rating==null">Not rated</i></figcaption>
 					</a>
 				</figure>
 		</div>
