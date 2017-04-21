@@ -17,7 +17,9 @@
     "Username": "Username",
     "Country": "Country",
     "Province": "Province",
-    "Language": "Language"
+    "Language": "Language",
+    "Featured Games": "Featured Games",
+    "Latest Releases": "Latest Releases"
   });
  
   $translateProvider.translations("es", {
@@ -33,7 +35,9 @@
     "Username": "Usuario",
     "Country": "País",
     "Province": "Província",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "Featured Games": "Juegos destacados",
+    "Latest Releases": "Últimos lanzamientos"
   });
   
   $translateProvider.translations("ca", {
@@ -49,7 +53,9 @@
     "Username": "Usuari",
     "Country": "País",
     "Province": "Província",
-    "Language": "Idioma"
+    "Language": "Idioma",
+    "Featured Games": "Jocs destacats",
+    "Latest Releases": "Últims llançaments"
   });
  
 

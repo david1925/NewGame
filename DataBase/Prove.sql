@@ -3,6 +3,8 @@
 INSERT INTO Genders (genders_name) VALUES ("Shooter");
 INSERT INTO Genders (genders_name) VALUES ("Action");
 INSERT INTO Genders (genders_name) VALUES ("RPG");
+INSERT INTO Genders (genders_name) VALUES ("Survival Horror");
+INSERT INTO Genders (genders_name) VALUES ("Survival");
 
 
 INSERT INTO `Countries` VALUES (null, 'AF', 'Afghanistan');
@@ -307,22 +309,28 @@ VALUES
 	(50,'Zaragoza','202');
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Bioshock","Shooter game",20,date(now()),"1.jpg",1);
+VALUES ("Bioshock","BioShock is a shooter unlike any you've ever played, loaded with weapons and tactics never seen. You'll have a complete arsenal at your disposal from simple revolvers to grenade launchers and chemical throwers, but you'll also be forced to genetically modify your DNA to create an even more deadly'",20,"2007-08-21","1.jpg",1);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Borderlands","Shooter cartoon game",15,date(now()),"2.jpg",1);
+VALUES ("Borderlands","Lock, Load, & Face the MadnessGet ready for the mind blowing insanity! Play as one of four trigger-happy mercenaries and take out everything that stands in your way!With its addictive action, frantic first-person shooter combat, massive arsenal of weaponry, RPG elements and four-player co-op*.",15,"2009-10-26","2.jpg",1);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Assassin's Creed","Historical fiction",30,date(now()),"3.jpg",2);
+VALUES ("Assassin's Creed","Assassin's Creed is the next-gen game developed by Ubisoft Montreal that redefines the action genre. While other games claim to be next-gen with impressive graphics and physics, Assassin's Creed merges technology, game design, theme and emotions into a world where you instigate chaos and become a vulnerable, yet powerful, agent of change.",30,"2008-04-09","3.jpg",2);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Dark Souls","RPG",40,date(now()),"4.jpg",3);
+VALUES ("Dark Souls","Dark Souls will be the most deeply challenging game you play this year. Can you live through a million deaths and earn your legacy?",40,"2012-08-23","4.jpg",3);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Dark Souls2","RPG",50,date(now()),"5.jpg",3);
+VALUES ("Dark Souls2","Developed by FROM SOFTWARE, DARK SOULS II is the highly anticipated sequel to the gruelling 2011 breakout hit Dark Souls. The unique old-school action RPG experience captivated imaginations of gamers worldwide with incredible challenge and intense emotional reward.",50,"2015-04-02","5.jpg",3);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Dark Souls3","RPG",40,date(now()),"6.jpg",3);
+VALUES ("Dark Souls3","Dark Souls continues to push the boundaries with the latest, ambitious chapter in the critically-acclaimed and genre-defining series. Prepare yourself and Embrace The Darkness!",40,"2016-04-12","6.jpg",3);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Resident Evil 7","Fear and isolation seep through the walls of an abandoned southern farmhouse. '7' marks a new beginning for survival horror with the 'Isolated View' of the visceral new first-person perspective.",60,"2017-01-24","7.jpg",4);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Terraria","Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!",9.99,"2011-05-16","8.jpg",5);
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,0,"en");

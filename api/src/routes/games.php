@@ -17,15 +17,15 @@ $app->get('/games/image/{id}', function(Request $request, Response $response){
         // Connect
         $db = $db->connect();
         $stmt = $db->query($sql);
-        $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($users);
+        echo json_encode($games);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
 
-// Get games id,name and image
+// Get games id,name, price, rating and image
 $app->get('/games', function(Request $request, Response $response){
     $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_price,Games.games_rating FROM Games";
     try{
@@ -34,9 +34,43 @@ $app->get('/games', function(Request $request, Response $response){
         // Connect
         $db = $db->connect();
         $stmt = $db->query($sql);
-        $users = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
-        echo json_encode($users);
+        echo json_encode($games);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+// Get name, image and description
+$app->get('/games/featured', function(Request $request, Response $response){
+    $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_rating DESC LIMIT 4";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($games);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+// Get name, image and description
+$app->get('/games/publicationDate', function(Request $request, Response $response){
+    $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_publication_date DESC LIMIT 4";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($games);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }

@@ -6,6 +6,7 @@
     $scope.friends="";
     $scope.images="";
     $scope.pageSize=5;
+    $scope.currentPage= 1;
             //GET Walls messages
             $http.get("http://www.newgame.local/api/public/users/messages/1")
             .then(function (response) {$scope.messages = response.data;});

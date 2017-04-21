@@ -31,15 +31,15 @@
 
 	<!-- app -->
     <script src="js/app.js" type="text/javascript" xml:space="preserve"></script>
-	<!-- <script src="js/controller/index.js" type="text/javascript" xml:space="preserve"></script> -->
+	<script src="js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
 
 </head>
-<body>
+<body ng-controller="IndexController as IndexCtrl">
 
 	<header ng-include="'view/header.html'"></header>
 
 	<main>	
-		<h1 class="h1">Juegos destacados</h1>
+		<h1 class="h1" translate="Featured Games"></h1>
 		<hr>
 		<!-- Carousel1 -->		
 		<article>
@@ -55,54 +55,12 @@
 
 			    <!-- Wrapper for slides -->
 			    <div class="carousel-inner" role="listbox">
-			      <div class="item active">
+			      <div class="item" ng-class="{'active': $index==0}" ng-repeat="game in games">
 			      	<figure>
-			        	<img src="images/carousel/theWitcherIII1.jpg" alt="Chania">
+			        	<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
 			        	<figcaption> 
-			        		<h3>The Witcher III</h3> 
-				        	<p>The Witcher is a story-driven, next-generation open world role-playing game, 
-				        	set in a visually stunning fantasy universe, full of meaningful choices and impactful 
-				        	consequences. In The Witcher, you play as Geralt of Rivia, a monster hunter tasked with 
-				        	finding a child from an ancient prophecy.</p> 
-			        	</figcaption>
-			        </figure>
-			      </div>
-
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/theWitcherIII2.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The Witcher is a story-driven, next-generation open world role-playing game, 
-				        	set in a visually stunning fantasy universe, full of meaningful choices and impactful 
-				        	consequences. In The Witcher, you play as Geralt of Rivia, a monster hunter tasked with 
-				        	finding a child from an ancient prophecy.</p>
-			        	</figcaption>
-			        </figure>
-			      </div>
-			    
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/theWitcherIII3.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The Witcher is a story-driven, next-generation open world role-playing game, 
-				        	set in a visually stunning fantasy universe, full of meaningful choices and impactful 
-				        	consequences. In The Witcher, you play as Geralt of Rivia, a monster hunter tasked with 
-				        	finding a child from an ancient prophecy.</p>
-			        	</figcaption>
-			        </figure>
-			      </div>
-
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/theWitcherIII2.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The Witcher is a story-driven, next-generation open world role-playing game, 
-				        	set in a visually stunning fantasy universe, full of meaningful choices and impactful 
-				        	consequences. In The Witcher, you play as Geralt of Rivia, a monster hunter tasked with 
-				        	finding a child from an ancient prophecy.</p>
+			        		<h3>{{game.games_name}}</h3> 
+				        	<p>{{game.games_description}}</p> 
 			        	</figcaption>
 			        </figure>
 			      </div>
@@ -121,7 +79,7 @@
 			</div>
 		</article>
 
-		<h1 id="title2" class="h1">Juegos en oferta</h1>
+		<h1 id="title2" class="h1" translate="Latest Releases"></h1>
 		<hr>
 		<article>
 			<div id="divCarousel2" class="container">
@@ -135,47 +93,18 @@
 			    </ol>
 
 			    <!-- Wrapper for slides -->
-			    <div class="carousel-inner" role="listbox">
-			      <div class="item active">
+			  	<div class="carousel-inner" role="listbox">
+			      <div class="item" ng-class="{'active': $index==0}" ng-repeat="game in gamesPublicationDate">
 			      	<figure>
-			        	<img src="images/carousel/assassinsCreedIII1.jpg" alt="Chania">
+			        	<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
 			        	<figcaption> 
-			        		<h3>The Witcher III</h3> 
-				        	<p>The year is 1775. The American colonies are about to revolt. You are Connor, an assassin who has sworn to secure liberty for his people and his nation. To do so, you will hunt your enemies across a staggeringly large, open, and realistic world. You will unleash your lethal skills in a violent quest that will take you from chaotic city streets to blood-soaked battlefields in the hostile American wilderness and beyond.</p> 
-			        	</figcaption>
-			        </figure>
-			      </div>
-
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/assassinsCreedIII2.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The year is 1775. The American colonies are about to revolt. You are Connor, an assassin who has sworn to secure liberty for his people and his nation. To do so, you will hunt your enemies across a staggeringly large, open, and realistic world. You will unleash your lethal skills in a violent quest that will take you from chaotic city streets to blood-soaked battlefields in the hostile American wilderness and beyond.</p>
-			        	</figcaption>
-			        </figure>
-			      </div>
-			    
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/assassinsCreedIII3.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The year is 1775. The American colonies are about to revolt. You are Connor, an assassin who has sworn to secure liberty for his people and his nation. To do so, you will hunt your enemies across a staggeringly large, open, and realistic world. You will unleash your lethal skills in a violent quest that will take you from chaotic city streets to blood-soaked battlefields in the hostile American wilderness and beyond.</p>
-			        	</figcaption>
-			        </figure>
-			      </div>
-
-			      <div class="item">
-			      	<figure>
-			        	<img src="images/carousel/assassinsCreedIII2.jpg" alt="Chania">
-			        	<figcaption>
-			        		<h3>The Witcher III</h3> 
-				        	<p>The year is 1775. The American colonies are about to revolt. You are Connor, an assassin who has sworn to secure liberty for his people and his nation. To do so, you will hunt your enemies across a staggeringly large, open, and realistic world. You will unleash your lethal skills in a violent quest that will take you from chaotic city streets to blood-soaked battlefields in the hostile American wilderness and beyond.</p>
+			        		<h3>{{game.games_name}}</h3> 
+				        	<p>{{game.games_description}}</p> 
 			        	</figcaption>
 			        </figure>
 			      </div>
 			    </div>
+
 
 			    <!-- Left and right controls -->
 			    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
