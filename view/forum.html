@@ -24,47 +24,32 @@
 	<!-- Dropdown menu -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+	<!--Favicon ico-->
+	<link rel="icon" href="../images/favicon.jpg">
 	<!-- Css -->
 	<link rel="stylesheet" type="text/css" href="../css/forum.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
-	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/forum.js" type="text/javascript" xml:space="preserve"></script>
 
 </head>
-<body>
+<body ng-controller="forumController as forumCtrl">
 
 	<!-- HEADER -->	
 	<header ng-include="'header.html'"></header>
 
 	<main>		
-		<h3 class="h3">Forum > The Witcher III</h3>
+		<h3 class="h3" translate="Forums"></h3>
 		<hr>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> Where is the first boss?</h4>
-			<h6 class="h6">Blancafort | 0 <i class="glyphicon glyphicon-comment"></i></h6> 			
-		</button>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> The game crashes at startup</h4>
-			<h6 class="h6">Blancafort | 54 <i class="glyphicon glyphicon-comment"></i></h6> 			
-		</button>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> Where is the witcher armor??</h4>
-			<h6 class="h6">David | 89 <i class="glyphicon glyphicon-comment"> </i></h6> 			
-		</button>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> I'm stuck in the second mission</h4>
-			<h6 class="h6">Blancafort | 19 <i class="glyphicon glyphicon-comment"></i></h6> 			
-		</button>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> Loading black screen</h4>
-			<h6 class="h6">David | 39 <i class="glyphicon glyphicon-comment"></i></h6> 
-		</button>
-		<button class="btn btn-primary" type="submit">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> I'm lost</h4>
-			<h6 class="h6">David | 6 <i class="glyphicon glyphicon-comment"></i></h6> 			
-		</button>
+		<a href="" class="btn btn-primary" type="submit" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage">
+			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forum.forums_title}}</h4>
+			<h6 class="h6"> 0 <i class="glyphicon glyphicon-comment"></i></h6> 			
+		</a>
+		<div  boundary-links="true">
+	        <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
+	    </div>
 	</main>
 </body>
 </html>

@@ -92,6 +92,44 @@ $app->get('/users/friends/{username}', function(Request $request, Response $resp
     }
 });
 
+// Edit user info
+$app->get('/users/edituserinfo/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "SELECT users_username, users_firstname, Provinces_provinces_id_province, users_email, users_phone
+            FROM Users 
+            WHERE users_id_user = $id";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($user);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+//Select the username and email of one user
+$app->get('/contact/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "SELECT users_username, users_email FROM Users WHERE users_id_user = $id";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($user);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
 // Get user language
 $app->get('/users/language/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");

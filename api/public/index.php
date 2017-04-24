@@ -11,6 +11,7 @@ $app = new \Slim\App;
 require '../src/routes/customers.php';
 require '../src/routes/users.php';
 require '../src/routes/games.php';
+require '../src/routes/forums.php';
 
 
 $app->run();
