@@ -5,6 +5,7 @@ INSERT INTO Genders (genders_name) VALUES ("Action");
 INSERT INTO Genders (genders_name) VALUES ("RPG");
 INSERT INTO Genders (genders_name) VALUES ("Survival Horror");
 INSERT INTO Genders (genders_name) VALUES ("Survival");
+INSERT INTO Genders (genders_name) VALUES ("Stealth");
 
 
 INSERT INTO `Countries` VALUES (null, 'AF', 'Afghanistan');
@@ -331,6 +332,42 @@ VALUES ("Resident Evil 7","Fear and isolation seep through the walls of an aband
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("Terraria","Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!",9.99,"2011-05-16","8.jpg",5);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's creed 2","An epic story of family, vengeance and conspiracy set in the pristine, yet brutal, backdrop of a Renaissance Italy. New low price and now playable on either PC or Mac OSX!",9.99,"2015-03-05","9.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's creed Brotherhood","Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy.",14.99,"2011-03-17","10.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's creed Revelations","When a man has won all his battles and defeated his enemies; what is left for him to achieve? Ezio Auditore must leave his life behind in search of answers, In search of the truth. In Assassin’s Creed Revelations, master assassin Ezio Auditore walks in the footsteps of the legendary mentor Altair, on a journey of discovery and revelation.",14.99,"2011-12-01","11.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's creed III","The American Colonies, 1775. It’s a time of civil unrest and political upheaval in the Americas. As a Native American assassin fights to protect his land and his people, he will ignite the flames of a young nation’s revolution. Assassin’s Creed III takes you back to the American Revolutionary War, but not the one you’ve read about in history books...",19.99,"2012-11-22","12.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's Creed IV Black Flag","The year is 1715. Pirates rule the Caribbean and have established their own lawless Republic where corruption, greediness and cruelty are commonplace. Among these outlaws is a brash young captain named Edward Kenway. His fight for glory has earned him the respect of legends like Blackbeard, but also drawn him into the ancient war between Assassins and Templars, a war that may destroy everything the pirates have built.",19.99,"2013-11-19","13.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Assassin's creed V Unity","Assassin’s Creed Unity is an action/adventure game set in the city of Paris during one of its darkest hours, the French Revolution. Take ownership of the story by customising Arno's equipement to make the experience unique to you, both visually and mechanically. In addition to an epic single-player experience, Assassin’s Creed Unity delivers the excitement of playing with up to three friends through online cooperative gameplay in specific missions. ",29.99,"2014-11-13","14.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Fallout","You've just unearthed the classic post-apocalyptic role-playing game that revitalized the entire CRPG genre. The Fallout SPECIAL system allows drastically different types of characters, meaningful decisions and development that puts you in complete control. Explore the devastated ruins of a golden age civilization",9.99,"1997-11-01","15.jpg",3);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Fallout2","Fallout 2 is the sequel to the critically acclaimed game that took RPG'ing out of the dungeons and into a dynamic, apocalyptic retro-future. It's been 80 long years since your ancestors trod across the wastelands.",9.99,"1998-12-01","16.jpg",3);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Fallout3","Vault-Tec engineers have worked around the clock on an interactive reproduction of Wasteland life for you to enjoy from the comfort of your own vault. Included is an expansive world, unique combat, shockingly realistic visuals, tons of player choice, and an incredible cast of dynamic characters.",9.99,"2008-10-28","17.jpg",1);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Fallout4","Bethesda Game Studios, the award-winning creators of Fallout 3 and The Elder Scrolls V: Skyrim, welcome you to the world of Fallout 4 – their most ambitious game ever, and the next generation of open-world gaming.",59.99,"2015-11-10","18.jpg",1);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Metal Gear Solid V: The Phantom Pain","Ushering in a new era for the METAL GEAR franchise with cutting-edge technology powered by the Fox Engine, METAL GEAR SOLID V: The Phantom Pain, will provide players a first-rate gaming experience as they are offered tactical freedom to carry out open-world missions.",29.99,"2015-09-01","19.jpg",6);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Bioshock Infinite","Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia.",29.99,"2013-03-25","20.jpg",1);
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,0,"en");
