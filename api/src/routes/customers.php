@@ -66,7 +66,6 @@ $app->post('/api/customers/add', function(Request $request, Response $response){
         $stmt->bindParam(":address", $address);
         $stmt->bindParam(":city", $city);
         $stmt->bindParam(":state", $state);
-
         $stmt->execute();
         echo '{"notice": {"text": "Customer Added"}';
 

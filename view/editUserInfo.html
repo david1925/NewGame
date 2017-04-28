@@ -19,6 +19,8 @@
   	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
   	<!--Angular pagination-->
   	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Angular Route -->
+	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
 	<!--Angular-Bootstrap-->
 	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Dropdown menu -->
@@ -48,42 +50,30 @@
 				<div class="form-group">
                		<div class="input-group">
                			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				    	<input type="text" class="form-control" id="name" value="{{userData[0].users_username}}" placeholder="Enter your name."></input>
+				    	<input type="text" class="form-control" id="name" value="{{userData[0].users_name}}" placeholder="Enter your name."></input>
 			    	</div>
 			    </div>
+
 			  	<div class="form-group">
                		<div class="input-group">
 	           			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-						<input type="text" class="form-control" id="surname" value="{{userData[0].users_firstname}}" placeholder="Enter your surnames.">
+						<input type="text" class="form-control" id="surname" value="{{userData[0].users_firstname}}" placeholder="Enter your firstname.">
 					</div>
 				</div>  
 
-				<div class="form-group">
-
-			  	<div class='form-group'>
-                    <div class='input-group'>
-                        <span class='input-group-addon'><i class='glyphicon glyphicon-globe'></i></span>
-        				<select name='country' class='form-control' ng-options='item as item.countries_name for item in countries' ng-model='country_selected' ng-change='myFunc()' ng-value='{{country_selected.countries_id_country}}'>
-        					<option value=''>Select country</option>
-    					</select>
-        			</div>
-    			</div>
-
-			  	<div class='form-group'>
-                    <div class='input-group'>
-                        <span class='input-group-addon'><i class='glyphicon glyphicon-globe'></i></span>
-        				<select name='country' class='form-control' ng-options='item as item.countries_name for item in countries' ng-model='country_selected' ng-change='myFunc()' ng-value='{{country_selected.countries_id_country}}'>
-        					<option value=''>Select province</option>
-    					</select>
-        			</div>
-    			</div>
+			  	<div class="form-group">
+               		<div class="input-group">
+	           			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+						<input type="text" class="form-control" id="surname" value="{{userData[0].users_lastname}}" placeholder="Enter your lastname.">
+					</div>
+				</div>  
 
 			  	<div class="form-group">
                		<div class="input-group">
 	           			<span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
 						<input type="text" class="form-control" id="address" value="{{userData[0].users_email}}" placeholder="Enter your email.">
 					</div>
-				</div>  
+				</div>
 
 			  	<div class="form-group">
                		<div class="input-group">
@@ -91,6 +81,16 @@
 						<input type="text" class="form-control" id="surname" value="{{userData[0].users_phone}}" placeholder="Enter your phone number.">
 					</div>
 				</div>  
+
+				<div class="form-group">
+					<label for="language">Language</label>
+					<select class="form-control " id="language">
+						<option value="en">English</option>
+						<option value="es">Spanish</option>
+						<option val="ca">Catalan</option>
+					</select>
+				</div>
+
 				<label class="file">
 					<span translate="PROFILE IMAGE"></span>
 					<input type="file" onchange="this.parentNode.setAttribute('title', this.value.replace(/^.*[\\/]/, ''))" />
@@ -101,5 +101,12 @@
 			</form>
 		</div>
 	</main>
+
+	 <select>
+		<option value="volvo">Volvo</option>
+		<option value="saab">Saab</option>
+		<option value="mercedes">Mercedes</option>
+		<option value="audi">Audi</option>
+	</select> 
 </body>
 </html>

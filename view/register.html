@@ -15,6 +15,8 @@
   	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
 	<!--Angular-Bootstrap-->
 	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Angular Route -->
+	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Dropdown menu -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- app -->
@@ -23,13 +25,13 @@
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="../css/register.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
-	<title>Register login</title>
+	<title>Register</title>
 </head>
 <body ng-controller="NewGameAppController as NewGameAppCtrl">
 	<header ng-include="'header.html'"></header>
 	<main>
 		<div class="container">
-			<form  action='../php/controller/insert_user.php' method="post" name="registerManagement" novalidate ng-submit="registerManagement.$valid && NewGameAppCtrl.submit()">
+			<form  method="post" name="registerManagement" novalidate ng-submit="registerManagement.$valid && NewGameAppCtrl.submit()">
 			<h3 class='h3' translate="SIGN"></h3>
 			<hr>
 				<div class='form-group'>
@@ -55,7 +57,7 @@
 				<div class='form-group'>
 	               		<div class='input-group'>
 	               			<span class='input-group-addon'><i class='glyphicon glyphicon-envelope'></i></span>
-							<input type='email' name='email' ng-click='NewGameAppCtrl.prueba()' class='form-control' placeholder="Email*">
+							<input type='email' name='email' ng-model="register.email" class='form-control' placeholder="Email*">
 						</div>
 				</div>
 

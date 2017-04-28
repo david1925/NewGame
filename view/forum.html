@@ -19,6 +19,8 @@
   	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
   	<!--Angular pagination-->
   	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Angular Route -->
+	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
 	<!--Angular-Bootstrap-->
 	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Dropdown menu -->
@@ -43,10 +45,11 @@
 	<main>		
 		<h3 class="h3" translate="Forums"></h3>
 		<hr>
-		<a href="" class="btn btn-primary" type="submit" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage">
+		<a ng-href="#/forumThread" class="btn btn-primary" type="submit" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage">
 			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forum.forums_title}}</h4>
 			<h6 class="h6"> 0 <i class="glyphicon glyphicon-comment"></i></h6> 			
 		</a>
+		
 		<div  boundary-links="true">
 	        <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
 	    </div>

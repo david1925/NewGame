@@ -337,7 +337,7 @@ INSERT INTO Games (games_name,games_description,games_price,games_publication_da
 VALUES ("Assassin's creed 2","An epic story of family, vengeance and conspiracy set in the pristine, yet brutal, backdrop of a Renaissance Italy. New low price and now playable on either PC or Mac OSX!",9.99,"2015-03-05","9.jpg",2);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Assassin's creed Brotherhood","Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy’s greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy.",14.99,"2011-03-17","10.jpg",2);
+VALUES ("Assassin's creed Brotherhood","Live and breathe as Ezio, a legendary Master Assassin, in his enduring struggle against the powerful Templar Order. He must journey into Italy's greatest city, Rome, center of power, greed and corruption to strike at the heart of the enemy.",14.99,"2011-03-17","10.jpg",2);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("Assassin's creed Revelations","When a man has won all his battles and defeated his enemies; what is left for him to achieve? Ezio Auditore must leave his life behind in search of answers, In search of the truth. In Assassin’s Creed Revelations, master assassin Ezio Auditore walks in the footsteps of the legendary mentor Altair, on a journey of discovery and revelation.",14.99,"2011-12-01","11.jpg",2);
@@ -361,7 +361,7 @@ INSERT INTO Games (games_name,games_description,games_price,games_publication_da
 VALUES ("Fallout3","Vault-Tec engineers have worked around the clock on an interactive reproduction of Wasteland life for you to enjoy from the comfort of your own vault. Included is an expansive world, unique combat, shockingly realistic visuals, tons of player choice, and an incredible cast of dynamic characters.",9.99,"2008-10-28","17.jpg",1);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Fallout4","Bethesda Game Studios, the award-winning creators of Fallout 3 and The Elder Scrolls V: Skyrim, welcome you to the world of Fallout 4 – their most ambitious game ever, and the next generation of open-world gaming.",59.99,"2015-11-10","18.jpg",1);
+VALUES ("Fallout4","Bethesda Game Studios, the award-winning creators of Fallout 3 and The Elder Scrolls V: Skyrim, welcome you to the world of Fallout 4 - their most ambitious game ever, and the next generation of open-world gaming.",59.99,"2015-11-10","18.jpg",1);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("Metal Gear Solid V: The Phantom Pain","Ushering in a new era for the METAL GEAR franchise with cutting-edge technology powered by the Fox Engine, METAL GEAR SOLID V: The Phantom Pain, will provide players a first-rate gaming experience as they are offered tactical freedom to carry out open-world missions.",29.99,"2015-09-01","19.jpg",6);
@@ -370,10 +370,10 @@ INSERT INTO Games (games_name,games_description,games_price,games_publication_da
 VALUES ("Bioshock Infinite","Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia.",29.99,"2013-03-25","20.jpg",1);
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,0,"en");
+VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,1,"en");
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne2",md5("alumne2"),"alumne2","alumne2","alumne2","alumne2@gmail.com",987654321,"b.jpg","Alumne2 account",1,8,0,"en");
+VALUES("alumne2",md5("alumne2"),"alumne2","alumne2","alumne2","alumne2@gmail.com",987654321,"b.png","Alumne2 account",1,8,1,"en");
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne3",md5("alumne3"),"alumne3","alumne3","alumne3","alumne3@gmail.com",654987321,"c.jpg","Alumne3 account",1,8,0,"en");
@@ -408,10 +408,28 @@ VALUES (1,4,0);
 INSERT INTO Bills (bills_price,bills_date,bills_payment,Users_users_id_user) VALUES (100,date(now()),"Paypal",1);
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,1,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,2,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,3,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,4,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,5,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,6,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,7,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,8,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,9,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,10,"1");
 
 INSERT INTO Bills (bills_price,bills_date,bills_payment,Users_users_id_user) VALUES (100,date(now()),"Paypal",2);
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,1,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,2,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,11,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,12,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,13,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,14,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,15,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,16,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,17,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,18,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,19,"1");
+INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,20,"1");
 
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡This game is awesome!",1,1,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Best shooter ever!",1,1,2);

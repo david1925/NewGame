@@ -1,5 +1,5 @@
 (function(){
-  angular.module("NewGameApp").controller("shopController", ['$scope', '$http', '$translate', 'Domain', 'LoginFactory', function($scope, $http, $translate, Domain, LoginFactory) {
+  angular.module("NewGameApp").controller("shopController", ['$scope', '$http', '$translate', 'Domain', function($scope, $http, $translate, Domain) {
 
     //scope variables
     //$scope.games="";
@@ -14,6 +14,7 @@
             //GET games id,image,name
             $http.get(Domain + "api/public/games")
             .then(function (response) {$scope.games = response.data;});
-    console.log(LoginFactory);
+          console.log("Este es el valor de la variable de sesion" + sessionStorage.getItem("userLogged"));
+            console.log("solo quiero coger el nombre usuario y la dirección de correo" + JSON.parse(sessionStorage.getItem("userLogged")));
   }]);
 })();

@@ -1,6 +1,6 @@
 
 (function(){
- angular.module("NewGameApp",["pascalprecht.translate",'angularUtils.directives.dirPagination']);
+ angular.module("NewGameApp",["pascalprecht.translate",'angularUtils.directives.dirPagination', 'ngRoute']);
 
 
    angular.module("NewGameApp").config(['$translateProvider', function ($translateProvider) {
@@ -69,31 +69,51 @@
   });
  
 
-  $translateProvider.preferredLanguage(localStorage.getItem("language"));
-  $translateProvider.useSanitizeValueStrategy("escapeParameters"); 
+    $translateProvider.preferredLanguage(localStorage.getItem("language"));
+    $translateProvider.useSanitizeValueStrategy("escapeParameters"); 
 }]);
 
-angular.module("NewGameApp").factory('Domain', function(){
-	return "http://www.newgame.local/";
-})
+    angular.module("NewGameApp").factory('Domain', function(){
+        return "http://www.newgame.local/";
+    })
 
-angular.module("NewGameApp").factory('LoginFactory', function(){
-	var loginArray = [
-	address ="",
-	email="",
-	firstname="",
-	id="",
-	image="",
-	language="",
-	lastname="",
-	name="",
-	phone="",
-	profile="",
-	status="",
-	summary="",
-	username=""];
+    angular.module("NewGameApp").config(function($routeProvider) {
+        $routeProvider
+        /*
+        .when("/index.html", {
+            templateUrl : "/index.html",
+            controller  : 'controller/index.js'
+        })
+        .when("/view/shop.html", {
+            templateUrl : "/view/shop.html",
+            controller  : 'controller/shop.js'
+        })
+        .when("view/store.html", {
+            templateUrl : "/view/store.html",
+            controller  : 'controller/store.js'
+        })
+        .when("view/store.html", {
+            templateUrl : "/view/store.html",
+            controller  : 'controller/store.js'
+        })*/
+        .when("/forum", {
+            templateUrl : "view/forum.html",
+            controller  : '/controller/forum.js'
+        })
+        .when("/forumThread", {
+            templateUrl : "/view/forumThread.html"
+        })/*
+        .when("/blue", {
+            templateUrl : "blue.htm"
+        })
+        .otherwise({
+            redirectTo: 'index.html',
+            controller  : 'index.js'
+        });*/
+        .otherwise({
+            template : "/index.html"
+        });
+    });
 
-	return loginArray;
-})
 
 })();

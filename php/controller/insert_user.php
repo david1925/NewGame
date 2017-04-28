@@ -25,7 +25,7 @@
       	$stmt2->execute();
       	$users = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
-      	header("Location: register_mailing.php?id=".$users[0]["users_id_user"]."&name=".$name."&username=".$username."");	
+      	header("Location: register_mailing.php?id=".$users[0]["users_id_user"]."&name=".$name."&username=".$username."&email=".$email."");	
 	}catch(PDOException $e){
 		echo $e;
 	}

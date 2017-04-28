@@ -15,7 +15,5 @@
             //GET games image, name, description
             $http.get(Domain + "api/public/games/publicationDate")
             .then(function (response) {$scope.gamesPublicationDate = response.data;});
-
-
   }]);
 })();

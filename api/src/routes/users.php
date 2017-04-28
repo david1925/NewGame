@@ -95,9 +95,9 @@ $app->get('/users/friends/{username}', function(Request $request, Response $resp
 // Edit user info
 $app->get('/users/edituserinfo/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT users_username, users_firstname, Provinces_provinces_id_province, users_email, users_phone
-            FROM Users 
-            WHERE users_id_user = $id";
+    $sql = "SELECT Users.users_name,Users.users_firstname,Users.users_lastname,Users.users_email,Users.users_phone            
+            FROM Users
+            WHERE Users.users_id_user=$id;";
     try{
         // Get DB Object
         $db = new db();
@@ -115,7 +115,9 @@ $app->get('/users/edituserinfo/{id}', function(Request $request, Response $respo
 //Select the username and email of one user
 $app->get('/contact/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT users_username, users_email FROM Users WHERE users_id_user = $id";
+    $sql = "SELECT users_username, users_email 
+            FROM Users 
+            WHERE users_id_user = $id";
     try{
         // Get DB Object
         $db = new db();
@@ -194,7 +196,7 @@ $app->post('/users/login/', function(Request $request, Response $response){
     $password = $request->getParam("password");
     $sql = "SELECT Users.users_address,Users.users_email,Users.users_firstname,Users.users_id_user,
 	   		Users.users_image,Users.users_language,Users.users_lastname,Users.users_name,Users.users_phone,
-       		Users.users_public_profile,Users.users_status,Users.users_summary,Users.users_username FROM Users WHERE Users.users_username = '".$username."' AND Users.users_password = md5('".$password."')";
+       		Users.users_public_profile,Users.users_status,Users.users_summary,Users.users_username FROM Users WHERE Users.users_username = '".$username."' AND Users.users_password = md5('".$password."') AND Users.users_status=1";
     try{
         // Get DB Object
         $db = new db();
@@ -212,5 +214,58 @@ $app->post('/users/login/', function(Request $request, Response $response){
         
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+// Register a user login
+$app->post('/users/register/', function(Request $request, Response $response){
+    $username = $request->getParam("username");
+    $password = $request->getParam("password");
+    $email = $request->getParam("email");
+    $password = md5($password);
+    $sql = "INSERT INTO Users (users_username,users_password,users_email,users_public_profile,users_status,users_language) VALUES (:username, :password, :email, '1','0', 'en')";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":username", $username);
+        $stmt->bindParam(":password", $password);
+        $stmt->bindParam(":email", $email);
+        echo $sql;
+        $stmt->execute();        
+        $stmt2 = $db->prepare("SELECT Users.users_id_user FROM Users ORDER BY Users.users_id_user DESC LIMIT 1");
+        $stmt2->execute();
+        $users = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+        $db = null;
+        echo "Ha funcionado";
+        echo "<br/>";
+        echo "Estas en la carpeta: " . getcwd();
+        $id = $users[0]["users_id_user"];
+        include_once "register_mailing.php";
+        //header("Location: register_mailing.php?id=".$users[0]["users_id_user"]."&username=".$username."&email=".$email."");          
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+// Activate a user account
+$app->get('/users/update/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "UPDATE Users SET Users.users_status=1 WHERE Users.users_id_user= :id";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $id);
+
+        $stmt->execute();
+        echo '{"notice": {"text": "User Updated"}';
+
+        $db = null;
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });

@@ -10,7 +10,7 @@ $app->get('/games/image/{id}', function(Request $request, Response $response){
                                 INNER JOIN Libraries ON Libraries.Users_users_id_user=Users.users_id_user
                                 INNER JOIN Games_libraries ON Games_libraries.Libraries_libraries_id_library=Libraries.libraries_id_library
                                 INNER JOIN Games ON Games.games_id_game = Games_libraries.Games_games_id_game
-                                WHERE Users.users_id_user=".$id."";
+                                WHERE Users.users_id_user=".$id." ORDER BY Games.games_name";
     try{
         // Get DB Object
         $db = new db();

@@ -14,6 +14,5 @@
             //GET games id,image,name
             $http.get(Domain + "api/public/games")
             .then(function (response) {$scope.games = response.data;});
-    console.log(LoginFactory);
   }]);
 })();
