@@ -381,6 +381,24 @@ VALUES("alumne3",md5("alumne3"),"alumne3","alumne3","alumne3","alumne3@gmail.com
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne4",md5("alumne4"),"alumne4","alumne4","alumne4","alumne4@gmail.com",546798132,"d.jpg","Alumne4 account",1,8,0,"en");
 
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne5",md5("alumne5"),"alumne5","alumne5","alumne5","alumne5@gmail.com",111222333,"e.jpg","Alumne5 account",1,8,0,"en");
+
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne6",md5("alumne6"),"alumne6","alumne6","alumne6","alumne6@gmail.com",222111333,"f.jpg","Alumne6 account",1,8,0,"en");
+
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne7",md5("alumne7"),"alumne7","alumne7","alumne7","alumne7@gmail.com",333222111,"g.jpg","Alumne7 account",1,8,0,"en");
+
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne8",md5("alumne8"),"alumne8","alumne8","alumne8","alumne8@gmail.com",444555666,"h.jpg","Alumn8 account",1,8,0,"en");
+
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne9",md5("alumne9"),"alumne9","alumne9","alumne9","alumne9@gmail.com",555666444,"i.jpg","Alumne9 account",1,8,0,"en");
+
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne10",md5("alumne10"),"alumne10","alumne10","alumne10","alumne10@gmail.com",666555444,"j.jpg","Alumne10 account",1,8,0,"en");
+
 INSERT INTO Chats (chats_text,chats_datetime,users_users_id_user_send,users_users_id_user_receive)
 VALUES ("Hola",date(now()),1,2);
 
@@ -462,7 +480,11 @@ INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("This game really takes this great series to another level. Out of all the ACs I enjoyed this one most! There are so many things to do. Graphics is good, sound is great, really like it! <3",1,10,4);
 
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first level","Anyone knows the path to finish the first level?",1,1);
+INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("I'm lost in Arcadia zone","In the Arcadia zone I don't know where I have to go anone can help me?",1,2);
+INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("End of game","Int hhe end of game how I have to defeat the last boss",1,3);
+INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Big Daddy level","I don't find the last part to convert in Big Daddy",1,4);
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first boss","Anyone knows how to defeat the first boss?",2,1);
+INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("How to achive the last trophy","I don't know how to achive the last game trophy",2,1);
 
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You have to go to the end and then turn left",1,1,2);
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You have to go to hit him on the back",2,2,3);
@@ -472,6 +494,20 @@ INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,2);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(2,1);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,3);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(3,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,4);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(4,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,5);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(5,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,6);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(6,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,7);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(7,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,8);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(8,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,9);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(9,1);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,10);
+INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(10,1);
 
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"First message in wall",2);
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Second message in wall",3);

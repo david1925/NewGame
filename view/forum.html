@@ -35,6 +35,7 @@
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/forum.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
 
 </head>
 <body ng-controller="forumController as forumCtrl">
@@ -46,8 +47,8 @@
 		<h3 class="h3" translate="Forums"></h3>
 		<hr>
 		<a ng-href="#/forumThread" class="btn btn-primary" type="submit" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forum.forums_title}}</h4>
-			<h6 class="h6"> 0 <i class="glyphicon glyphicon-comment"></i></h6> 			
+			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forum.games_name}}</h4>
+			<h6 class="h6"> {{topicsArray[$index][0].Topics}} <i class="glyphicon glyphicon-comment"></i></h6> 			
 		</a>
 		
 		<div  boundary-links="true">

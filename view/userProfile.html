@@ -33,6 +33,7 @@
 	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/generalFunctions.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/userProfile.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
 	<!--model-->
 	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
 
@@ -95,15 +96,17 @@
 	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
 	          </div>
         	</span>
-			<hr>
-	        <div class="form-group">		        
-	       		<div class="input-group">
-	       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-			  		<textarea class="form-control" id="description" placeholder="Write here your answer." rows="3"></textarea>
-		  		</div>
-		    </div>
-	  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
-	  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+        	<div ng-if="showMessagesFrom==1">
+				<hr>
+		        <div class="form-group">		        
+		       		<div class="input-group">
+		       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+				  		<textarea class="form-control" id="description" placeholder="Write here your answer." rows="3"></textarea>
+			  		</div>
+			    </div>
+		  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
+		  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+			</div>
 		</div>
 	</main>
 </body>

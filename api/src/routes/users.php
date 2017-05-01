@@ -75,15 +75,21 @@ $app->get('/users/username/{id}', function(Request $request, Response $response)
 });
 
 // Get friends from user
-$app->get('/users/friends/{username}', function(Request $request, Response $response){
-    $username = $request->getAttribute("username");
-    $sql = "SELECT Users.users_username FROM Users INNER JOIN Friends ON Friends.Users_users_id_user = Users.users_id_user WHERE Users.users_username != '".$username."'";
+$app->get('/users/friends/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "SELECT u.users_username FROM Friends
+            INNER JOIN Users ON Users.users_id_user = Friends.Users_users_id_user
+            INNER JOIN Users u ON u.users_id_user=Friends.Users_users_id_user1
+            WHERE Users.users_id_user=:id
+            ORDER BY u.users_username";
     try{
-        // Get DB Object
+         // Get DB Object
         $db = new db();
         // Connect
         $db = $db->connect();
-        $stmt = $db->query($sql);
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
         $user = $stmt->fetchAll(PDO::FETCH_OBJ);
         $db = null;
         echo json_encode($user);
@@ -233,8 +239,7 @@ $app->post('/users/register/', function(Request $request, Response $response){
         $stmt->bindParam(":username", $username);
         $stmt->bindParam(":password", $password);
         $stmt->bindParam(":email", $email);
-        echo $sql;
-        $stmt->execute();        
+        $stmt->execute();
         $stmt2 = $db->prepare("SELECT Users.users_id_user FROM Users ORDER BY Users.users_id_user DESC LIMIT 1");
         $stmt2->execute();
         $users = $stmt2->fetchAll(PDO::FETCH_ASSOC);
@@ -267,5 +272,25 @@ $app->get('/users/update/{id}', function(Request $request, Response $response){
         $db = null;
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+$app->post('/users/logut/', function(Request $request, Response $response){
+    $id = $request->getParam("id");
+    $sql = "SELECT Users.users_username FROM Users WHERE Users.users_id_user=:id";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        $_SESSION['user']=$user;
+        unset($_SESSION['user']);
+        echo json_encode($user);
+
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
     }
 });

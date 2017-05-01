@@ -1,5 +1,5 @@
 (function(){
-  angular.module("NewGameApp").controller("storeController", ['$scope', '$http', '$translate', 'Domain', 'LoginFactory', function($scope, $http, $translate, Domain, LoginFactory) {
+  angular.module("NewGameApp").controller("storeController", ['$scope', '$http', '$translate', 'Domain', function($scope, $http, $translate, Domain) {
 
     //scope variables
     //$scope.games="";

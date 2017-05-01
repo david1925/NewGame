@@ -1,5 +1,5 @@
 (function(){
-  angular.module("NewGameApp").controller("LoginController", ['$http','$scope', '$translate', 'Domain', function($http, $scope, $translate, Domain) {
+  angular.module("NewGameApp").controller("LoginController", ['$http','$scope', '$translate', 'Domain', '$window', function($http, $scope, $translate, Domain, $window) {
     
   this.login = function () {
       $scope.flag;
@@ -20,7 +20,9 @@
             console.log("Imprimo el objeto de usuario: " + $scope.user);
             console.log("Solo quiero cojer el nombre de usuario: " + $scope.user.getName());
             $scope.flag = true;
+            $window.open('../index.html', "_self");
             return $scope.flag;
+
           }
           else{
             console.log("Esta devolviendo false");

@@ -19,7 +19,7 @@
   	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Angular Route -->
 	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
-  	<!--Angular pagination-->
+  	<!--Angulacar pagination-->
   	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
 	<!--Angular-Bootstrap-->
 	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
@@ -28,13 +28,13 @@
 
 
 	<!-- Css -->
-	<link rel="stylesheet" type="text/css" href="../css/store.css">
+	<link rel="stylesheet" type="text/css" href="../css/shop.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/shop.js" type="text/javascript" xml:space="preserve"></script>
-
+	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
 </head>
 <body ng-controller="shopController as shopCtrl">
 	
@@ -42,15 +42,25 @@
 	<header ng-include="'header.html'"></header>	
 
 	<main>			
-		<h3 class="h3"></h3>
+		<h3 class="h3" translate="SHOP"></h3>
 		<hr>
 		<!--<button class="btn btn-primary chivalry" type="submit">Chivalry medieval warfare</button>-->
 		<div class="games" dir-paginate="game in games | itemsPerPage: pageSize" current-page="currentPage">	
-			<figure><a href="gameProfile.html">
-						<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-						<figcaption>{{game.games_name}} {{game.games_price}}€ <i ng-if="game.games_rating>=0.5" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="game.games_rating<0.5 && game.games_rating!=null" class='glyphicon glyphicon-thumbs-down'></i><i ng-if="game.games_rating==null">Not rated</i></figcaption>
-					</a>
-				</figure>
+			<figure>
+				<a href="gameProfile.html">
+					<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+					<figcaption>
+						<h4 class="title h4">{{game.games_name}}</h4>
+						<i class="rating" ng-if="game.games_rating==null">Not rated</i>
+						<i ng-if="game.games_rating>=0.5" class='glyphicon glyphicon-thumbs-up rating'></i>
+						<i ng-if="game.games_rating<0.5 && game.games_rating!=null" class='glyphicon glyphicon-thumbs-down rating'></i>
+						<br><br><br>
+						<button type="button" class="btn btn-primary btn-sm price h4">
+							<span class="glyphicon glyphicon-shopping-cart"></span> {{game.games_price}} €
+						</button>
+					</figcaption>
+				</a>	
+			</figure>
 		</div>
 		<div  boundary-links="true">
 	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>

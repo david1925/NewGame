@@ -1,6 +1,0 @@
-SELECT Provinces.provinces_province,Provinces.provinces_id_province,Countries.countries_name,Countries.countries_id_country,
-Users.users_name,Users.users_lastname,Users.users_email,Users.users_phone 
-FROM Users
-INNER JOIN Provinces ON Provinces.provinces_id_province=Users.Provinces_provinces_id_province
-INNER JOIN Countries ON Countries.countries_id_country=Provinces.Countries_countries_id_country
-WHERE Users.users_id_user=1;

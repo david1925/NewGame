@@ -1,4 +1,4 @@
-<nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation" ng-controller="headerController as headerCtrl">
 	<div class="container">
    		<div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#desplegable">
@@ -23,7 +23,8 @@
 	                    <li><a href="#" ng-click="changeLanguage('en')"><h6 class="h6"><span class="flag flag-us"></span> English</h6></a></li>
                     </ul>
                 </li>                    
-                <a href="view/login.html"><button type="button" class="btn btn-primary pull-right">Login</button></a>
+                <a href="view/login.html" ng-if="showLoginButton==0"><button type="button" class="btn btn-primary pull-right">Login</button></a>
+                <a href="index.html" ng-if="showLoginButton==1"><button type="button" class="btn btn-danger pull-right" ng-click="headerCtrl.logOut()">LogOut</button></a>
                 <div class="col-sm-3 col-md-4 pull-right">
 			        <form class="navbar-form" role="search">
 			        <div class="input-group">
