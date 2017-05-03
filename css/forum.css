@@ -13,9 +13,28 @@ body main {
 
 body main a {
 	margin-top: 1%;
-	width: 100%;
 }
 
-.btn-primary {
+.widthButton{
+	width: 100%;
 	background-color: #001a33;
+}
+
+.btn-info{
+	margin-left: 90%
+}
+
+#wall {
+	padding: 5%;
+	background-color: #001a33;
+	border: 1px solid #000d1a;
+	/*float: left;*/
+	width: 100%;
+	height: auto;
+}
+
+.thread{
+	margin-top: 1%;
+	padding: 2% 4% 2% 4%;
+	background-color: #000d1a;
 }

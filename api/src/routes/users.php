@@ -214,8 +214,9 @@ $app->post('/users/login/', function(Request $request, Response $response){
         if($user==null){
         	echo '{"error": {"text": "Username or password incorrect"}}';
         }else{
+            session_start();
         	$_SESSION['user']=$user;
-        	echo json_encode($user);	
+        	echo json_encode($user);
         }
         
     } catch(PDOException $e){
@@ -244,9 +245,6 @@ $app->post('/users/register/', function(Request $request, Response $response){
         $stmt2->execute();
         $users = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         $db = null;
-        echo "Ha funcionado";
-        echo "<br/>";
-        echo "Estas en la carpeta: " . getcwd();
         $id = $users[0]["users_id_user"];
         include_once "register_mailing.php";
         //header("Location: register_mailing.php?id=".$users[0]["users_id_user"]."&username=".$username."&email=".$email."");          
@@ -265,7 +263,6 @@ $app->get('/users/update/{id}', function(Request $request, Response $response){
         $db = $db->connect();
         $stmt = $db->prepare($sql);
         $stmt->bindParam(":id", $id);
-
         $stmt->execute();
         echo '{"notice": {"text": "User Updated"}';
 
@@ -274,23 +271,34 @@ $app->get('/users/update/{id}', function(Request $request, Response $response){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
-
-$app->post('/users/logut/', function(Request $request, Response $response){
-    $id = $request->getParam("id");
+// Destoys a user session
+$app->get('/users/logout/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
     $sql = "SELECT Users.users_username FROM Users WHERE Users.users_id_user=:id";
     try{
         // Get DB Object
         $db = new db();
         // Connect
         $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
         $db = null;
-        $_SESSION['user']=$user;
-        unset($_SESSION['user']);
-        echo json_encode($user);
-
+        session_start();
+        print_r($_SESSION['user']);
+        session_unset();
+        session_destroy();
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+// Check if user is logged
+$app->get('/users/login/check', function(Request $request, Response $response){
+    session_start();
+    if(!isset($_SESSION['user'])){
+        echo json_encode(false);
+    }else{
+        echo json_encode(true);
     }
 });

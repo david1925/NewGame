@@ -25,6 +25,24 @@ $app->get('/games/image/{id}', function(Request $request, Response $response){
     }
 });
 
+// Get games id, name, price, urlImage, rating and idGender (shop.js)
+$app->get('/games/shop', function(Request $request, Response $response){
+    $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image, Games.games_rating, Games.Genders_genders_id_gender FROM Games ORDER BY Games.games_name";
+    try{
+        // Get DB Object
+        $db = new db();
+        // Connect
+        $db = $db->connect();
+        $stmt = $db->query($sql);
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($games);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
+
 // Get games id,name, price, rating and image
 $app->get('/games', function(Request $request, Response $response){
     $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_price,Games.games_rating FROM Games ORDER BY Games.games_name";

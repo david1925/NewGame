@@ -22,7 +22,11 @@
     "Language": "Language",
     "Featured Games": "Featured Games",
     "Latest Releases": "Latest Releases",
-    "Forums": "Forums"
+    "Forums": "Forums",
+    "Your topic has been saved!": "Your topic has been saved!",
+    "¡Error! There has been an error with the topic": "¡Error! There has been an error with the topic",
+    "Add Topic": "Add Topic"
+
 
   });
  
@@ -44,7 +48,10 @@
     "Language": "Idioma",
     "Featured Games": "Juegos destacados",
     "Latest Releases": "Últimos lanzamientos",
-    "Forums": "Foros"
+    "Forums": "Foros",
+    "Your topic has been saved!": "¡Tu pregunta ha sido guardada!",
+    "¡Error! There has been an error with the topic": "¡Error! Ha ocurrido un error con el mensaje",
+    "Add Topic": "Añadir pregunta"
   });
   
   $translateProvider.translations("ca", {
@@ -65,7 +72,10 @@
     "Language": "Idioma",
     "Featured Games": "Jocs destacats",
     "Latest Releases": "Últims llançaments",
-    "Forums": "Fòrums"
+    "Forums": "Fòrums",
+    "Your topic has been saved!": "¡La teva pregunta ha sigut desada!",
+    "¡Error! There has been an error with the topic": "¡Error! Ha hagut un error amb el missatge",
+    "Add Topic": "Afegir pregunta"
   });
  
 

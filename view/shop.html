@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>NewGame</title>
 
-
 	<!--Frameworks-->
 	<!--Bootstrap-->
 	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
@@ -26,7 +25,6 @@
 	<!-- Dropdown menu -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 	<!-- Css -->
 	<link rel="stylesheet" type="text/css" href="../css/shop.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
@@ -35,36 +33,78 @@
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/shop.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Model -->
+	<script src="../js/model/Game.js" type="text/javascript" xml:space="preserve"></script>
+
 </head>
 <body ng-controller="shopController as shopCtrl">
 	
 	<!-- HEADER -->	
 	<header ng-include="'header.html'"></header>	
+	<main>		
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3 class="h3" translate="SHOP"></h3>
+					<hr>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div class="" dir-paginate="game in filteredData | itemsPerPage: pageSize" current-page="currentPage">		
+						<figure>
+							<a href="gameProfile.html">
+								<div class="row games">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+											<img src="../images/games/{{game.getUrlImage()}}/{{game.getUrlImage()}}" alt="{{game.getName()}}">
+										</div>							
+										<figcaption>
+										<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">	
+												<span>{{game.getName()}}</span>
+										</div>			
+										<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">	
+											<i ng-if="game.getRating()>=0.5" class='glyphicon glyphicon-thumbs-up' ></i>
+											<i ng-if="game.getRating()<0.5 && game.getRating()!=null" class='glyphicon glyphicon-thumbs-down'></i>
+										</div>	
+										<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+											<button type="button" class="btn btn-primary btn-sm">
+												<span class="glyphicon glyphicon-shopping-cart"></span> {{game.getPrice()}} €
+											</button>
+										</div>
+										</figcaption>
+									</div>
+								</div>
+							</a>								
+						</figure>	
+					</div>
+					<div id="pagination" boundary-links="true">
+						<dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
+					</div>
 
-	<main>			
-		<h3 class="h3" translate="SHOP"></h3>
-		<hr>
-		<!--<button class="btn btn-primary chivalry" type="submit">Chivalry medieval warfare</button>-->
-		<div class="games" dir-paginate="game in games | itemsPerPage: pageSize" current-page="currentPage">	
-			<figure>
-				<a href="gameProfile.html">
-					<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-					<figcaption>
-						<h4 class="title h4">{{game.games_name}}</h4>
-						<i class="rating" ng-if="game.games_rating==null">Not rated</i>
-						<i ng-if="game.games_rating>=0.5" class='glyphicon glyphicon-thumbs-up rating'></i>
-						<i ng-if="game.games_rating<0.5 && game.games_rating!=null" class='glyphicon glyphicon-thumbs-down rating'></i>
-						<br><br><br>
-						<button type="button" class="btn btn-primary btn-sm price h4">
-							<span class="glyphicon glyphicon-shopping-cart"></span> {{game.games_price}} €
-						</button>
-					</figcaption>
-				</a>	
-			</figure>
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 filters">
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+								<label class="control-label" for="genre">Genres Filter</label><br>
+								<div ng-repeat="genreRequest in genreRequests">
+									<input type="radio" name="genre" id="genre" ng-model="genreSearch" ng-click="showGenre()" value="{{genreRequests[$index].genders_id_gender}}" />  {{genreRequests[$index].genders_name}}
+								</div>
+							</div>
+						</div>
+						<br><hr>
+						<div class="row">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 filter">
+								<label class="control-label" for="price">Price Filter </label><br>
+								<input type="range" name="price" id="price" ng-model="priceSearch" min="1" max="70"/> <br>
+								<input type="number" name="price" id="price" class="well" ng-model="priceSearch" min="1" max="70"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div  boundary-links="true">
-	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
-	    </div>
 	</main>
 </body>
 </html>

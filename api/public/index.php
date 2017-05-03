@@ -12,6 +12,7 @@ require '../src/routes/customers.php';
 require '../src/routes/users.php';
 require '../src/routes/games.php';
 require '../src/routes/forums.php';
+require '../src/routes/genres.php';
 
 
 $app->run();
