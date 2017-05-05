@@ -1,4 +1,5 @@
 <h3 class="h3">{{forumThreads[0].games_name}} <button type="button" ng-if="checkUser=='true'" ng-click="forumCtrl.showAddTopicForm()" class="btn btn-info" translate="Add Topic"></button></h3>
+	
 		<hr>
 		<a ng-href="#/forumThread" ng-click="forumCtrl.showTopicsMessages(forumThread.topics_id_topic)" class="btn btn-primary widthButton" type="submit" dir-paginate="forumThread in forumThreads | itemsPerPage: pageSize" current-page="currentPage" ng-model="idGame">
 			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forumThread.topics_title}}</h4>
@@ -25,10 +26,8 @@
 		  	</form>
 		</div>
 		<div ng-if="showAddTopicMessage==1">
-			<hr>
 			<div class="alert alert-success" translate="Your topic has been saved!"></div>
 		</div>
 		<div ng-if="showAddTopicMessage==0">
-			<hr>
 			<div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
 		</div>

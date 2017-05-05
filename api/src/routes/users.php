@@ -230,6 +230,9 @@ $app->post('/users/register/', function(Request $request, Response $response){
     $password = $request->getParam("password");
     $email = $request->getParam("email");
     $password = md5($password);
+    echo $username."<br/>";
+    echo $password."<br/>";
+    echo $email."<br/>";
     $sql = "INSERT INTO Users (users_username,users_password,users_email,users_public_profile,users_status,users_language) VALUES (:username, :password, :email, '1','0', 'en')";
     try{
         // Get DB Object

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>NewGame</title>
 
-
 	<!--Frameworks-->
 	<!--Bootstrap-->
 	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
@@ -26,57 +25,81 @@
 	<!-- Dropdown menu -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-	<!-- Css -->
-	<link rel="stylesheet" type="text/css" href="../css/contact.css">
-	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
-
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/contact.js" type="text/javascript" xml:space="preserve"></script>
-	<script src="../js/controller/generalFunctions.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Model -->
+	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 
 </head>
 <body ng-controller="ContactController as ContactCtrl">	
-
 	<header ng-include="'header.html'"></header>
-
 	<main>
-		<div class="container">
-			<form>  
-				<h3 class="h3" translate="FILL THE FORM"></h3>
-				<hr>
-				<div class="form-group">
-               		<div class="input-group">
-               			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				    	<input class="form-control" id="name" value="{{userData[0].users_username}}" disabled></input>
-			    	</div>
-			    </div>
-			  	<div class="form-group">
-               		<div class="input-group">
-	           			<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-						<input type="email" class="form-control" id="email" value="{{userData[0].users_email}}" disabled>
+		<div class="container content">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h3 class="h3" translate="FILL THE FORM"></h3>
+					<hr>
+				</div>
+			</div>
+			<form method="post" name="contactManagement" novalidate ng-submit="NewGameAppCtrl.submit()">  
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+								<input type="text" class="form-control" id="name" ng-model="contact.username" value="{{userData[0].users_username}}" disabled />
+							</div>
+						</div>
 					</div>
-				</div>  
+				</div>
 
-				<div class="form-group">
-               		<div class="input-group">
-	           			<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-				    	<input class="form-control" id="subject" placeholder="Enter the subject."></input>
-			    	</div>
-			    </div>
+				<div class="row">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+								<input type="email" class="form-control" id="email" ng-model="contact.email" value="{{userData[0].users_email}}" disabled />
+							</div>
+						</div>  
+					</div>  
+				</div>
 
-		        <div class="form-group">		        
-               		<div class="input-group">
-	           			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-				  		<textarea class="form-control" id="description" placeholder="Describe us your problem/question." rows="3"></textarea>
-			  		</div>
-			    </div>
-				<hr>
-			  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" translate="Submit"></span></button>
-			  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+								<input type="text" class="form-control" id="subject"  ng-model="subject" placeholder="Enter the subject." />
+							</div>
+						</div>
+					</div>  
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<div class="form-group">		        
+							<div class="input-group">
+								<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+								<textarea class="form-control" id="description" ng-model="description" placeholder="Describe us your problem/question." rows="3"></textarea>
+							</div>
+						</div>
+					</div>  
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send" translate="Submit"></span></button>
+						<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+					</div>  
+				</div>
 			</form>
 		</div>
 	</main>

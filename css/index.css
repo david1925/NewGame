@@ -1,24 +1,5 @@
-body {
-	margin-left: 5%;
-	margin-right: 5%;
-	color: white;
-	background-color: white;
-}
-
-body main {
-	padding: 6% 10% 10% 10%;
-	width: 100%;
-	display: inline-block;
-	background-color: #000d1a;
-}
-
-body main #title2 {
-	margin-top: 5%;
-}
-
 .carousel {
-	background-color: #001a33;
-	width: 78%;
+  background: rgba(0, 10, 20, 0.8);
 }
 
 body main .carousel figcaption {
@@ -26,10 +7,14 @@ body main .carousel figcaption {
 }
 
 body main article figure img{
-	width: 45%;
+	max-width: 45%;
 }
 
 body main article figure figcaption {
 	float: right;
 	width: 55%;
+}
+
+#title2 {
+	margin: 3% 0% 0% 0%;
 }

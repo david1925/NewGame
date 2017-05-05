@@ -45,8 +45,7 @@
 
     this.checkAddTopic = function (topic,description) {
         $scope.showAddTopicForm=0;
-        console.log($scope.forumThreads);
-        $http.post(Domain + 'api/public/forums/topics/add/', {"title" : topic, "text" : description, "idForum" : $scope.forumThreads[0].forums_id_forum, "userId" : $scope.user.getId()}).then(function (response) {
+        $http.post(Domain + 'api/public/forums/topics/add/', {"title" : topic, "text" : description, "idForum" : $scope.idForum, "userId" : $scope.user.getId()}).then(function (response) {
           if(response.data){
             $scope.showAddTopicMessage=1;
           }else{
@@ -55,32 +54,31 @@
         });      
     };
 
-    this.checkAddAnswer = function (topic,description) {
+    this.checkAddAnswer = function (answer) {
         $scope.showAddTopicForm=0;
-        console.log($scope.forumThreads);
-        $http.post(Domain + 'api/public/forums/topics/add/', {"title" : topic, "text" : description, "idForum" : $scope.forumThreads[0].forums_id_forum, "userId" : $scope.user.getId()}).then(function (response) {
+        $http.post(Domain + 'api/public/forums/topics/messages/add/', {"text" : answer, "idTopic" : $scope.idTopic,  "idForum" : $scope.forumThreads[0].forums_id_forum, "userId" : $scope.user.getId()}).then(function (response) {
           if(response.data){
-            $scope.showAddTopicMessage=1;
+            $scope.showAddAnswerMessage=1;
           }else{
-            $scope.showAddTopicMessage=0;
+            $scope.showAddAnswerMessage=0;
           }
-        });      
+        });
     };
 
    this.showTopics = function (idGame) {
         $scope.showButtons=0;
+        $scope.idForum = idGame;
         //GET topic forums
         $http.get(Domain + "api/public/forums/topics/game/" + idGame)
-        .then(function (response) {$scope.forumThreads = response.data;});
+        .then(function (response) {$scope.forumThreads = response.data; console.log("Variable $scope.forumThreads cuando se hace la llamada" + $scope.forumThreads);});
     };
 
     this.showTopicsMessages = function (idTopic) {
       	$scope.showButtons=2;
+      	$scope.idTopic = idTopic;
         //GET topic messages
         $http.get(Domain + "api/public/forums/topics/messages/game/" + idTopic)
-        .then(function (response) {$scope.forumTopicsMessages = response.data;
-          console.log($scope.forumTopicsMessages[0].games_name);
-        });         
+        .then(function (response) {$scope.forumTopicsMessages = response.data;});         
     };
 
   }]);

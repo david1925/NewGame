@@ -1,5 +1,5 @@
 <div id="wall">
-				<h4 class="h4">{{forumsTopicsMessage[0].games_name}} --> {{forumsTopicsMessage[0].topics_title}}</h4>
+				<h4 class="h4">{{forumsTopicsMessages[0].games_name}} | {{forumsTopicsMessages[0].topics_title}}</h4>
 				<hr>
 			<div class="thread" dir-paginate="forumTopicsMessage in forumTopicsMessages | itemsPerPage: pageSize" current-page="currentPage">	
 				<p>{{forumTopicsMessage.replies_text}}</p>
@@ -20,4 +20,12 @@
 			    </div>
 		  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addAnswerManagement.$invalid" ng-click="forumCtrl.checkAddAnswer(forumCtrl.answerDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
 		  	</form>
+		</div>
+		<div ng-if="showAddAnswerMessage==1">
+			<hr>
+			<div class="alert alert-success" translate="Your topic has been saved!"></div>
+		</div>
+		<div ng-if="showAddAnswerMessage==0">
+			<hr>
+			<div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
 		</div>

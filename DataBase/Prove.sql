@@ -1,13 +1,18 @@
 
 /*********************Inserts******************************************/
+
+/**********************************************************Genders**************************************************/
 INSERT INTO Genders (genders_name) VALUES ("Shooter");
 INSERT INTO Genders (genders_name) VALUES ("Action");
 INSERT INTO Genders (genders_name) VALUES ("RPG");
 INSERT INTO Genders (genders_name) VALUES ("Survival Horror");
 INSERT INTO Genders (genders_name) VALUES ("Survival");
 INSERT INTO Genders (genders_name) VALUES ("Stealth");
+INSERT INTO Genders (genders_name) VALUES ("Strategy");
+INSERT INTO Genders (genders_name) VALUES ("Open World");
+INSERT INTO Genders (genders_name) VALUES ("Hack and slash");
 
-
+/**********************************************************Countries**************************************************/
 INSERT INTO `Countries` VALUES (null, 'AF', 'Afghanistan');
 INSERT INTO `Countries` VALUES (null, 'AL', 'Albania');
 INSERT INTO `Countries` VALUES (null, 'DZ', 'Algeria');
@@ -253,7 +258,7 @@ INSERT INTO `Countries` VALUES (null, 'YE', 'Yemen');
 INSERT INTO `Countries` VALUES (null, 'ZR', 'Zaire');
 INSERT INTO `Countries` VALUES (null, 'ZM', 'Zambia');
 INSERT INTO `Countries` VALUES (null, 'ZW', 'Zimbabwe');
-
+/**********************************************************Provinces**************************************************/
 INSERT INTO `Provinces` (`provinces_id_province`,`provinces_province`,`Countries_countries_id_country`)
 VALUES
 	(2,'Albacete','202'),
@@ -309,6 +314,7 @@ VALUES
 	(49,'Zamora','202'),
 	(50,'Zaragoza','202');
 
+/**********************************************************Games**************************************************/
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("Bioshock","BioShock is a shooter unlike any you've ever played, loaded with weapons and tactics never seen. You'll have a complete arsenal at your disposal from simple revolvers to grenade launchers and chemical throwers, but you'll also be forced to genetically modify your DNA to create an even more deadly'",20,"2007-08-21","1.jpg",1);
 
@@ -369,6 +375,55 @@ VALUES ("Metal Gear Solid V: The Phantom Pain","Ushering in a new era for the ME
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("Bioshock Infinite","Indebted to the wrong people, with his life on the line, veteran of the U.S. Cavalry and now hired gun, Booker DeWitt has only one opportunity to wipe his slate clean. He must rescue Elizabeth, a mysterious girl imprisoned since childhood and locked up in the flying city of Columbia.",29.99,"2013-03-25","20.jpg",1);
 
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Age of empires","Age of Empires (AoE) is a history-based real-time strategy video game developed by Ensemble Studios and published by Microsoft. The game uses the Genie, a 2D sprite-based game engine. The game allows the user to act as the leader of an ancient civilization by advancing it through four ages (the Stone, Tool, Bronze, and Iron Ages), gaining access to new and improved units with each advance. It was later ported to Pocket PCs with Windows, resulting in a version very similar to the PC game.",5,"1997-10-26","21.jpg",7);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Age of empires 2 HD","In Age of Empires II: HD Edition, fans of the original game and new players alike will fall in love with the classic Age of Empires II experience. Explore all the original single player campaigns from both Age of Kings and The Conquerors expansion, choose from 18 civilizations spanning over a thousand years of history, and head online to challenge other Steam players in your quest for world domination throughout the ages.",19.99,"2013-04-10","22.jpg",7);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Age of empires 3","Immerse yourself in the award-winning strategy experience. Microsoft Studios brings you three epic Age of Empires III games in one monumental collection for the first time. Command mighty European powers looking to explore new lands in the New World; or jump eastward to Asia and determine the outcome of its struggles for power.",36.99,"2009-09-15","23.jpg",7);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("The witcher 3","The Witcher: Wild Hunt is a story-driven, next-generation open world role-playing game set in a visually stunning fantasy universe full of meaningful choices and impactful consequences. In The Witcher you play as the professional monster hunter, Geralt of Rivia, tasked with finding a child of prophecy in a vast open world rich with merchant cities, viking pirate islands, dangerous mountain passes, and forgotten caverns to explore.",29.99,"2015-05-15","24.jpg",3);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Batman Arkham Knight","Batman: Arkham Knight brings the award-winning Arkham trilogy from Rocksteady Studios to its epic conclusion. Developed exclusively for New-Gen platforms, Batman: Arkham Knight introduces Rocksteady's uniquely designed version of the Batmobile. The highly anticipated addition of this legendary vehicle, combined with the acclaimed gameplay of the Arkham series.",19.99,"2015-06-23","25.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Prey","In Prey, you awaken aboard Talos I, a space station orbiting the moon in the year 2032. You are the key subject of an experiment meant to alter humanity forever - but things have gone terribly wrong. The space station has been overrun by hostile aliens and you are now being hunted. As you dig into the dark secrets of Talos I and your own past, you must survive using the tools found on the station -- your wits, weapons, and mind-bending abilities.",59.99,"2017-05-05","26.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Grand Theft Auto","When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.",59.99,"2015-04-14","27.jpg",8);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("God of War","God of War is a third-person action-adventure video game developed by Santa Monica Studio and published by Sony Computer Entertainment (SCE). First released on March 22, 2005, for the PlayStation 2 (PS2) console, it is the first installment in the series of the same name and the third chronologically. Loosely based on Greek mythology, it is set in ancient Greece with vengeance as its central motif. The player controls the protagonist Kratos, a Spartan warrior who serves the Olympian Gods.",49.99,"2005-03-22","28.jpg",9);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("God of War 2","God of War II is a third person action-adventure video game developed by Santa Monica Studio and published by Sony Computer Entertainment (SCE). First released for the PlayStation 2 console on March 13, 2007, it is the second installment in the God of War series, the sixth chronologically, and the sequel to 2005's God of War. The game is loosely based on Greek mythology and set in ancient Greece, with vengeance as its central motif.",59.99,"2007-03-13","29.jpg",9);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("God of War 3","God of War III is a third-person action-adventure video game developed by Santa Monica Studio and published by Sony Computer Entertainment (SCE). Released for the PlayStation 3 (PS3) console on March 16, 2010, the game is the fifth installment in the God of War series, the seventh chronologically, and the sequel to 2007's God of War II. Loosely based on Greek mythology, the game is set in ancient Greece with vengeance as its central motif.",59.99,"2010-03-16","30.jpg",9);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Uncharted: Drake's fortune","Uncharted: Drake's Fortune is a 2007 action-adventure platform video game developed by Naughty Dog. It is the first game in the Uncharted series. Combining action-adventure and platforming elements with a third-person perspective, the game charts the journey of protagonist Nathan Drake, supposed descendant of the explorer Sir Francis Drake, as he seeks the lost treasure of El Dorado, with the help of journalist Elena Fisher and mentor Victor Sullivan.",9.99,"2007-12-07","31.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Uncharted 2: Among Thieves","Uncharted 2: Among Thieves is an action-adventure third-person shooter platform video game developed by Naughty Dog and published by Sony Computer Entertainment for the PlayStation 3 game console. The sequel to Uncharted: Drake's Fortune, it was first shown and announced on December 1, 2008. Officially announced in the January 2009 issue of Game Informer, it was released in October 2009",19.99,"2009-10-16","32.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Uncharted 3: Drake's Deception","Uncharted 3: Drake's Deception is a 2011 action-adventure third-person shooter platform video game developed by Naughty Dog, with a story written by script-writer Amy Hennig. It is the sequel to one of the most critically acclaimed video games of 2009, Uncharted 2: Among Thieves,[1] and is the third game in the Uncharted series. The game was published by Sony Computer Entertainment for the PlayStation 3",29.99,"2011-11-02","33.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Uncharted 4: A Thief's End","The game was released worldwide on May 10, 2016.A Thief's End follows series protagonist Nathan Drake (portrayed by Nolan North), who has retired from fortune hunting several years after the events of Drake's Deception. He reunites with his estranged older brother Sam and longtime partner Sully to search for clues to the location of Captain Henry Avery's long-lost treasure to save his brother.",49.99,"2016-05-10","34.jpg",2);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("The Last of Us","The Last of Us is an action-adventure survival horror video game developed by Naughty Dog and published by Sony Computer Entertainment. It was released for the PlayStation 3 worldwide on June 14, 2013. Players control Joel, a smuggler tasked with escorting a teenage girl named Ellie across a post-apocalyptic United States. The Last of Us is played from a third-person perspective",59.99,"2013-06-14","35.jpg",4);
+
+INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
+VALUES ("Bloodborne","Bloodborne follows the player character, the Hunter, through the decrepit Gothic, Victorian era inspired city of Yharnam, whose inhabitants have been afflicted with an abnormal blood-borne disease. Upon mysteriously awakening in Yharnam during the night of 'The Hunt', the Hunter seeks out something known only as 'Paleblood' for reasons unknown.",59.99,"2015-03-24","36.jpg",3);
+
+/**********************************************************Users**************************************************/
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,1,"en");
 
@@ -399,6 +454,7 @@ VALUES("alumne9",md5("alumne9"),"alumne9","alumne9","alumne9","alumne9@gmail.com
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
 VALUES("alumne10",md5("alumne10"),"alumne10","alumne10","alumne10","alumne10@gmail.com",666555444,"j.jpg","Alumne10 account",1,8,0,"en");
 
+/**********************************************************Chats**************************************************/
 INSERT INTO Chats (chats_text,chats_datetime,users_users_id_user_send,users_users_id_user_receive)
 VALUES ("Hola",date(now()),1,2);
 
@@ -411,6 +467,7 @@ VALUES ("¿Funciona todo usuario 2?",date(now()),1,2);
 INSERT INTO Chats (chats_text,chats_datetime,users_users_id_user_send,users_users_id_user_receive)
 VALUES ("Parece ser que sí usuario 1",date(now()),2,1);
 
+/**********************************************************Friendship solicitations**************************************************/
 INSERT INTO Friendship_Solicitations (Friendship_Solicitations.Users_users_id_send,Friendship_Solicitations.Users_users_id_receive,Friendship_Solicitations.friendship_solicitations_status)
 VALUES (1,2,0);
 
@@ -423,6 +480,7 @@ VALUES (3,2,0);
 INSERT INTO Friendship_Solicitations (Friendship_Solicitations.Users_users_id_send,Friendship_Solicitations.Users_users_id_receive,Friendship_Solicitations.friendship_solicitations_status)
 VALUES (1,4,0);
 
+/**********************************************************Bills/Bills_Details**************************************************/
 INSERT INTO Bills (bills_price,bills_date,bills_payment,Users_users_id_user) VALUES (100,date(now()),"Paypal",1);
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,1,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (1,2,"1");
@@ -449,6 +507,7 @@ INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_q
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,19,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,20,"1");
 
+/**********************************************************Reviews**************************************************/
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡This game is awesome!",1,1,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Best shooter ever!",1,1,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡The best game I've ever played!",1,1,3);
@@ -478,7 +537,10 @@ INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Ezio's brothers are dead.",1,10,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Why buy Unity when you can play one of the GOOD Assassin's Creed games?",1,10,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("This game really takes this great series to another level. Out of all the ACs I enjoyed this one most! There are so many things to do. Graphics is good, sound is great, really like it! <3",1,10,4);
+----------------------------------------------------------------------------------------------------------------------------------
+INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("First time to play AoE II was in 1999. My PCs have been changed abt 6 times up to now, but this one's still there. A great and timeless game, a masterpiece across the ages.",1,22,5);
 
+/**********************************************************Topics**************************************************/
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first level","Anyone knows the path to finish the first level?",1,1);
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("I'm lost in Arcadia zone","In the Arcadia zone I don't know where I have to go anone can help me?",1,2);
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("End of game","Int hhe end of game how I have to defeat the last boss",1,3);
@@ -486,10 +548,17 @@ INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("Dude on first boss","Anyone knows how to defeat the first boss?",2,1);
 INSERT INTO Topics (topics_title,topics_text,Forums_forums_id_forum,Users_users_id_user) VALUES ("How to achive the last trophy","I don't know how to achive the last game trophy",2,1);
 
+/**********************************************************Replies**************************************************/
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You have to go to the end and then turn left",1,1,2);
+INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Second message for this topic",1,1,3);
+INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Third message for this topic",1,1,4);
+INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Fourth message for this topic",1,1,5);
+INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Fifth message for this topic",1,1,6);
+INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Sixth message for this topic",1,1,7);
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You have to go to hit him on the back",2,2,3);
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You can hit him on the left side",2,2,3);
 
+/**********************************************************Friends**************************************************/
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,2);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(2,1);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,3);
@@ -509,6 +578,7 @@ INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(9,1);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,10);
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(10,1);
 
+/**********************************************************Messages**************************************************/
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"First message in wall",2);
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Second message in wall",3);
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Third message in wall",4);

@@ -7,7 +7,7 @@
         //GET Username
         $http.get("http://www.newgame.local/api/public/contact/1")
         .then(function (response) {$scope.userData = response.data;
-        console.log($scope.userData);});    	
+        console.log($scope.userData);}); 
 
         //Change language
         $scope.changeLanguage = function (translate) {
@@ -26,6 +26,13 @@
                 case "ca": $scope.language = "Català";
                         break;
         }
-        });
+     });
+
+     this.submit = function () {
+        $http.post(Domain + 'api/public/users/register/', {"username" : $scope.register.username, "password" : $scope.register.password, "email" : $scope.register.email})
+     }
+
+
+
   }]);
 })();

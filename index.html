@@ -25,15 +25,19 @@
 	<script src="vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
 	<!-- Dropdown menu -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- Css -->
-	<link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/languages.min.css">
+
 	<!-- app -->
     <script src="js/app.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="js/controller/index.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+
 	<!--model-->
 	<script src="js/model/User.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/languages.min.css">
 
 </head>
 <body ng-controller="IndexController as IndexCtrl">
@@ -41,85 +45,110 @@
 	<header ng-include="'view/header.html'"></header>
 
 	<main>	
-		<h1 class="h1" translate="Featured Games"></h1>
-		<hr>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h1 class="h1" translate="Featured Games"></h1>
+					<hr>
+				</div>
+			</div>
+
 		<!-- Carousel1 -->		
-		<article>
-			<div id="divCarousel" class="container">
-			  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-			    <!-- Indicators -->
-			    <ol class="carousel-indicators">
-			      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			      <li data-target="#myCarousel" data-slide-to="1"></li>
-			      <li data-target="#myCarousel" data-slide-to="2"></li>
-			      <li data-target="#myCarousel" data-slide-to="3"></li>
-			    </ol>
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<article>
+						<div id="divCarousel" class="container">
+							<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-			    <!-- Wrapper for slides -->
-			    <div class="carousel-inner" role="listbox">
-			      <div class="item" ng-class="{'active': $index==0}" ng-repeat="game in games">
-			      	<figure>
-			        	<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-			        	<figcaption> 
-			        		<h3>{{game.games_name}}</h3> 
-				        	<p>{{game.games_description}}</p> 
-			        	</figcaption>
-			        </figure>
-			      </div>
-			    </div>
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="#myCarousel" data-slide-to="1"></li>
+									<li data-target="#myCarousel" data-slide-to="2"></li>
+									<li data-target="#myCarousel" data-slide-to="3"></li>
+								</ol>
 
-			    <!-- Left and right controls -->
-			    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			      <span class="sr-only">Previous</span>
-			    </a>
-			    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			      <span class="sr-only">Next</span>
-			    </a>
-			  </div>
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item" ng-class="{'active': $index==0}" ng-repeat="game in games">
+										<figure>
+											<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+											<figcaption> 
+												<h3>{{game.games_name}}</h3> 
+												<p>{{game.games_description}}</p> 
+											</figcaption>
+										</figure>
+									</div>
+								</div>
+
+								<!-- Left and right controls -->
+								<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>
 			</div>
-		</article>
-
-		<h1 id="title2" class="h1" translate="Latest Releases"></h1>
-		<hr>
-		<article>
-			<div id="divCarousel2" class="container">
-			  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-			    <!-- Indicators -->
-			    <ol class="carousel-indicators">
-			      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-			      <li data-target="#myCarousel2" data-slide-to="1"></li>
-			      <li data-target="#myCarousel2" data-slide-to="2"></li>
-			      <li data-target="#myCarousel2" data-slide-to="3"></li>
-			    </ol>
-
-			    <!-- Wrapper for slides -->
-			  	<div class="carousel-inner" role="listbox">
-			      <div class="item" ng-class="{'active': $index==0}" ng-repeat="game in gamesPublicationDate">
-			      	<figure>
-			        	<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-			        	<figcaption> 
-			        		<h3>{{game.games_name}}</h3> 
-				        	<p>{{game.games_description}}</p> 
-			        	</figcaption>
-			        </figure>
-			      </div>
-			    </div>
+		</div>
 
 
-			    <!-- Left and right controls -->
-			    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
-			      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-			      <span class="sr-only">Previous</span>
-			    </a>
-			    <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
-			      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-			      <span class="sr-only">Next</span>
-			    </a>
-			  </div>
+		<!-- Carousel2 -->		
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<h1 id="title2" class="h1" translate="Latest Releases"></h1>
+					<hr>
+				</div>
 			</div>
-		</article>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<article>
+						<div id="divCarousel2" class="container">
+							<div id="myCarousel2" class="carousel slide" data-ride="carousel">
+								<ol class="carousel-indicators">
+									<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+									<li data-target="#myCarousel2" data-slide-to="1"></li>
+									<li data-target="#myCarousel2" data-slide-to="2"></li>
+									<li data-target="#myCarousel2" data-slide-to="3"></li>
+								</ol>
+
+								<!-- Indicators -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item" ng-class="{'active': $index==0}" ng-repeat="game in gamesPublicationDate">
+										<figure>
+											<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+											<figcaption> 
+												<h3>{{game.games_name}}</h3> 
+												<p>{{game.games_description}}</p> 
+											</figcaption>
+										</figure>
+									</div>
+								</div>
+
+								<a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								</a>
+								<a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								</a>
+							</div>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+
 	</main>
 </body>
 </html>

@@ -8,6 +8,7 @@
     $scope.gamesArray = [];
     $scope.genreRequests = [];
     $scope.genreSearch;
+    $scope.priceSearch=0;
     
     //GET games id,image,name
     $http.get(Domain + "api/public/games/shop")
@@ -23,26 +24,38 @@
             }
         }
     );
-    
-    $scope.showGenre = function() {
-      console.log($scope.genreSearch);
-      console.log($scope.genreRequests);
-      console.log("Se ejecuta la función");
-    };
 
+    $scope.smallerThan = function(val){
+        
+        return function(item){
+            //alert(item);
+            return (item <= val);
+        }
+    }
+    $scope.showGenre = function(idGenre){
+        $scope.genreSearch = idGenre;
+    }
     //GET genre name
     $http.get(Domain + "api/public/genres")
         .then(function (response) {
             $scope.genreRequests = response.data;
         }
     );
-      
-    $scope.$watch("priceSearch+genreSearch", function () {
-        $scope.filteredData=$filter('filter')
-        ($scope.gamesArray,
-          { genre: $scope.genreSearch,
-            price: $scope.priceSearch || price<$scope.priceSerach}
-        );    
+
+    $scope.priceFilter = function (game, index, gamesArray) 
+    { 
+      if(parseInt(game.getPrice()) < $scope.priceSearch) { 
+        return game; 
+      } 
+    } 
+
+    $scope.$watch("priceSearch+genreSearch",function () { 
+      $scope.filteredData = $scope.gamesArray; 
+      if(!isNaN($scope.priceSearch) && $scope.priceSearch > 0) 
+      { 
+               $scope.filteredData = $filter('filter')($scope.filteredData,$scope.priceFilter); 
+      } 
+      $scope.filteredData = $filter('filter')($scope.filteredData,{idGender:$scope.genreSearch}); 
     });
 
     $scope.changeLanguage = function (translate) {
