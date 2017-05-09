@@ -39,3 +39,21 @@ img{
 .glyphicon-thumbs-up{
   color: green;
 }
+
+#friends {
+  max-height: 20em;
+  overflow: auto;
+}
+
+.friendIcons {
+  float: right;
+  margin-left: 1%;
+}
+
+.glyphicon-eye-open {
+  color: #0052cc;
+}
+
+.glyphicon-comment {
+  color: #00cc00;
+}

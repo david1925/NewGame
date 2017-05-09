@@ -496,48 +496,32 @@ INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_q
 INSERT INTO Bills (bills_price,bills_date,bills_payment,Users_users_id_user) VALUES (100,date(now()),"Paypal",2);
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,1,"1");
 INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,2,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,11,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,12,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,13,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,14,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,15,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,16,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,17,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,18,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,19,"1");
-INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game,bill_details_quantity) VALUES (2,20,"1");
 
 /**********************************************************Reviews**************************************************/
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡This game is awesome!",1,1,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Best shooter ever!",1,1,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡The best game I've ever played!",1,1,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Incredible history!",1,1,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I love this game!",1,4,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I hate this game!",0,4,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡I've nightmares with Dark Souls!",0,4,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("¡Impossible!",0,4,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("A great second part",1,5,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("The best RPG game",1,5,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("The first Dark Souls was pretty much better",0,5,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("I'm bored of died and died and died...",0,5,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("That fat Abu'l Nuqoud was running faster than me! 10/10",1,3,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("its fun, it looks like you or in the game,i like the end i just wount stop playing it, wen it is the morning i play it for 1 hour,if your playing it let me know, it is fun play it now",1,3,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Doesn't require Uplay 10/10",1,3,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("A classic that opens you to the Assassin's Creed series.",1,3,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("PERFECT! PERFECT! PERFECT! Graphicaly this game is just, incredible, can't even believe this game was made in 2010, the streets, the characters, they're just so alive! Explore Florenze, Veneza, Flori and Touscany! Unbalivable! Ezio as a young guy, what a game! Many side quests, Assassin Tombs, contracts, and more!",1,9,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Best AC game ever made. But AC:Brotherhood comes pretty close.Go for it.9.5/10.",1,9,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("They really outdone themselves with this game but the best was yet to come with Assassin's Creed Brotherhood.",1,9,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Definitely my favourite assassins creed game by far. The story is amazing and introduced my favourite assassin, Ezio. The game might not be as advanced as the newer games like Blackflag, Syndicate and Unity but the story in this game is by far the best story out of any game (I have played through every game on console) and is very engaging. The parkour in this game may seem slow in comparison to the newer games but I find that you have a lot more control and accuracy when scaling buildings and etc. The only problem I have with this game is at times a very low frame rate(goes down to 10 or below at times) but usually stays at around 20 fps which isnt great, but is better than 10. I would definitely recommend this game to any fan of the series or for someone looking to get into the series.",1,9,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Just like all the other Assassin's Creed game this one is amazing",1,10,1);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Ezio's brothers are dead.",1,10,2);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("Why buy Unity when you can play one of the GOOD Assassin's Creed games?",1,10,3);
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("This game really takes this great series to another level. Out of all the ACs I enjoyed this one most! There are so many things to do. Graphics is good, sound is great, really like it! <3",1,10,4);
-----------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES ("First time to play AoE II was in 1999. My PCs have been changed abt 6 times up to now, but this one's still there. A great and timeless game, a masterpiece across the ages.",1,22,5);
 
 /**********************************************************Topics**************************************************/
@@ -555,8 +539,6 @@ INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Fourth message for this topic",1,1,5);
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Fifth message for this topic",1,1,6);
 INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("Sixth message for this topic",1,1,7);
-INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You have to go to hit him on the back",2,2,3);
-INSERT INTO Replies (replies_text,Topics_topics_id_topic,Topics_Forums_forums_id_forum,Users_users_id_user) VALUES ("You can hit him on the left side",2,2,3);
 
 /**********************************************************Friends**************************************************/
 INSERT INTO Friends (Users_users_id_user,Users_users_id_user1) VALUES(1,2);
@@ -585,6 +567,47 @@ INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VAL
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Fourth message in wall",2);
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Fifth message in wall",3);
 INSERT INTO Messages (walls_walls_id_wall,messages_text,Users_users_id_user) VALUES(1,"Sixth message in wall",4);
+
+/**********************************************************Game_Requirements**************************************************/
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(1,"Windows XP", "Intel single-core Pentium 4 processor at 2.4GHz", "1GB","8GB",
+                               "Direct X 9.0c compliant video card with 128MB RAM and Pixel Shader 3.0 (NVIDIA 6600 or better/ATI X1300 or better, excluding ATI X1550)", 
+                               "9.0c or Greater", "Windows 7","Intel Core 2 Duo processor","2GB","8GB",
+                               "DX 9 - Direct X 9.0c compliant video card with 512 MB RAM and Pixel Shader 3.0 (NVIDIA GeForce 7900 GT or better), DX 10 - NVIDIA GeForce 8600 or better","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(2,"Windows XP/Vista", "2.4 Ghz or equivalent processor with SSE2 support", "1GB","8GB",
+                               "256mb video ram or better (GeForce 7 series or higher/Radeon HD3000 series or higher)","9.0c or Greater", 
+                               " Windows XP/Vista","2.4 Ghz or equivalent processor with SSE2 support","2GB","8GB",
+                               "256mb video ram or better (GeForce 7 series or higher/Radeon HD3000 series or higher)","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(3,"Windows XP/Windows Vista (only)", "Dual core processor 2.6 GHz Intel Pentium D or AMD Athlon™ 64 X2 3800", "1GB","8GB",
+                               "256 MB DirectX® 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","9.0c or Greater", 
+                               "Windows XP/Windows Vista (only)","Intel Core® 2 Duo 2.2 GHz or AMD Athlon 64 X2 4400+ or better ","2GB","8GB",
+                               "256 MB DirectX® 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","10 or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(4,"Windows 7", "Intel Core 2 Duo E6850 GHz+ or AMD Phenom II X2 545 3.0 GHz", "2GB","4GB",
+                               "GeForce 9800 GTX+ or ATI Radeon HD 4870+","9.0c or Greater", 
+                               "Windows 7","Intel Core 2 Duo E6850 GHz+ or AMD Phenom II X2 545 3.0 GHz","2GB","4GB",
+                               "GeForce 9800 GTX+ or ATI Radeon HD 4870+","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(5,"Windows 7 SP1 64bit, Windows 8.1 64bit", "AMD A8 3870 3,6 Ghz or Intel Core i3 2100 3.1Ghz", "4GB","23GB",
+                               "NVIDIA GeForce GTX 465 / ATI Radeon TM HD 6870", "11",
+                               "Windows 7 SP1 64bit, Windows 8.1 64bit","AMD FX 8150 3.6 GHz or Intel Core i7 2600 3.4 GHz","8GB","23GB",
+                               "NVIDIA® GeForce GTX 750, ATI Radeon™ HD 7850","11");
 
 
 

@@ -6,6 +6,9 @@
    angular.module("NewGameApp").config(['$translateProvider', function ($translateProvider) {
   $translateProvider.translations("en", {
     "SIGN": "Sign in",
+    "FRIENDS" : "Friends",
+    "LOGIN" : "Login",
+    "LOGOUT" : "Logout",
     "USER INFO": "User Info",
     "PROFILE IMAGE": "Profile image",
     "FILL THE FORM": "Fill the form",
@@ -26,12 +29,13 @@
     "Your topic has been saved!": "Your topic has been saved!",
     "¡Error! There has been an error with the topic": "¡Error! There has been an error with the topic",
     "Add Topic": "Add Topic"
-
-
   });
  
   $translateProvider.translations("es", {
     "SIGN": "Registrarse",
+    "FRIENDS" : "Amigos",
+    "LOGIN" : "Inicia sesion",
+    "LOGOUT" : "Cierra sesion",
     "USER INFO": "Informacion de usuario",
     "PROFILE IMAGE": "Imagen de perfil",
     "FILL THE FORM": "Rellena el formulario",
@@ -56,6 +60,9 @@
   
   $translateProvider.translations("ca", {
     "SIGN": "Registrar-se",
+    "FRIENDS" : "Amics",
+    "LOGIN" : "Inicia sessió",
+    "LOGOUT" : "Tanca sessió",
     "USER INFO": "Informacio d'usuari",
     "PROFILE IMAGE": "imatge de perfil",
     "FILL THE FORM": "Omple el formulari",

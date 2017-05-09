@@ -74,10 +74,10 @@ $app->get('/users/username/{id}', function(Request $request, Response $response)
     }
 });
 
-// Get friends from user
+// Get friends username from user
 $app->get('/users/friends/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT u.users_username FROM Friends
+    $sql = "SELECT u.users_username, u.users_id_user FROM Friends
             INNER JOIN Users ON Users.users_id_user = Friends.Users_users_id_user
             INNER JOIN Users u ON u.users_id_user=Friends.Users_users_id_user1
             WHERE Users.users_id_user=:id
@@ -255,6 +255,16 @@ $app->post('/users/register/', function(Request $request, Response $response){
         echo '{"error": {"text": '.$e->getMessage().'}}';
     }
 });
+
+// Contact
+$app->post('/users/contact/', function(Request $request, Response $response){
+    $username = $request->getParam("username");
+    $email = $request->getParam("email");
+    $subject = $request->getParam("subject");
+    $description = $request->getParam("description");
+    include_once "contact_mailing.php";
+});
+
 // Activate a user account
 $app->get('/users/update/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");

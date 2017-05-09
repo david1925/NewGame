@@ -29,58 +29,46 @@
 	<!-- Css -->
 	<link rel="stylesheet" type="text/css" href="../css/gameProfile.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
 
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
     <script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+    <script src="../js/controller/gameProfile.js" type="text/javascript" xml:space="preserve"></script>
+
+    <!--model-->
+    <script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
 
 </head>
-<body>	
+<body ng-controller="gameProfileController as gameProfileCtrl">	
 
 	<header ng-include="'header.html'"></header>
 
 	<main>
 		<div id="subHeader">
-			<h4 class="h4">TERRARIA</h4>
+			<h4 class="h4">{{game[0].games_name}}</h4>
 			<hr>
 			<div id="subHeadBackgrd">
 				<article>
 					<div id="divCarousel" class="container">
-					    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-						    <!-- Indicators -->
-						    <ol class="carousel-indicators">
-						        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						        <li data-target="#myCarousel" data-slide-to="1"></li>
-						        <li data-target="#myCarousel" data-slide-to="2"></li>
-						        <li data-target="#myCarousel" data-slide-to="3"></li>
-						    </ol>
+							<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-						    <!-- Wrapper for slides -->
-						    <div class="carousel-inner" role="listbox">
-						        <div class="item active">
-						      		<figure>
-						        		<img src="../images/games/terraria/terraria1.png" alt="terraria1">
-						     	    </figure>
-						        </div>
+								<!-- Indicators -->
+								<ol class="carousel-indicators">
+									<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="#myCarousel" data-slide-to="1"></li>
+									<li data-target="#myCarousel" data-slide-to="2"></li>
+									<li data-target="#myCarousel" data-slide-to="3"></li>
+								</ol>
 
-						        <div class="item">
-						      		<figure>
-						       		 	<img src="../images/games/terraria/terraria2.png" alt="terraria2">
-						       		</figure>
-						        </div>
-						    
-						        <div class="item">
-						      		<figure>
-						        		<img src="../images/games/terraria/terraria3.png" alt="terraria3">
-						        	</figure>
-						        </div>
-
-						        <div class="item">
-							      	<figure>
-							        	<img src="../images/games/terraria/terraria4.png" alt="terraria4">
-							        </figure>
-						        </div>
-					      	</div>
+								<!-- Wrapper for slides -->
+								<div class="carousel-inner" role="listbox">
+									<div class="item" ng-class="{'active': $index==0}" ng-repeat="thisGame in game">
+										<figure>
+											<img src="../images/games/{{thisGame.games_url_image}}/{{thisGame.games_id_game}}.{{$index+1}}.jpg" alt="{{thisGame.games_name}}">
+										</figure>
+									</div>
+								</div>
 
 						    <!-- Left and right controls -->
 						    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -97,9 +85,9 @@
 
 				<aside id="subHeaderAside">				
 			      	<figure>
-			        	<img src="../images/games/terraria/terraria.png" alt="terraria">
+			        	<img src="../images/games/{{game[0].games_url_image}}/{{game[0].games_url_image}}" alt="{{game[0].games_url_image}}">
 			        	<figcaption>
-			        		<p>Dig, fight, explore, build! Nothing is impossible in this action-packed adventure game. Four Pack also available!</p>
+			        		<p>{{game[0].games_description}}</p>
 			        	</figcaption>
 			        </figure>
 				</aside>
@@ -118,6 +106,40 @@
 						<th>RECOMMENDED</th>
 					</thead>
 					<tr>
+						<td>OS</td>
+						<td>{{game[0].games_requirements_os_min}}</td>
+						<td>{{game[0].games_requirements_os_rec}}</td>
+					</tr>
+					<tr>
+						<td>Processor</td>
+						<td>{{game[0].games_requirements_processor_min}}</td>
+						<td>{{game[0].games_requirements_processor_rec}}</td>
+					</tr>
+					<tr>
+						<td>Memory</td>
+						<td>{{game[0].games_requirements_memory_min}}</td>
+						<td>{{game[0].games_requirements_memory_rec}}</td>
+					</tr>
+
+					<tr>
+						<td>Hard Disk</td>
+						<td>{{game[0].games_requirements_hd_min}}</td>
+						<td>{{game[0].games_requirements_hd_rec}}</td>
+					</tr>
+
+					<tr>
+						<td>Video Card</td>
+						<td>{{game[0].games_requirements_video_card_min}}</td>
+						<td>{{game[0].games_requirements_video_card_rec}}</td>
+					</tr>
+
+					<tr>
+						<td>DirectX®</td>
+						<td>{{game[0].games_requirements_directx_min}}</td>
+						<td>{{game[0].games_requirements_directx_rec}}</td>
+					</tr>
+
+					<!--<tr>
 						<td>OS</td>
 						<td>Windows Xp, Vista, 7, 8/8.1, 10</td>
 						<td>Windows 7, 8/8.1, 10</td>
@@ -146,41 +168,40 @@
 						<td>DirectX®</td>
 						<td>9.0c or Greater</td>
 						<td>9.0c or Greater</td>
-					</tr>
+					</tr>-->
 				</table>			
 			</div>			
-		  	<button type="submit" class="btn btn-primary">9.99€ Add to cart</button>
-		  	<button type="submit" class="btn btn-primary">Community forum</button>
+		  	<button type="submit" class="btn btn-primary">{{game[0].games_price}}€ Add to cart</button>
 		</div>
 
 		<div id="valorations">
 			<h4 class="h4">VALORATIONS</h4>
 			<hr>
-			<div class="thread">		
-				<p>Before you say that this game doesn't have mods,	It does</p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Juan<br><i class="glyphicon glyphicon-time"></i> 14:23 23/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
-			</div>
-			<div class="thread">	
-				<p>Better than Minecraft. This game is fantastic.</p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> David<br><i class="glyphicon glyphicon-time"></i> 19:49 23/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
-			</div>
-			<div class="thread">	
-				<p>Recieved this game as a gift from my friend long ago and I was very confused by it at first, but now down the road I look back at that time and think, wow this has been a great game for a long time. I would really reccomend this game, it's the right combination of know-how, skill and good ol fashion luck to keep me wanting to play again. Not to mention the item diversity makes multiplayer that much cooler! </p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Blancafort<br><i class="glyphicon glyphicon-time"></i> 11:03 24/02<i class="glyphicon glyphicon-thumbs-up"></i></h6>
-			</div>
-			<div class="thread">	
-				<p>Terraria got a 9/10 IGN. Breath of The Wild got a 10/10 IGN</p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> Blancafort<br><i class="glyphicon glyphicon-time"></i> 11:03 24/02<i class="glyphicon glyphicon-thumbs-down"></i></h6>
+			<div class="thread" ng-repeat="thisGame in game">		
+				<p>{{thisGame.reviews_text}}</p>
+				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> {{thisGame.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{thisGame.review_datetime}}<i ng-if="thisGame.reviews_rating==1" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="thisGame.reviews_rating==0" class='glyphicon glyphicon-thumbs-down'></i></h6>
 			</div>
 			<hr>
-	        <div class="form-group">		        
-	       		<div class="input-group">
-	       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-			  		<textarea class="form-control" id="description" placeholder="Write here tour answer." rows="3"></textarea>
-		  		</div>
-		    </div>
-		  	<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
-		  	<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+			<div ng-if="checkUser=='true'">
+			<form  method="post" name="addReviewManagement" novalidate ng-submit="addReviewManagement.$valid && !gameProfileCtrl.checkAddReview()">
+		        <div class="form-group">		        
+		       		<div class="input-group">
+		       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+				  		<textarea class="form-control" id="reviewDescription" ng-model="gameProfileCtrl.reviewDescription" placeholder="Write here tour answer." rows="3" required></textarea>
+			  		</div>
+			    </div>
+			    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(1)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+			    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(0)"><span class="glyphicon glyphicon-thumbs-down"></span></button><br/>
+			  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addReviewManagement.$invalid || likeButton==0" ng-click="gameProfileCtrl.checkAddReview(gameProfileCtrl.reviewDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
+			</form>
+		</div>
+		<div ng-if="showAddReviewMessage==1">
+			<hr>
+			<div class="alert alert-success" translate="Your review has been saved!"></div>
+		</div>
+		<div ng-if="showAddReviewMessage==0">
+			<hr>
+			<div class="alert alert-danger" translate="¡Error! There has been an error with the review"></div>
 		</div>
 	</main>
 </body>
