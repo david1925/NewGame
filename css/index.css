@@ -18,3 +18,12 @@ body main article figure figcaption {
 #title2 {
 	margin: 3% 0% 0% 0%;
 }
+
+#shoppingCart{
+	border-radius: 50px;
+	width: 3em;
+	height: 3em;
+	background-color: #222;
+	border-style: 1px;
+	border-color: #222 !important;
+}

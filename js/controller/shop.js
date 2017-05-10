@@ -1,5 +1,5 @@
 (function(){
-  angular.module("NewGameApp").controller("shopController", ['$scope', '$http', '$filter', '$translate', 'Domain', function($scope, $http, $filter, $translate, Domain) {
+  angular.module("NewGameApp").controller("shopController", ['$scope', '$http', '$filter', '$translate', 'Domain', 'shoppingCart', function($scope, $http, $filter, $translate, Domain, shoppingCart) {
 
     //scope variables
     $scope.pageSize=10;
@@ -61,6 +61,12 @@
     $scope.changeLanguage = function (translate) {
         $translate.use(translate);
         localStorage.setItem("language",translate);
+    };
+
+    this.addToShoppingCart = function (idGame) {
+        shoppingCart.setProperty(idGame);
+        //alert("Valor del contenido del  local storage: " + localStorage.getItem("shoppingCart"));
+        //alert(shoppingCart.getProperty());
     };
   }]);
 })();

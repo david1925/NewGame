@@ -72,16 +72,16 @@
 											<i ng-if="game.getRating()>=0.5" class='glyphicon glyphicon-thumbs-up' ></i>
 											<i ng-if="game.getRating()<0.5 && game.getRating()!=null" class='glyphicon glyphicon-thumbs-down'></i>
 										</div>	
-										<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">	
-											<button type="button" class="btn btn-primary btn-sm">
-												<span class="glyphicon glyphicon-shopping-cart"></span> {{game.getPrice()}} €
-											</button>
-										</div>
 										</figcaption>
 									</div>
 								</div>
 							</a>								
-						</figure>	
+						</figure>
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">	
+											<button type="button" class="btn btn-primary btn-sm" ng-click="shopCtrl.addToShoppingCart(game.getIdGame())">
+												<span class="glyphicon glyphicon-shopping-cart"></span> {{game.getPrice()}} €
+											</button>
+										</div>
 					</div>
 					<div id="pagination" boundary-links="true">
 						<dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>

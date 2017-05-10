@@ -34,8 +34,8 @@
   $translateProvider.translations("es", {
     "SIGN": "Registrarse",
     "FRIENDS" : "Amigos",
-    "LOGIN" : "Inicia sesion",
-    "LOGOUT" : "Cierra sesion",
+    "LOGIN" : "Entrar",
+    "LOGOUT" : "Cierra sesión",
     "USER INFO": "Informacion de usuario",
     "PROFILE IMAGE": "Imagen de perfil",
     "FILL THE FORM": "Rellena el formulario",
@@ -61,7 +61,7 @@
   $translateProvider.translations("ca", {
     "SIGN": "Registrar-se",
     "FRIENDS" : "Amics",
-    "LOGIN" : "Inicia sessió",
+    "LOGIN" : "Entrar",
     "LOGOUT" : "Tanca sessió",
     "USER INFO": "Informacio d'usuari",
     "PROFILE IMAGE": "imatge de perfil",
@@ -92,6 +92,23 @@
 
     angular.module("NewGameApp").factory('Domain', function(){
         return "http://www.newgame.local/";
+    })
+
+    angular.module("NewGameApp").service('shoppingCart', function(){
+    	var products = new Array();
+        return {
+            getProperty: function () {
+            	products = localStorage.getItem("shoppingCart");
+                return products;
+            },
+            setProperty: function(value) {
+            	products = JSON.parse(localStorage.getItem("shoppingCart"));
+            	if(products==null)products=new Array();            	
+                products.push(value);                
+                localStorage.setItem("shoppingCart", JSON.stringify(products));
+                console.log("Valor del localStorage después de hacer el setItem" + localStorage.getItem("shoppingCart"));
+            }
+        };
     })
 
     angular.module("NewGameApp").config(function($routeProvider) {
