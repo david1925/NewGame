@@ -13,6 +13,7 @@ require '../src/routes/users.php';
 require '../src/routes/games.php';
 require '../src/routes/forums.php';
 require '../src/routes/genres.php';
+require '../src/routes/chats.php';
 
 
 $app->run();

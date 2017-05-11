@@ -9,7 +9,7 @@
     //Get id from url
     var url = $location.absUrl();
     url = url.substr(50,52);
-    
+    console.log(url);
             //GET all attributes from a game
             $http.get(Domain + "api/public/games/" + url)
             .then(function (response) {$scope.game = response.data;});

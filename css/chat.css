@@ -5,3 +5,18 @@
 textarea {
 	background-color: #404040;
 }
+
+.userMessage {
+  display: inline-block;
+  max-width: 70%;
+  float: left;
+  clear:both;
+}
+
+.friendMessage {
+  float: right;
+  clear:both;
+  text-align: right;
+  margin-left: 35%;
+  max-width: 70%;
+}

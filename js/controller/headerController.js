@@ -3,13 +3,35 @@
 
 
     //scope variables
-    $scope.shoppingCartGames = JSON.parse(localStorage.getItem("shoppingCart"));
+    $scope.loginRoute = Domain + "view/login.html";
 
     if(sessionStorage.userLogged!=null){
       $scope.showLoginButton=1;
     }else{
       $scope.showLoginButton=0;
     }
+
+    this.loadShoppingCart = function () {
+           $scope.shoppingCartGames = JSON.parse(localStorage.getItem("shoppingCart"));
+           $scope.gamesToShow = [];
+            var cont=0;
+            var contForPrice=0;
+           $scope.totalPrice=0;
+          if(JSON.parse(localStorage.getItem("shoppingCart"))!=null){
+             $scope.shoppingCartGamesNumber = JSON.parse(localStorage.getItem("shoppingCart")).length;
+             for(var i = 0; i<$scope.shoppingCartGamesNumber; i++){
+                $http.get(Domain + "api/public/games/shoppingCart/" + $scope.shoppingCartGames[i]).then(function (response) {$scope.game = response.data;
+                      $scope.gamesToShow.push($scope.game);      
+                      console.log("Se muestra el nombre del juego " + $scope.gamesToShow[cont][0].games_name);                      
+                      $scope.totalPrice = parseFloat($scope.totalPrice) + parseFloat($scope.gamesToShow[cont][0].games_price);                       
+                      cont++;
+                      console.log("Precio total: " + Math.round($scope.totalPrice));
+                      $scope.totalPrice = Math.round($scope.totalPrice);
+                });
+            }
+            
+          }
+        };
 
     $http.get(Domain + "api/public/users/login/check")
         .then(function (response) {
@@ -36,9 +58,7 @@
             );
 
             $http.get(Domain + "api/public/users/friends/" + $scope.user.getId())
-                .then(function (response) {$scope.userFriends = response.data;
-                    console.log($scope.userFriends);
-            }); 
+                .then(function (response) {$scope.userFriends = response.data;}); 
         }
     });
 
@@ -64,5 +84,8 @@
             console.log("Paso por aqui")
             window.open("../index.html", "_self");
         };
+
+    this.loadShoppingCart();
+
     }]);
 })();

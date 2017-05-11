@@ -42,7 +42,7 @@
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                     <ul class="nav navbar-nav">                           
                         <li>
-                            <a href="view/login.html" style="background-color: #008000; color: white" ng-if="showLoginButton==0" translate="LOGIN"></a>
+                            <a href="{{loginRoute}}" style="background-color: #008000; color: white" ng-if="showLoginButton==0" translate="LOGIN"></a>
                         </li>
                         <li>
                             <a href="index.html" ng-click="headerCtrl.logOut()" style="background-color: #990000; color: white" ng-if="showLoginButton==1" translate="LOGOUT"></a>
@@ -52,19 +52,21 @@
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
                 	<ul class="nav navbar-nav">
                         <li class="dropdown pull-left">
-                            <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart"></i></a>
+                            <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
                             <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
-                                <li class="friend" ng-repeat="shoppingCartGame in shoppingCartGames track by $index">
+                                <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index">
                                     <a href="#">
-                                        <h6 class="h6">Funciona</h6>
+                                        <h6 class="h6">{{gameToShow[0].games_name}}   <strong>{{gameToShow[0].games_price}}€</strong>  <!--<button type="button" class="btn btn-danger">X</button>--></h6>
                                     </a>
                                 </li>
+                                <li><hr></li>
+                                <li id="blackText">Total: {{totalPrice}}€</li>
                             </ul>
                         </li> 
                     </ul>
                 </div>
             </nav>
-        </div> 
+        </div>
     </div>
 
     <div class="container">        

@@ -148,3 +148,22 @@ $app->post('/games/reviews/add', function(Request $request, Response $response){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+$app->get('/games/shoppingCart/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image FROM Games
+            WHERE Games.games_id_game=:id";
+    try{
+         // Get DB Object
+        $db = new db();
+        $db = $db->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($games);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
