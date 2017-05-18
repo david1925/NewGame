@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Angular Route -->
+	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
+  	<!--Angulacar pagination-->
+  	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/shop.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/purchaseController.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Model -->
+	<script src="../js/model/Game.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
+
+		<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/purchase.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+
+</head>
+<body ng-controller="purchaseController as purchaseCtrl">
+	
+	<!-- HEADER -->	
+	<header ng-include="'header.html'"></header>	
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="invoice-title">
+    			<h2 translate="Confirm purchase"></h2>
+    		<hr>	
+    		</div>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong translate="Billed To: "></strong> {{user.getName()}} {{user.getFirstName()}}
+    				</address>
+    			</div>
+    		</div>
+    		
+    	</div>
+    </div>    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong translate="Order placed on: "></strong><strong> {{now}}</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong translate="Game"></strong></td>
+        							<td class="text-center"><strong translate="Price"></strong></td>
+        							<td class="text-center"><strong translate="Availability"></strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr ng-repeat="gameToShow in gamesToShow track by $index">
+    								<td class="col-md-3">
+    								    <div class="media">
+    								         <a class="thumbnail pull-left" href="#"> <img class="media-object" src="../images/games/{{gameToShow[0].games_url_image}}/{{gameToShow[0].games_url_image}}" alt="{{gameToShow[0].games_name}}" style="width: 72px; height: 72px;"> </a>
+    								         <div class="media-body">
+    								             <h4 class="media-heading"> {{gameToShow[0].games_name}}</h4>
+    								         </div>
+    								    </div>
+    								</td>
+    								<td class="text-center">{{gameToShow[0].games_price}}€</td>
+    								<td>
+    								  <div class="col-md-13">
+        								  <div class="progress">
+        								       <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+        								           <span class="sr-only">100% Complete</span>
+        								        </div>
+        								        <span class="progress-type">Packaging</span>
+        								        <span class="progress-completed">100%</span>
+        								  </div>
+        								 </div>    								    
+    								</td>
+    							</tr>                                
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+         <div class="col-md-12">
+            <div class="col-md-4">
+            	<h3 class="text-center" translate="Order Summary"></h3><hr>
+            	<div class="pull-left"><h4>Total</h4> </div>
+            	<div class="pull-right"><h4 class="text-right">{{totalPrice}} €</h4></div>
+            	<div class="clearfix"></div>
+        	</div>
+        	<div class="col-md-4 offset-md-1">
+            	<h3 class="text-center" translate="Payment Type"></h3><hr>
+            	<div class="text-center">
+            	    <strong>Paypal</strong><br>
+            	 </div>
+        	</div>
+        	<div class="col-md-4 offset-md-2">
+            	<h3 class="text-center" translate="Other Info"></h3><hr>
+            	<address>
+            	    <strong translate="Billed To: "></strong>{{user.getName()}}
+            	    
+            	 </address>
+            	 <button type="button" class="btn btn-success" translate="Confirm purchase" ng-click="confirmPurchase()"></button>
+            	 <button type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></button>
+            	 <div ng-if="shoppingCartAlert==1" class="alert alert-danger" translate="Your shopping cart it's empty"><strong>Error!</strong></div>
+            	 <show-paypal-form ng-if="showPaypalForm==1"></show-paypal-form>
+        	</div>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

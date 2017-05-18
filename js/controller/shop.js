@@ -63,10 +63,13 @@
         localStorage.setItem("language",translate);
     };
 
+    $scope.loadShoppingCart = function(){
+        $scope.$broadcast("loadShoppingCart", {});
+    };
+
     this.addToShoppingCart = function (idGame) {
         shoppingCart.setProperty(idGame);
-        //alert("Valor del contenido del  local storage: " + localStorage.getItem("shoppingCart"));
-        //alert(shoppingCart.getProperty());
+        $scope.loadShoppingCart();
     };
   }]);
 })();

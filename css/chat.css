@@ -2,10 +2,6 @@
   resize: none; 
 }
 
-textarea {
-	background-color: #404040;
-}
-
 .userMessage {
   display: inline-block;
   max-width: 70%;
@@ -19,4 +15,12 @@ textarea {
   text-align: right;
   margin-left: 35%;
   max-width: 70%;
+}
+
+.friendMessage.well{
+	background-color: rgba(0,100,50, 0.4);
+}
+
+.userMessage.well {
+	background-color: rgba(20,90,94, 0.4);
 }

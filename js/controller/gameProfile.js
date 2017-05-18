@@ -1,5 +1,5 @@
 (function(){
-  angular.module("NewGameApp").controller("gameProfileController", ['$scope', '$http', '$filter', '$translate', 'Domain', '$location', function($scope, $http, $filter, $translate, Domain, $location) {
+  angular.module("NewGameApp").controller("gameProfileController", ['$scope', '$http', '$filter', '$translate', 'Domain', '$location', 'shoppingCart', function($scope, $http, $filter, $translate, Domain, $location, shoppingCart) {
 
     //scope variables
     $scope.pageSize=10;
@@ -32,6 +32,15 @@
             $scope.showAddReviewMessage=0;
           }
         });     
+    };
+
+        $scope.loadShoppingCart = function(){
+         $scope.$broadcast("loadShoppingCart", {});
+        };
+
+    this.addToShoppingCart = function (idGame) {
+        shoppingCart.setProperty(idGame);
+        $scope.loadShoppingCart();
     };
     
   }]);

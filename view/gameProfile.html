@@ -138,40 +138,9 @@
 						<td>{{game[0].games_requirements_directx_min}}</td>
 						<td>{{game[0].games_requirements_directx_rec}}</td>
 					</tr>
-
-					<!--<tr>
-						<td>OS</td>
-						<td>Windows Xp, Vista, 7, 8/8.1, 10</td>
-						<td>Windows 7, 8/8.1, 10</td>
-					</tr>
-					<tr>
-						<td>Processor</td>
-						<td>2.0 Ghz</td>
-						<td>Dual Core 3.0 Ghz</td>
-					</tr>
-					<tr>
-						<td>Memory</td>
-						<td>2.5GB</td>
-						<td>4GB</td>
-					</tr>
-					<tr>
-						<td>Hard Disk Space</td>
-						<td>200MB</td>
-						<td>200MB</td>
-					</tr>
-					<tr>
-						<td>Video Card</td>
-						<td>128mb Video Memory, capable of Shader Model 2.0+</td>
-						<td>256mb Video Memory, capable of Shader Model 2.0+</td>
-					</tr>
-					<tr>
-						<td>DirectX®</td>
-						<td>9.0c or Greater</td>
-						<td>9.0c or Greater</td>
-					</tr>-->
 				</table>			
 			</div>			
-		  	<button type="submit" class="btn btn-primary">{{game[0].games_price}}€ Add to cart</button>
+		  	<button type="submit" class="btn btn-primary" ng-click="gameProfileCtrl.addToShoppingCart(game[0].games_id_game)">{{game[0].games_price}}€ Add to cart</button>
 		</div>
 
 		<div id="valorations">

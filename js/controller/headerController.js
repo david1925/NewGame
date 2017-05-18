@@ -4,6 +4,7 @@
 
     //scope variables
     $scope.loginRoute = Domain + "view/login.html";
+    $scope.purchaseRoute = Domain + "view/purchase.html"
 
     if(sessionStorage.userLogged!=null){
       $scope.showLoginButton=1;
@@ -11,8 +12,8 @@
       $scope.showLoginButton=0;
     }
 
-    this.loadShoppingCart = function () {
-           $scope.shoppingCartGames = JSON.parse(localStorage.getItem("shoppingCart"));
+     $scope.$on("loadShoppingCart", function () {
+                 $scope.shoppingCartGames = JSON.parse(localStorage.getItem("shoppingCart"));
            $scope.gamesToShow = [];
             var cont=0;
             var contForPrice=0;
@@ -22,16 +23,16 @@
              for(var i = 0; i<$scope.shoppingCartGamesNumber; i++){
                 $http.get(Domain + "api/public/games/shoppingCart/" + $scope.shoppingCartGames[i]).then(function (response) {$scope.game = response.data;
                       $scope.gamesToShow.push($scope.game);      
-                      console.log("Se muestra el nombre del juego " + $scope.gamesToShow[cont][0].games_name);                      
+                      //console.log("Se muestra el nombre del juego " + $scope.gamesToShow[cont][0].games_name);                      
                       $scope.totalPrice = parseFloat($scope.totalPrice) + parseFloat($scope.gamesToShow[cont][0].games_price);                       
                       cont++;
-                      console.log("Precio total: " + Math.round($scope.totalPrice));
+                      //console.log("Precio total: " + Math.round($scope.totalPrice));
                       $scope.totalPrice = Math.round($scope.totalPrice);
                 });
             }
             
           }
-        };
+        });
 
     $http.get(Domain + "api/public/users/login/check")
         .then(function (response) {
@@ -85,7 +86,17 @@
             window.open("../index.html", "_self");
         };
 
-    this.loadShoppingCart();
+    //$scope.loadShoppingCart();
+    $scope.loadShoppingCart = function(){
+   $scope.$broadcast("loadShoppingCart", {});
+};
+
+  $scope.emptyShoppingCart = function() {
+          localStorage.clear();        
+          $window.open(Domain + 'view/shop.html', "_self");
+    } 
+  
+  $scope.loadShoppingCart();
 
     }]);
 })();

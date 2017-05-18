@@ -167,3 +167,60 @@ $app->get('/games/shoppingCart/{id}', function(Request $request, Response $respo
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+$app->post('/games/confirmPurchase', function(Request $request, Response $response){
+    $gamesArray = [];
+    $gamesArray = $request->getParam("gamesArray");
+    $total = $request->getParam("total");
+    echo "VALOR DEL TOTAL DESDE EL CLIENTE: " . $total;
+    $userId = $request->getParam("userId");
+
+    // Get DB Object
+        $db = new db();
+        $db = $db->connect();
+    for($i=0; $i<count($gamesArray); $i++){
+        $sql="SELECT Games.games_price FROM Games
+              WHERE Games.games_id_game=".$gamesArray[$i];
+        // Connect
+        $stmt = $db->query($sql);
+        $gamesPriceArray[$i]= $stmt->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
+    $totalPriceServer =0;
+    for ($j=0; $j < count($gamesPriceArray); $j++) { 
+        $totalPriceServer = ($totalPriceServer + $gamesPriceArray[$j][0]->games_price);
+    }
+    $totalPriceServer = round($totalPriceServer);
+            $sql = "INSERT INTO Bills (bills_price,bills_payment,Users_users_id_user) VALUES (:bills_price,'PayPal',:userId)";
+                    echo "ESTE ES EL VALOR DEL CLIENTE: " . $total;
+                    echo "<br/> ESTE ES EL VALOR DEL SERVIDOR: " . $totalPriceServer;
+        try{
+             // Get DB Object
+            if($totalPriceServer==$total){
+                $stmt = $db->prepare($sql);
+                $stmt->bindParam(":bills_price", $totalPriceServer);
+                $stmt->bindParam(":userId", $userId);
+                $stmt->execute();
+                $sql2 = "SELECT Bills.bills_id_bill FROM Bills ORDER BY Bills.bills_id_bill DESC LIMIT 1;";
+                $stmt2 = $db->query($sql2);
+                $idBillToInsert= $stmt2->fetchAll(PDO::FETCH_OBJ);
+                $idBillToInsert = $idBillToInsert[0]->bills_id_bill;
+                $sql3 = "INSERT INTO Bill_Details (Bills_bills_id_bill,Games_games_id_game) VALUES (:billId,:gameId)";
+                echo "llego hasta aqui";
+                $gamesArray = array_unique($gamesArray);
+                for($k=0; $k<count($gamesArray); $k++){
+                    $stmt = $db->prepare($sql3);
+                    $stmt->bindParam(":billId", $idBillToInsert);
+                    $stmt->bindParam(":gameId", $gamesArray[$k]);
+                    $stmt->execute();
+                }
+                echo json_encode(true);
+
+            }else{
+                echo json_encode(false);
+            }
+        } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});

@@ -74,3 +74,8 @@ img{
   color: black;
   margin-left: 7%;
 }
+
+a .btn-success{
+
+  text-decoration: none;
+}

@@ -59,8 +59,12 @@
                                         <h6 class="h6">{{gameToShow[0].games_name}}   <strong>{{gameToShow[0].games_price}}€</strong>  <!--<button type="button" class="btn btn-danger">X</button>--></h6>
                                     </a>
                                 </li>
+                                <div ng-if="gamesToShow!=''">
                                 <li><hr></li>
-                                <li id="blackText">Total: {{totalPrice}}€</li>
+                                <br><br>
+                                    <li id="blackText">Total: {{totalPrice}}€ <a href="{{purchaseRoute}}" class="btn btn-success" translate="Finalize purchase"></a></li>
+                                    <li><a href="#" type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></a></li>
+                                </div>
                             </ul>
                         </li> 
                     </ul>
