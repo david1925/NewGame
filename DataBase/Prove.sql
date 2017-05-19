@@ -394,7 +394,7 @@ INSERT INTO Games (games_name,games_description,games_price,games_publication_da
 VALUES ("Prey","In Prey, you awaken aboard Talos I, a space station orbiting the moon in the year 2032. You are the key subject of an experiment meant to alter humanity forever - but things have gone terribly wrong. The space station has been overrun by hostile aliens and you are now being hunted. As you dig into the dark secrets of Talos I and your own past, you must survive using the tools found on the station -- your wits, weapons, and mind-bending abilities.",59.99,"2017-05-05","26.jpg",2);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
-VALUES ("Grand Theft Auto","When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.",59.99,"2015-04-14","27.jpg",8);
+VALUES ("Grand Theft Auto V","When a young street hustler, a retired bank robber and a terrifying psychopath find themselves entangled with some of the most frightening and deranged elements of the criminal underworld, the U.S. government and the entertainment industry, they must pull off a series of dangerous heists to survive in a ruthless city in which they can trust nobody, least of all each other.",59.99,"2015-04-14","27.jpg",8);
 
 INSERT INTO Games (games_name,games_description,games_price,games_publication_date,games_url_image,genders_genders_id_gender)
 VALUES ("God of War","God of War is a third-person action-adventure video game developed by Santa Monica Studio and published by Sony Computer Entertainment (SCE). First released on March 22, 2005, for the PlayStation 2 (PS2) console, it is the first installment in the series of the same name and the third chronologically. Loosely based on Greek mythology, it is set in ancient Greece with vengeance as its central motif. The player controls the protagonist Kratos, a Spartan warrior who serves the Olympian Gods.",49.99,"2005-03-22","28.jpg",9);
@@ -582,16 +582,16 @@ INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,gam
                                games_requirements_directx_rec) 
                                VALUES(2,"Windows XP/Vista", "2.4 Ghz or equivalent processor with SSE2 support", "1GB","8GB",
                                "256mb video ram or better (GeForce 7 series or higher/Radeon HD3000 series or higher)","9.0c or Greater", 
-                               " Windows XP/Vista","2.4 Ghz or equivalent processor with SSE2 support","2GB","8GB",
+                               "Windows XP/Vista","2.4 Ghz or equivalent processor with SSE2 support","2GB","8GB",
                                "256mb video ram or better (GeForce 7 series or higher/Radeon HD3000 series or higher)","9.0c or Greater");
 
 INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
 							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
                                games_requirements_directx_rec) 
-                               VALUES(3,"Windows XP/Windows Vista (only)", "Dual core processor 2.6 GHz Intel Pentium D or AMD Athlon™ 64 X2 3800", "1GB","8GB",
-                               "256 MB DirectX® 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","9.0c or Greater", 
-                               "Windows XP/Windows Vista (only)","Intel Core® 2 Duo 2.2 GHz or AMD Athlon 64 X2 4400+ or better ","2GB","8GB",
-                               "256 MB DirectX® 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","10 or Greater");
+                               VALUES(3,"Windows XP/Windows Vista (only)", "Dual core processor 2.6 GHz Intel Pentium D or AMD Athlon 64 X2 3800", "1GB","8GB",
+                               "256 MB DirectX 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","9.0c or Greater", 
+                               "Windows XP/Windows Vista (only)","Intel Core 2 Duo 2.2 GHz or AMD Athlon 64 X2 4400+ or better ","2GB","8GB",
+                               "256 MB DirectX 10.0-compliant video card or DirectX 9.0-compliant card with Shader Model 3.0 or higher (*see supported list)","10 or Greater");
 
 INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
 							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
@@ -607,10 +607,255 @@ INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,gam
                                VALUES(5,"Windows 7 SP1 64bit, Windows 8.1 64bit", "AMD A8 3870 3,6 Ghz or Intel Core i3 2100 3.1Ghz", "4GB","23GB",
                                "NVIDIA GeForce GTX 465 / ATI Radeon TM HD 6870", "11",
                                "Windows 7 SP1 64bit, Windows 8.1 64bit","AMD FX 8150 3.6 GHz or Intel Core i7 2600 3.4 GHz","8GB","23GB",
-                               "NVIDIA® GeForce GTX 750, ATI Radeon™ HD 7850","11");
+                               "NVIDIA GeForce GTX 750, ATI Radeon HD 7850","11");
 
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(6,"Windows 7 SP1 64bit, Windows 8.1 64bit Windows 10 64bit", "Intel Core i3-2100 / AMD FX-6300", "4GB","25GB",
+                               "NVIDIA GeForce GTX 750 Ti / ATI Radeon HD 7950", "11",
+                               "Windows 7 SP1 64bit, Windows 8.1 64bit Windows 10 64bit","Intel Core i7-3770 / AMD FX-8350","8GB","25GB",
+                               "NVIDIA GeForce GTX 970 / ATI Radeon R9 series","11");
 
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(7,"WINDOWS 7, 8, 8.1, 10 (64-BIT Required)", "Intel Core i5-4460, 2.70GHz or AMD FX-6300 or better", "8GB","24GB",
+                               "NVIDIA GeForce GTX 760 or AMD Radeon R7 260x with 2GB Video RAM", "11",
+                               "WINDOWS 7, 8, 8.1, 10 (64-BIT Required)","Intel Core i7 3770 3.4GHz or AMD equivalent or better","8GB","24GB",
+                               "NVIDIA GeForce GTX 1060 with 3GB VRAM","11");
 
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(8,"Windows Xp, Vista, 7, 8/8.1, 10", "2.0Ghz", "2.5GB","200MB",
+                               "128mb Video Memory, capable of Shader Model 2.0+", "9.0c or Greater",
+                               "Windows Xp, Vista, 7, 8/8.1, 10","Dual Core 3.0 Ghz","4GB","200MB",
+                               "256mb Video Memory, capable of Shader Model 2.0+","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(9,"Windows XP (32-64 bits) /Windows Vista(32-64 bits)/Windows 7 (32-64 bits)", "Intel Core 2 Duo 1.8 GHZ or AMD Athlon X2 64 2.4GHZ", "2GB","8GB",
+                               "256 MB DirectX 9.0–compliant card with Shader Model 3.0 or higher", "9.0c or Greater",
+                               "Windows XP (32-64 bits) /Windows Vista(32-64 bits)/Windows 7 (32-64 bits)","Intel Core 2 Duo E6700 2.6 GHz or AMD Athlon 64 X2 6000+ or better","2GB","8GB",
+                               "GeForce 8800 GT or ATI Radeon HD 4700 or better","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(10,"Windows XP (32-64 bits) /Windows Vista(32-64 bits)/Windows 7 (32-64 bits)", "Intel Core 2 Duo 1.8 GHZ or AMD Athlon X2 64 2.4GHZ", "2GB","8GB",
+                               "256 MB DirectX 9.0–compliant card with Shader Model 3.0 or higher", "9.0c or Greater",
+                               " Windows XP (32-64 bits) /Windows Vista(32-64 bits)/Windows 7 (32-64 bits)","Intel Core 2 Duo E6700 2.6 GHz or AMD Athlon 64 X2 6000+ or better","2GB","8GB",
+                               "GeForce 8800 GT or ATI Radeon HD 4700 or better","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(11,"Windows XP SP3 / Windows Vista SP2 /Windows 7 SP1", "Intel Core2 Duo E4400 @ 2.0 GHz or AMD Athlon 64 X2 4000+ @ 2.1GHz", "1.5GB","12GB",
+                               "256 MB DirectX 9.0–compliant card with Shader Model 4.0 or higher", "11",
+                               "Windows XP SP3 / Windows Vista SP2 /Windows 7 SP1","Intel Core2 Duo E6700 @ 2.6 GHz or AMD Athlon 64 X2 6000+ @ 3.0 GHz or better","2GB","12GB",
+                               "512 MB DirectX 9.0–compliant card with Shader Model 5.0 or higher","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(12,"Windows Vista (SP2) / Windows 7 (SP1) / Windows 8", "2.60 GHz Intel Core2 Duo E8200 or 2.60 GHz AMD Athlon II X4 620 ", "2GB","17GB",
+                               "512 MB DirectX 10—compliant with Shader Model 4.0 or higher", "10",
+                               "Windows Vista (SP2) / Windows 7 (SP1) / Windows 8","2.66 GHz Intel Core2 Quad Q9400 or 3.00 GHz AMD Phenom II X4 940","4GB","17GB",
+                               "1024 MB DirectX 10—compliant with Shader Model 5.0 or higher","10");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(13,"Windows Vista SP2 or Windows 7 SP1 or Windows 8", "Intel Core2Quad Q8400 @ 2.6 GHz or AMD Athlon II X4 620 @ 2.6 GHz", "2GB","30GB",
+                               "Nvidia Geforce GTX 260 or AMD Radeon HD 4870", "11",
+                               "Windows Vista SP2 or Windows 7 SP1 or Windows 8","Intel Core i5 2400S @ 2.5 GHz or better or AMD Phenom II x4 940 @ 3.0 GHz","4GB","30GB",
+                               "Nvidia GeForce GTX 470 or AMD Radeon HD 5850","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(14,"Windows 7 SP1, Windows 8/8.1", "Intel Core i5-2500K @ 3.3 GHz or AMD FX-8350 @ 4.0 GHz", "6GB","50GB",
+                               "NVIDIA GeForce GTX 680 or AMD Radeon HD 7970", "9.0c or Greater",
+                               "Windows 7 SP1, Windows 8/8.1","Intel Core i7-3770 @ 3.4 GHz or AMD FX-8350 @ 4.0 GHz or better","8GB","50GB",
+                               "NVIDIA GeForce GTX 780 or AMD Radeon R9 290X","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(15,"Windows", "Pentium 90Mhz or faster", "16MB","565MB",
+                               "SVGA", "Any DirectX",
+                               "Windows","Pentium 90Mhz or faster","16MB","565MB",
+                               "SVGA","Any DirectX");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(16,"Windows", "Pentium 90Mhz or faster", "16MB","565MB",
+                               "SVGA", "Any DirectX",
+                               "Windows","Pentium 90Mhz or faster","16MB","565MB",
+                               "SVGA","Any DirectX");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(17,"Windows XP/Vista", "2.4 Ghz Intel Pentium 4 or equivalent processor", "1GB","7GB",
+                               "Direct X 9.0c compliant video card with 256MB RAM", "9.0c or Greater",
+                               "Windows XP/Vista","Intel Core 2 Duo processor","2GB","7GB",
+                               "Direct X 9.0c compliant video card with 512MB RAM","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(18,"Windows 7/8/10", "Intel Core i5-2300 2.8 GHz/AMD Phenom II X4 945 3.0 GHz or equivalent", "8GB","30GB",
+                               "NVIDIA GTX 550 Ti 2GB/AMD Radeon HD 7870 2GB or equivalent", "11",
+                               "Windows 7/8/10","Intel Core i7 4790 3.6 GHz/AMD FX-9590 4.7 GHz or equivalent","8GB","30GB",
+                               "NVIDIA GTX 780 3GB/AMD Radeon R9 290X 4GB or equivalent","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(19,"Windows 7x64, Windows 8x64, Windows 10x64", "Intel Core i5-4460 (3.40 GHz) or better; Quad-core or better", "4GB","28GB",
+                               "NVIDIA GeForce GTX 650 (2GB) or better", "11",
+                               "Windows 7x64, Windows 8x64, Windows 10x64","Intel Core i7-4790 (3.60GHz) or better; Quad-core or better","8GB","28GB",
+                               "NVIDIA GeForce GTX 760","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(20,"Windows Vista Service Pack 2 32-bit", "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz", "2GB","20GB",
+                               "DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics", "11",
+                               "Windows 7 Service Pack 1 64-bit","Quad Core Processor","4GB","30GB",
+                               "DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(21,"Windows Vista, 7, 8 Pro+", "1.2GHZ CPU", "1GB","2GB",
+                               "Direct X 9.0c Capable GPU", "9.0c or Greater",
+                               "Windows Vista, 7, 8 Pro+","1.2GHZ CPU","1GB","2GB",
+                               "Direct X 9.0c Capable GPU","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(22,"Windows Vista, 7, 8 Pro+", "1.2GHZ CPU", "1GB","2GB",
+                               "Direct X 9.0c Capable GPU", "9.0c or Greater",
+                               "Windows Vista, 7, 8 Pro+","1.2GHZ CPU","1GB","2GB",
+                               "Direct X 9.0c Capable GPU","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(23,"Windows XP", "Intel Core 2 Duo 2.2 GHz or AMD Athlon 64 X2 2.0 GHz", "2GB","12GB",
+                               "64 MB NVIDIA GeForce 6800 or ATI Radeon X1300", "9.0c or Greater",
+                               "Windows XP","Intel Core 2 Duo 2.2 GHz or AMD Athlon 64 X2 2.0 GHz","2GB","12GB",
+                               "64 MB NVIDIA GeForce 6800 or ATI Radeon X1300","9.0c or Greater");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(24,"64-bit Windows 7, 64-bit Windows 8 (8.1) or 64-bit Windows 10", "Intel CPU Core i5-2500K 3.3GHz / AMD CPU Phenom II X4 940", "6GB","35GB",
+                               "Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870", "11",
+                               "64-bit Windows 7, 64-bit Windows 8 (8.1) or 64-bit Windows 10","Intel CPU Core i7 3770 3.4 GHz / AMD CPU AMD FX-8350 4 GHz","8GB","35GB",
+                               "Nvidia GPU GeForce GTX 770 / AMD GPU Radeon R9 290","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(25,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
+                               "NVIDIA GeForce GTX 660 (2 GB Memory Minimum) | AMD Radeon HD 7870 (2 GB Memory Minimum)", "11",
+                               "Win 7 SP1, Win 8.1","Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz","8GB","55GB",
+                               "NVIDIA GeForce GTX 760 - 3 GB Memory Recommended | AMD Radeon HD 7950 - 3 GB Memory Recommended","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(26,"Windows 7/8/10", "Intel i5-2400, AMD FX-8320", "8GB","20GB",
+                               "GTX 660 2GB, AMD Radeon 7850 2GB", "11",
+                               "Windows 7/8/10","Intel i7-2600K, AMD FX-8350","16GB","20GB",
+                               "GTX 970 4GB, AMD R9 290 4GB","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(27,"Windows 10 64 Bit, Windows 8.1 64 Bit", "Intel Core 2 Quad CPU Q6600 @ 2.40GHz (4 CPUs) / AMD Phenom 9850 Quad-Core Processor", "4GB","72GB",
+                               "NVIDIA 9800 GT 1GB / AMD HD 4870 1GB", "11",
+                               "Windows 10 64 Bit, Windows 8.1 64 Bit","Intel Core i5 3470 @ 3.2GHz (4 CPUs) / AMD X8 FX-8350 @ 4GHz","8GB","72GB",
+                               "NVIDIA GTX 660 2GB / AMD HD 7870 2GB","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(28,"Windows Vista Service Pack 2 32-bit", "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz", "2GB","20GB",
+                               "DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics", "11",
+                               "Windows 7 Service Pack 1 64-bit","Quad Core Processor","4GB","30GB",
+                               "DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(29,"Windows Vista Service Pack 2 32-bit", "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz", "2GB","20GB",
+                               "DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics", "11",
+                               "Windows 7 Service Pack 1 64-bit","Quad Core Processor","4GB","30GB",
+                               "DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(30,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
+                               "NVIDIA GeForce GTX 660 (2 GB Memory Minimum) | AMD Radeon HD 7870 (2 GB Memory Minimum)", "11",
+                               "Win 7 SP1, Win 8.1","Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz","8GB","55GB",
+                               "NVIDIA GeForce GTX 760 - 3 GB Memory Recommended | AMD Radeon HD 7950 - 3 GB Memory Recommended","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(31,"Windows Vista Service Pack 2 32-bit", "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz", "2GB","20GB",
+                               "DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics", "11",
+                               "Windows 7 Service Pack 1 64-bit","Quad Core Processor","4GB","30GB",
+                               "DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(32,"Windows Vista Service Pack 2 32-bit", "Intel Core 2 DUO 2.4 GHz / AMD Athlon X2 2.7 GHz", "2GB","20GB",
+                               "DirectX10 Compatible ATI Radeon HD 3870 / NVIDIA 8800 GT / Intel HD 3000 Integrated Graphics", "11",
+                               "Windows 7 Service Pack 1 64-bit","Quad Core Processor","4GB","30GB",
+                               "DirectX11 Compatible, AMD Radeon HD 6950 / NVIDIA GeForce GTX 560","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(33,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
+                               "NVIDIA GeForce GTX 660 (2 GB Memory Minimum) | AMD Radeon HD 7870 (2 GB Memory Minimum)", "11",
+                               "Win 7 SP1, Win 8.1","Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz","8GB","55GB",
+                               "NVIDIA GeForce GTX 760 - 3 GB Memory Recommended | AMD Radeon HD 7950 - 3 GB Memory Recommended","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(34,"Windows 7/8/10", "Intel i5-2400, AMD FX-8320", "8GB","20GB",
+                               "GTX 660 2GB, AMD Radeon 7850 2GB", "11",
+                               "Windows 7/8/10","Intel i7-2600K, AMD FX-8350","16GB","20GB",
+                               "GTX 970 4GB, AMD R9 290 4GB","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(33,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
+                               "NVIDIA GeForce GTX 660 (2 GB Memory Minimum) | AMD Radeon HD 7870 (2 GB Memory Minimum)", "11",
+                               "Win 7 SP1, Win 8.1","Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz","8GB","55GB",
+                               "NVIDIA GeForce GTX 760 - 3 GB Memory Recommended | AMD Radeon HD 7950 - 3 GB Memory Recommended","11");
+
+INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
+							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
+                               games_requirements_directx_rec) 
+                               VALUES(36,"Windows 7/8/10", "Intel i5-2400, AMD FX-8320", "8GB","20GB",
+                               "GTX 660 2GB, AMD Radeon 7850 2GB", "11",
+                               "Windows 7/8/10","Intel i7-2600K, AMD FX-8350","16GB","20GB",
+                               "GTX 970 4GB, AMD R9 290 4GB","11");
 /*********************Selects******************************************/
 
 

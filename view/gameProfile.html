@@ -142,35 +142,36 @@
 			</div>			
 		  	<button type="submit" class="btn btn-primary" ng-click="gameProfileCtrl.addToShoppingCart(game[0].games_id_game)">{{game[0].games_price}}€ Add to cart</button>
 		</div>
-
-		<div id="valorations">
-			<h4 class="h4">VALORATIONS</h4>
-			<hr>
-			<div class="thread" ng-repeat="thisGame in game">		
-				<p>{{thisGame.reviews_text}}</p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> {{thisGame.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{thisGame.review_datetime}}<i ng-if="thisGame.reviews_rating==1" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="thisGame.reviews_rating==0" class='glyphicon glyphicon-thumbs-down'></i></h6>
+		<div ng-if="showRviewsDiv==1">
+			<div id="valorations">
+				<h4 class="h4">VALORATIONS</h4>
+				<hr>
+				<div class="thread" ng-repeat="thisGame in game">		
+					<p>{{thisGame.reviews_text}}</p>
+					<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i> {{thisGame.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{thisGame.review_datetime}}<i ng-if="thisGame.reviews_rating==1" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="thisGame.reviews_rating==0" class='glyphicon glyphicon-thumbs-down'></i></h6>
+				</div>
+				<hr>
+				<div ng-if="checkUser=='true'">
+				<form  method="post" name="addReviewManagement" novalidate ng-submit="addReviewManagement.$valid && !gameProfileCtrl.checkAddReview()">
+			        <div class="form-group">		        
+			       		<div class="input-group">
+			       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					  		<textarea class="form-control" id="reviewDescription" ng-model="gameProfileCtrl.reviewDescription" placeholder="Write here tour answer." rows="3" required></textarea>
+				  		</div>
+				    </div>
+				    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(1)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+				    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(0)"><span class="glyphicon glyphicon-thumbs-down"></span></button><br/>
+				  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addReviewManagement.$invalid || likeButton==0" ng-click="gameProfileCtrl.checkAddReview(gameProfileCtrl.reviewDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
+				</form>
 			</div>
-			<hr>
-			<div ng-if="checkUser=='true'">
-			<form  method="post" name="addReviewManagement" novalidate ng-submit="addReviewManagement.$valid && !gameProfileCtrl.checkAddReview()">
-		        <div class="form-group">		        
-		       		<div class="input-group">
-		       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-				  		<textarea class="form-control" id="reviewDescription" ng-model="gameProfileCtrl.reviewDescription" placeholder="Write here tour answer." rows="3" required></textarea>
-			  		</div>
-			    </div>
-			    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(1)"><span class="glyphicon glyphicon-thumbs-up"></span></button>
-			    <button type="button" ng-click="likeButton=1; gameProfileCtrl.likeButtonValue(0)"><span class="glyphicon glyphicon-thumbs-down"></span></button><br/>
-			  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addReviewManagement.$invalid || likeButton==0" ng-click="gameProfileCtrl.checkAddReview(gameProfileCtrl.reviewDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
-			</form>
-		</div>
-		<div ng-if="showAddReviewMessage==1">
-			<hr>
-			<div class="alert alert-success" translate="Your review has been saved!"></div>
-		</div>
-		<div ng-if="showAddReviewMessage==0">
-			<hr>
-			<div class="alert alert-danger" translate="¡Error! There has been an error with the review"></div>
+			<div ng-if="showAddReviewMessage==1">
+				<hr>
+				<div class="alert alert-success" translate="Your review has been saved!"></div>
+			</div>
+			<div ng-if="showAddReviewMessage==0">
+				<hr>
+				<div class="alert alert-danger" translate="¡Error! There has been an error with the review"></div>
+			</div>
 		</div>
 	</main>
 </body>

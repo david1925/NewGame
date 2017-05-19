@@ -149,6 +149,27 @@ $app->post('/games/reviews/add', function(Request $request, Response $response){
     }
 });
 
+$app->get('/games/reviews/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    $sql = "SELECT Reviews.reviews_text,Users.users_username,date_format(Reviews.reviews_datetime,'%H:%i %d/%m') as 'review_datetime' FROM Games
+            INNER JOIN Reviews ON Reviews.Games_games_id_game=Games.games_id_game
+            INNER JOIN Users ON Users.users_id_user=Reviews.Users_users_id_user
+            WHERE Games.games_id_game=:id";
+    try{
+         // Get DB Object
+        $db = new db();
+        $db = $db->connect();
+        $stmt = $db->prepare($sql);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $db = null;
+        echo json_encode($games);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
 $app->get('/games/shoppingCart/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
     $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image FROM Games

@@ -13,6 +13,16 @@
             //GET all attributes from a game
             $http.get(Domain + "api/public/games/" + url)
             .then(function (response) {$scope.game = response.data;});
+            //GET all reviews from a game
+            $http.get(Domain + "api/public/games/reviews/" + url)
+            .then(function (response) {$scope.reviews = response.data;
+            	if($scope.reviews!=null){
+            		$scope.showRviewsDiv = 1;
+            	}else{
+            		$scope.showRviewsDiv = 0;
+            	}
+            });
+            //Check if user is logged
             $http.get(Domain + "api/public/users/login/check")
             .then(function (response) {$scope.checkUser = response.data;});
 
