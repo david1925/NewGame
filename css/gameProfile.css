@@ -1,99 +1,37 @@
-body {
-	margin: 0% 5% 0% 5%;
-	color: white;
-	background-color: white;
+.titles {
+    margin-top: 2%;
 }
 
-body main {
-	width: 100%;
-	background-color: #000d1a;
-	padding: 4% 0% 5% 0%;
-}
-
-#subHeader {
-	width: 100%;
-	display: inline-block;
-	background-color: #001a33;
-	border: 1px solid #000d1a;
-	padding: 2% 5% 2% 5%;
-}
-
-#subHeadBackgrd {
-	padding: 1%;
-	width: 100%;
-	height: 100%;
-	background-color: #000d1a;	
-	border-radius: 10px;
-}
-
-article {
-	float: left;
-	width: 65%;
-	height: auto;
-}
-
-.carousel {
-	background-color: #001a33;
-	width: 44%;
-	height: auto;
-}
-
-body main .carousel figure img{
-	width: 100%;
-}
-
-body main #subHeaderAside {
-	display: inline-block;
-	background-color: #001a33;
-	width: 30%;
-}
-
-body main #subHeaderAside img{
-	padding: 0% 0% 2% 0%;
-	width: 100%;
-}
-
-body main figcaption {
-	margin: 2% 5% 2% 5%;
-	padding: 2% 2% 2% 2%;
-}
-
-#information {
-	padding: 5%;
-	background-color: #001a33;
-	border: 1px solid #000d1a;
-}
-
-.table {
-	background-color: #000d1a;
-}
-
-#buyButton {
-	background-color: #000d1a;	
-	float: right;
-}
-
-#valorations {
-	padding: 5%;
-	background-color: #001a33;
-	border: 1px solid #000d1a;
-	float: left;
-	width: 100%;
-	height: auto;
-}
-
-.thread{
-	margin-top: 1%;
-	padding: 2% 4% 2% 4%;
-	background-color: #000d1a;
-}
-
-.glyphicon-thumbs-up {
-	float: right;
-	color: green;
+.comments {
+    padding: 0.7%;
 }
 
 .glyphicon-thumbs-down {
-	float: right;
-	color: red;
+    float: right;
+}
+.glyphicon-thumbs-up {
+    float: right;
+}
+
+caption {
+	color: white;
+}
+
+.navbar {
+    clear: both;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+body {
+    margin-top: 5%;
+}
+
+#secondNavbar {
+    top:51px; 
+    background-color:white;
+    border-radius: 0% 0% 30% 30%;
 }

@@ -52,6 +52,8 @@
         shoppingCart.setProperty(idGame);
         $scope.loadShoppingCart();
     };
+
+    
     
   }]);
 })();

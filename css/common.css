@@ -30,6 +30,7 @@ img{
 .content {
   border-radius: 5px;
 	background-color: rgba(20,80,94, 0.4);
+  margin-top: 5px;
 }
 
 .glyphicon-thumbs-down{
@@ -54,28 +55,30 @@ img{
   color: #0052cc;
 }
 
-.glyphicon-comment {
-  color: #00cc00;
-}
-
 #shoppingCartDiv{
  max-height: 20em;
   overflow: auto; 
 }
-/*Shopping cart*/
-/*.removeGame{
-  float: right;
-  width: px;
-  height: 1px;
-  font-size:5px;
-}*/
 
 #blackText{
   color: black;
   margin-left: 7%;
 }
 
-a .btn-success{
+.textContainer { 
+    height: 40px; 
+    line-height: 42px;
+}
 
+.textContainer p {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.align {
+  text-align: center
+}
+
+a .btn-success {
   text-decoration: none;
 }

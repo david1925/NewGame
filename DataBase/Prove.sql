@@ -844,7 +844,7 @@ INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,gam
 INSERT INTO Game_Requirements (Games_games_id_game,games_requirements_os_min,games_requirements_processor_min,games_requirements_memory_min,games_requirements_hd_min,games_requirements_video_card_min,
 							   games_requirements_directx_min,games_requirements_os_rec,games_requirements_processor_rec,games_requirements_memory_rec,games_requirements_hd_rec,games_requirements_video_card_rec,
                                games_requirements_directx_rec) 
-                               VALUES(33,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
+                               VALUES(35,"Win 7 SP1, Win 8.1", "Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz", "6GB","55GB",
                                "NVIDIA GeForce GTX 660 (2 GB Memory Minimum) | AMD Radeon HD 7870 (2 GB Memory Minimum)", "11",
                                "Win 7 SP1, Win 8.1","Intel Core i5-750, 2.67 GHz | AMD Phenom II X4 965, 3.4 GHz","8GB","55GB",
                                "NVIDIA GeForce GTX 760 - 3 GB Memory Recommended | AMD Radeon HD 7950 - 3 GB Memory Recommended","11");

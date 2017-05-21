@@ -11,22 +11,22 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/index.html"><i class="glyphicon glyphicon-home"></i> NewGame</a>
+                        <a class="navbar-brand" href="{{indexRoute}}"><i class="glyphicon glyphicon-home"></i> NewGame</a>
                     </div>
                 </div>
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="desplegable">
-                    <ul class="nav navbar-nav">                           
+                    <ul class="nav navbar-nav">
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="/view/shop.html" translate="Shop"></a>
+                            <a href="{{shopRoute}}" translate="Shop"></a>
                         </li>
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="/view/store.html" translate="Store"></a>
+                            <a href="{{storeRoute}}" translate="Store"></a>
                         </li>
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="/view/forum.html" translate="Community"></a>
+                            <a href="{{communityRoute}}" translate="Community"></a>
                         </li>
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="/view/contact.html" translate="Contact"></a>
+                            <a href="{{contactRoute}}" translate="Contact"></a>
                         </li>
                         <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
@@ -50,7 +50,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                	<ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav">
                         <li class="dropdown pull-left">
                             <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
                             <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">

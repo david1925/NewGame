@@ -3,8 +3,13 @@
 
 
     //scope variables
+    $scope.indexRoute = Domain;
     $scope.loginRoute = Domain + "view/login.html";
-    $scope.purchaseRoute = Domain + "view/purchase.html"
+    $scope.purchaseRoute = Domain + "view/purchase.html";
+    $scope.shopRoute = Domain + "view/shop.html";
+    $scope.storeRoute = Domain + "view/store.html";
+    $scope.communityRoute = Domain + "view/forum.html";
+    $scope.contactRoute = Domain + "view/contact.html";
 
     if(sessionStorage.userLogged!=null){
       $scope.showLoginButton=1;
