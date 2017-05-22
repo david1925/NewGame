@@ -5,6 +5,7 @@
         var $userId;
         var $username;
         var $password;
+        var $name;
         var $firstname;
         var $lastname;
         var $email;
@@ -18,10 +19,11 @@
         var $language;
         
         //CONSTRUCT
-        function __construct($userId, $username, $password, $firstname, $lastname, $email, $phone, $image, $summary, $address, $profile, $provinceId, $status, $language) {
+        function __construct($userId, $username, $password, $name, $firstname, $lastname, $email, $phone, $image, $summary, $address, $profile, $provinceId, $status, $language) {
             $this->userId = $userId;
             $this->username = $username;
             $this->password = $password;
+            $this->name = $name;
             $this->firstname = $firstname;
             $this->lastname = $lastname;
             $this->email = $email;
@@ -39,6 +41,7 @@
         function getUserId() {return $this->userId;}
         function getUsername() {return $this->username;}
         function getPassword() {return $this->password;}
+        function getName() {return $this->name;}
         function getFirstname() {return $this->firstname;}
         function getLastname() {return $this->lastname;}
         function getEmail() {return $this->email;}
@@ -55,6 +58,7 @@
         function setUserId($userId) {$this->userId = $userId;}
         function setUsername($username) {$this->username = $username;}
         function setPassword($password) {$this->password = $password;}
+        function setName($name) {$this->name = $name;}
         function setFirstname($firstname) {$this->firstname = $firstname;}
         function setLastname($lastname) {$this->lastname = $lastname;}
         function setEmail($email) {$this->email = $email;}

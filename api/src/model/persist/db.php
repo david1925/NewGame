@@ -16,7 +16,7 @@
         }
 
 
-        public function selectQuery($sql, $vector) {
+        public function selectQuery($sql,$vector) {
         //select 
         if ($this->connect()) {
             $sentencia = $this->connect()->prepare($sql);
@@ -28,4 +28,14 @@
        
             return $sentencia;
         }
+
+        public function execution($sql,$vector) {
+        if ($this->connect()) {
+            $this->stmt = $this->connect()->prepare($sql);
+            $this->stmt->execute($vector);
+        } else {
+            $this->stmt = null;
+        }
+        return $this->stmt; //retorna la consulta select o el número de files afectades
     }
+}

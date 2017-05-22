@@ -28,4 +28,3 @@
         function setGameId($gameId) {$this->gameId = $gameId;}
     }
 ?>
-

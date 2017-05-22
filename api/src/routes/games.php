@@ -3,6 +3,7 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require_once "../src/model/Game.class.php";
+require_once "../src/model/Review.class.php";
 require_once "../src/model/persist/GameDAO.class.php";
 
 // Get games image
@@ -82,24 +83,18 @@ $app->get('/games/{id}', function(Request $request, Response $response){
     }
 });
 
+//Insert a new Review for a Game (gameProfile.js)
 $app->post('/games/reviews/add', function(Request $request, Response $response){
     $text = $request->getParam("text");
     $rating = $request->getParam("rating");
     $gameId = $request->getParam("gameId");
     $userId = $request->getParam("userId");
-    $sql = "INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES (:reviewText,:rating,:gameId,:userId)";
     try{
-         // Get DB Object
-        $db = new db();
-        $db = $db->connect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":reviewText", $text);
-        $stmt->bindParam(":rating", $rating);
-        $stmt->bindParam(":gameId", $gameId);
-        $stmt->bindParam(":userId", $userId);
-        $stmt->execute();
-        $db = null;
-        echo json_encode(true);
+    	$review = new Review("",$text,$rating,$gameId,$userId,"");
+    	$result = "";
+    	$helper = new GameDAO();
+    	$result = $helper->addReview($review);
+    	echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -107,20 +102,12 @@ $app->post('/games/reviews/add', function(Request $request, Response $response){
 
 $app->get('/games/reviews/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Reviews.reviews_text,Users.users_username,date_format(Reviews.reviews_datetime,'%H:%i %d/%m') as 'review_datetime' FROM Games
-            INNER JOIN Reviews ON Reviews.Games_games_id_game=Games.games_id_game
-            INNER JOIN Users ON Users.users_id_user=Reviews.Users_users_id_user
-            WHERE Games.games_id_game=:id";
     try{
-         // Get DB Object
-        $db = new db();
-        $db = $db->connect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
-        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($games);
+        $game = new Game($id,"","","","","","","");
+    	$result = "";
+        $helper = new GameDAO();
+        $result = $helper->getReviews($game);    
+       	echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -128,18 +115,12 @@ $app->get('/games/reviews/{id}', function(Request $request, Response $response){
 
 $app->get('/games/shoppingCart/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image FROM Games
-            WHERE Games.games_id_game=:id";
     try{
-         // Get DB Object
-        $db = new db();
-        $db = $db->connect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
-        $games = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($games);
+        $game = new Game($id,"","","","","","","");
+    	$result = "";
+        $helper = new GameDAO();
+        $result = $helper->getShoppingCart($game);    
+       	echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }

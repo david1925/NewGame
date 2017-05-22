@@ -3,31 +3,23 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 
+require_once "../src/model/Chat.class.php";
+require_once "../src/model/User.class.php";
+require_once "../src/model/persist/ChatDAO.class.php";
+
 // Get the conversation between two users
 $app->post('/chat', function(Request $request, Response $response){
     $idUser = $request->getParam("idUser");
     $idFriend = $request->getParam("idFriend");
-    $sql = "SELECT Users_users_id_user_send, chats_text 
-            FROM Chats 
-            WHERE Users_users_id_user_send = :idUser AND Users_users_id_user_receive = :idFriend 
-               OR Users_users_id_user_send = :idFriend AND Users_users_id_user_receive = :idUser
-            ORDER BY chats_id_chat DESC
-            LIMIT 15";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":idUser", $idUser);
-        $stmt->bindParam(":idFriend", $idFriend);
-        $stmt->execute();
-        $chat = $stmt->fetchAll(PDO::FETCH_OBJ);
-        echo json_encode($chat);
-        $db = null;
-        
+   try{
+        $user = new User($idUser,"","","","","","","","","","","","","");
+        $friend = new User($idFriend,"","","","","","","","","","","","","");
+        $result = "";
+        $helper = new ChatDAO();
+        $result = $helper->getChat($user, $friend);
+        echo json_encode($result);
     } catch(PDOException $e){
-        echo '{"error": {"text": '.$e->getMessage().'}}';
+        echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
 

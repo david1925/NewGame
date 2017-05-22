@@ -2,19 +2,17 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
+require_once "../src/model/User.class.php";
+require_once "../src/model/persist/UserDAO.class.php";
+
 
 // Get all user
 $app->get('/users', function(Request $request, Response $response){
-    $sql = "SELECT * FROM Users";
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $users = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($users);
+        $result = "";
+        $users = new UserDAO();
+        $result = $users->getAll();
+        echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -23,52 +21,56 @@ $app->get('/users', function(Request $request, Response $response){
 // Get Single user
 $app->get('/users/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT * FROM Users WHERE users_id_user = $id";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);  
+        echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
 
 //Select the username and email of one user
-$app->get('/api/contact/{id}', function(Request $request, Response $response){
+$app->get('/users/contact/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT users_username, users_email FROM users WHERE users_id_user = $id";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);
+        $reqUser = [
+            "users_username" => $result[0][1],
+            "users_email" => $result[0][7],
+        ];
+        echo json_encode($reqUser);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
 
+// Contact
+$app->post('/users/contact/', function(Request $request, Response $response){
+    $username = $request->getParam("username");
+    $email = $request->getParam("email");
+    $subject = $request->getParam("subject");
+    $description = $request->getParam("description");
+    include_once "contact_mailing.php";
+});
+
 // Get username Single user
 $app->get('/users/username/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Users.users_username FROM Users WHERE users_id_user = $id";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);
+        $reqUser = [
+            "users_username" => $result[0][1]
+        ];
+        echo json_encode($reqUser);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -101,38 +103,19 @@ $app->get('/users/friends/{id}', function(Request $request, Response $response){
 // Edit user info
 $app->get('/users/edituserinfo/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Users.users_name,Users.users_firstname,Users.users_lastname,Users.users_email,Users.users_phone            
-            FROM Users
-            WHERE Users.users_id_user=$id;";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
-    } catch(PDOException $e){
-        echo '{"error": {"text": '.$e->getMessage().'}';
-    }
-});
-
-//Select the username and email of one user
-$app->get('/contact/{id}', function(Request $request, Response $response){
-    $id = $request->getAttribute("id");
-    $sql = "SELECT users_username, users_email 
-            FROM Users 
-            WHERE users_id_user = $id";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);
+        $reqUser = [
+            "users_name<" => $result[0][3],
+            "users_firstname" => $result[0][4],
+            "users_lastname" => $result[0][5],
+            "users_email" => $result[0][6],
+            "users_phone" => $result[0][7],
+        ];
+        echo json_encode($reqUser);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -141,16 +124,15 @@ $app->get('/contact/{id}', function(Request $request, Response $response){
 // Get user language
 $app->get('/users/language/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Users.users_language FROM Users WHERE Users.users_id_user=".$id."";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);
+        $reqUser = [
+            "users_language" => $result[0][14]
+        ];
+        echo json_encode($reqUser);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
@@ -181,58 +163,47 @@ $app->get('/users/messages/{id}', function(Request $request, Response $response)
 // Get user image
 $app->get('/users/image/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "SELECT Users.users_image FROM Users WHERE Users.users_id_user=".$id."";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        echo json_encode($user);
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUser($user);
+        $reqUser = [
+            "users_image" => $result[0][8]
+        ];
+        echo json_encode($reqUser);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
 
-// Check user login
+// CHeck if session started, if not start session
 $app->post('/users/login/', function(Request $request, Response $response){
     $username = $request->getParam("username");
     $password = $request->getParam("password");
-    $sql = "SELECT Users.users_address,Users.users_email,Users.users_firstname,Users.users_id_user,
-	   		Users.users_image,Users.users_language,Users.users_lastname,Users.users_name,Users.users_phone,
-       		Users.users_public_profile,Users.users_status,Users.users_summary,Users.users_username FROM Users WHERE Users.users_username = '".$username."' AND Users.users_password = md5('".$password."') AND Users.users_status=1";
     try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->query($sql);
-        $user = $stmt->fetchAll(PDO::FETCH_OBJ);
-        $db = null;
-        if($user==null){
+        $result = "";
+        $user = new User("", $username, $password, "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->checkLogin($user);
+        if($result==null){
         	echo '{"error": {"text": "Username or password incorrect"}}';
         }else{
             session_start();
-        	$_SESSION['user']=$user;
-        	echo json_encode($user);
-        }
-        
+        	$_SESSION['user']=$result;
+        	echo json_encode($result);
+        }        
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';
     }
 });
 
-// Register a user login
+// Register a user and sends registration email
 $app->post('/users/register/', function(Request $request, Response $response){
     $username = $request->getParam("username");
     $password = $request->getParam("password");
     $email = $request->getParam("email");
     $password = md5($password);
-    echo $username."<br/>";
-    echo $password."<br/>";
-    echo $email."<br/>";
     $sql = "INSERT INTO Users (users_username,users_password,users_email,users_public_profile,users_status,users_language) VALUES (:username, :password, :email, '1','0', 'en')";
     try{
         // Get DB Object
@@ -254,15 +225,6 @@ $app->post('/users/register/', function(Request $request, Response $response){
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';
     }
-});
-
-// Contact
-$app->post('/users/contact/', function(Request $request, Response $response){
-    $username = $request->getParam("username");
-    $email = $request->getParam("email");
-    $subject = $request->getParam("subject");
-    $description = $request->getParam("description");
-    include_once "contact_mailing.php";
 });
 
 // Activate a user account

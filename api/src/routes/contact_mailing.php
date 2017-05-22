@@ -3,7 +3,8 @@
 	require "../../vendors/phpmailer/PHPMailerAutoload.php";
  
   $mail = new PHPMailer();
-  $mail->IsSMTP();
+  $mail->isHTML(true);
+  $mail->isMail();
   $mail->SMTPDebug  = 0;
   $mail->Host       = 'smtp.gmail.com';
   $mail->Port       = 587;

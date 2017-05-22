@@ -1,6 +1,7 @@
 <?php
 
 require_once "../src/model/Game.class.php";
+//require_once "../src/model/Review.class.php";
 require_once "../src/model/persist/db.php";
 
 
@@ -9,7 +10,6 @@ class GameDAO {
     private $dbConnect;
     
     public function __construct() {
-        //$this->dbConnect = new DBConnect();
         $this->dbConnect = new db;
     }    
     
@@ -73,6 +73,31 @@ class GameDAO {
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll();
     }
+
+
+    public function addReview($Review) {
+        $response = array($Review->getText(),$Review->getRating(),$Review->getGameId(),$Review->getUserId());
+        $sql = "INSERT INTO Reviews (reviews_text,reviews_rating,Games_games_id_game,Users_users_id_user) VALUES (?,?,?,?)";
+        $response = $this->dbConnect->execution($sql, $response);
+        return $response->rowCount();
+    }
+
+    public function getReviews($Game) {
+        $response = array($Game->getGameId());
+        $sql = "SELECT Reviews.reviews_text,Users.users_username,date_format(Reviews.reviews_datetime,'%H:%i %d/%m') as 'review_datetime' FROM Games
+                INNER JOIN Reviews ON Reviews.Games_games_id_game=Games.games_id_game
+                INNER JOIN Users ON Users.users_id_user=Reviews.Users_users_id_user
+                WHERE Games.games_id_game=?";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->fetchAll();
+    }
     
+    public function getShoppingCart($Game) {
+        $response = array($Game->getGameId());
+        $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image FROM Games
+                WHERE Games.games_id_game=?";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->fetchAll();
+    }
     
 }
