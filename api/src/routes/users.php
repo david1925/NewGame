@@ -230,18 +230,12 @@ $app->post('/users/register/', function(Request $request, Response $response){
 // Activate a user account
 $app->get('/users/update/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
-    $sql = "UPDATE Users SET Users.users_status=1 WHERE Users.users_id_user= :id";
-    try{
-        // Get DB Object
-        $db = new db();
-        // Connect
-        $db = $db->connect();
-        $stmt = $db->prepare($sql);
-        $stmt->bindParam(":id", $id);
-        $stmt->execute();
-        echo '{"notice": {"text": "User Updated"}';
-
-        $db = null;
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->updateUserStatus($user);
+        echo "User updated succsessfully";
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }

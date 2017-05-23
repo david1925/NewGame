@@ -49,6 +49,13 @@ class UserDAO {
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll();
     }
+
+    public function updateUserStatus($User) {
+        $response = array($User->getUserId());
+        $sql = "UPDATE Users SET Users.users_status=1 WHERE Users.users_id_user=?";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->rowCount();
+    }
 }
 
 ?>

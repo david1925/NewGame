@@ -25,6 +25,12 @@
             //Check if user is logged
             $http.get(Domain + "api/public/users/login/check")
             .then(function (response) {$scope.checkUser = response.data;});
+            //Get the game reviews
+            $http.get(Domain + "api/public/games/reviews/" + url)
+            .then(function (response) {$scope.Reviews = response.data;
+            	$scope.showReviews = $scope.Reviews.length;
+            	console.log($scope.showReviews);
+            });
 
             this.likeButtonValue = function (id) {
                 $scope.likeButtonValue=id;

@@ -29,6 +29,7 @@
 	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
 	<!--CSS-->
 	<link rel="stylesheet" type="text/css" href="../css/register.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 	<title>Login</title>
 </head>
@@ -56,6 +57,11 @@
 			<hr>
 				<button type="button" class="btn btn-primary" name="insert_user" value="ok" ng-disabled="loginManagement.$invalid" ng-click="LoginCtrl.login()"><span class="glyphicon glyphicon-send"></span> Submit</button>
 			</form>
+
+			<div>
+			<span translate="You do not have an account?"></span><a href="{{registerRoute}}" translate="Sign up">sa</a>
+				
+			</div>
 
 </main>
 </body>

@@ -12,8 +12,8 @@ $app->post('/chat', function(Request $request, Response $response){
     $idUser = $request->getParam("idUser");
     $idFriend = $request->getParam("idFriend");
    try{
-        $user = new User($idUser,"","","","","","","","","","","","","");
-        $friend = new User($idFriend,"","","","","","","","","","","","","");
+        $user = new User($idUser,"","","","","","","","","","","","","","");
+        $friend = new User($idFriend,"","","","","","","","","","","","","","");
         $result = "";
         $helper = new ChatDAO();
         $result = $helper->getChat($user, $friend);

@@ -162,7 +162,7 @@
          </div>
 
 		<div ng-if="showRviewsDiv==1">
-			<div class="container titles">
+			<div class="container titles" ng-if="showReviews!=0">
             <div class="row">
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <h2 id="valorations" class="h4">VALORATIONS</h2>
@@ -173,7 +173,7 @@
           <div class="container">
          <div class="row">
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-				<div class="content comments" ng-repeat="thisGame in game">		
+				<div class="content comments" ng-repeat="thisGame in game" ng-if="showReviews!=0">		
 					<div>{{thisGame.reviews_text}}</div>
 					<br>
 					<div>
