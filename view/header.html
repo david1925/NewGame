@@ -17,10 +17,10 @@
                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="desplegable">
                     <ul class="nav navbar-nav">
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{shopRoute}}" translate="Shop"></a>
+                            <a href="{{storeRoute}}" translate="Store" ng-if="showLoginButton==1"></a>
                         </li>
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{storeRoute}}" translate="Store" ng-if="showLoginButton==1"></a>
+                            <a href="{{shopRoute}}" translate="Shop"></a>
                         </li>
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <a href="{{communityRoute}}" translate="Community"></a>
@@ -28,7 +28,7 @@
                         <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                             <a href="{{contactRoute}}" translate="Contact"></a>
                         </li>
-                        <li class="col-xs-3 col-sm-3 col-md-3 col-lg-3" class="dropdown">
+                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="dropdown">
                             <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#" ng-click="changeLanguage('es')"><h6 class="h6"><span class="flag flag-es"></span> Spanish</h6></a></li>
@@ -38,15 +38,28 @@
                         </li>    
                     </ul>    
                 </div>                     
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <ul class="nav navbar-nav">                           
-                        <li>
-                            <a href="{{loginRoute}}" style="background-color: #008000; color: white" ng-if="showLoginButton==0" translate="LOGIN"></a>
-                        </li>
-                        <li>
-                            <a href="index.html" ng-click="headerCtrl.logOut()" style="background-color: #990000; color: white" ng-if="showLoginButton==1" translate="LOGOUT"></a>
-                        </li>
+                     <ul class="nav navbar-nav" ng-if="showLoginButton==1">
+                        <li class="dropdown pull-left">
+                            <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-cog"></i></a>
+                            <ul class="dropdown-menu dropdown-menu-left" id="shoppingCartDiv">
+                                <li>
+                                    <a href="#">
+                                        <span class="h6">edit user info</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="h6">change password</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="h6">your own profile</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
                     </ul>
                 </div>
                 <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -60,13 +73,23 @@
                                     </a>
                                 </li>
                                 <div ng-if="gamesToShow!=''">
-                                <li><hr></li>
-                                <br><br>
+                                    <li><hr></li>
+                                    <br><br>
                                     <li id="blackText">Total: {{totalPrice}}€ <a href="{{purchaseRoute}}" class="btn btn-success" translate="Finalize purchase"></a></li>
                                     <li><a href="#" type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></a></li>
                                 </div>
                             </ul>
                         </li> 
+                    </ul>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    <ul class="nav navbar-nav">                           
+                        <li>
+                            <a href="{{loginRoute}}" style="background-color: #008000; color: white" ng-if="showLoginButton==0" translate="Login"></a>
+                        </li>
+                        <li>
+                            <a href="{{indexRoute}}" ng-click="headerCtrl.logOut()" style="background-color: #990000; color: white" ng-if="showLoginButton==1" translate="Logout"></a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -80,26 +103,27 @@
                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                     <span class="navbar-text col align-self-center">Something useful</span>
                 </div>
-                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"></div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-if="showLoginButton==1">
-                    <div class="collapse navbar-collapse" id="desplegable">                    
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                    <div class="collapse navbar-collapse" id="desplegable"  ng-if="showLoginButton==1">                    
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a href="#" style="background-color: grey; color: white" data-toggle="dropdown" class="dropdown-toggle" translate="FRIENDS"><b class="caret"></b></a>
-                                <ul id="friends" class="dropdown-menu">
+                                <ul id="friends" class="dropdown-menu dropdown-menu-right">
                                 <li>
-                                	<form class="navbar-form navbar-left" method="post" name="addFriendManagement" novalidate ng-submit="addFriendManagement.$valid">
+                                	<form class="navbar-form navbar-left" name="addFriendManagement" novalidate ng-submit="addFriendManagement.$valid">
         								<div class="form-group">
           									<input type="text" class="form-control" placeholder="Add Friend" ng-model="friendFind" required/>
-          									<input type="submit" name="addFriend" id="addFriendButton" ng-disabled="addFriendManagement.$invalid" ng-click="headerCtrl.addFriend()"/>       									
+          									<input type="submit" name="addFriend" id="addFriendButton" ng-disabled="addFriendManagement.$invalid" ng-click="addFriend()"/>       									
         								</div>
         							</form>
         						</li>
         						<li ng-if="rowCount==1"><div class="alert alert-success"><strong translate="Success! friendship solicitation has send!"></strong></div></li>
+                                <li ng-if="rowCount<1"><div class="alert alert-danger"><strong translate="Error! There has been a problem with the petition or uer not found!"></strong></div></li>
                                     <li class="friend" ng-repeat="userFriend in userFriends">                                    
                                         <a href="#">
                                             <h6 class="h6">{{userFriend.users_username}}
-                                                <i ng-click="openFriendProfile()" class="glyphicon glyphicon-eye-open friendIcons"></i>
+                                                <i ng-click="openFriendProfile(userFriend.users_id_user)" class="glyphicon glyphicon-eye-open friendIcons"></i>
                                                 <i ng-click="openChat(userFriend.users_id_user)"  class="glyphicon glyphicon-comment friendIcons">&nbsp</i>
                                             </h6>
                                         </a>

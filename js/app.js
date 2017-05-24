@@ -7,8 +7,8 @@
   $translateProvider.translations("en", {
     "SIGN": "Sign in",
     "FRIENDS" : "Friends",
-    "LOGIN" : "Login",
-    "LOGOUT" : "Logout",
+    "Login" : "Login",
+    "Logout" : "Logout",
     "USER INFO": "User Info",
     "PROFILE IMAGE": "Profile image",
     "FILL THE FORM": "Fill the form",
@@ -28,14 +28,15 @@
     "Forums": "Forums",
     "Your topic has been saved!": "Your topic has been saved!",
     "¡Error! There has been an error with the topic": "¡Error! There has been an error with the topic",
-    "Add Topic": "Add Topic"
+    "Add Topic": "Add Topic",
+    "Error! There has been a problem with the petition or uer not found!": "Error! There has been a problem with the petition or uer not found!"
   });
  
   $translateProvider.translations("es", {
     "SIGN": "Registrarse",
     "FRIENDS" : "Amigos",
-    "LOGIN" : "Entrar",
-    "LOGOUT" : "Cierra sesión",
+    "Login" : "Entrar",
+    "Logout" : "Cierra sesión",
     "USER INFO": "Informacion de usuario",
     "PROFILE IMAGE": "Imagen de perfil",
     "FILL THE FORM": "Rellena el formulario",
@@ -55,14 +56,15 @@
     "Forums": "Foros",
     "Your topic has been saved!": "¡Tu pregunta ha sido guardada!",
     "¡Error! There has been an error with the topic": "¡Error! Ha ocurrido un error con el mensaje",
-    "Add Topic": "Añadir pregunta"
+    "Add Topic": "Añadir pregunta",
+    "Error! There has been a problem with the petition or uer not found!": "Error! Ha habido algún problema con la solicitud o el usuario no existe"
   });
   
   $translateProvider.translations("ca", {
     "SIGN": "Registrar-se",
     "FRIENDS" : "Amics",
-    "LOGIN" : "Entrar",
-    "LOGOUT" : "Tanca sessió",
+    "Login" : "Entrar",
+    "Logout" : "Tanca sessió",
     "USER INFO": "Informacio d'usuari",
     "PROFILE IMAGE": "imatge de perfil",
     "FILL THE FORM": "Omple el formulari",
@@ -82,7 +84,8 @@
     "Forums": "Fòrums",
     "Your topic has been saved!": "¡La teva pregunta ha sigut desada!",
     "¡Error! There has been an error with the topic": "¡Error! Ha hagut un error amb el missatge",
-    "Add Topic": "Afegir pregunta"
+    "Add Topic": "Afegir pregunta",
+    "Error! There has been a problem with the petition or uer not found!": "Error! Hi ha hagut algún problema amb la sol·licitud o l'usuari no existeix"
   });
  
 

@@ -11,7 +11,9 @@
         $scope.communityRoute = Domain + "view/forum.html";
         $scope.contactRoute = Domain + "view/contact.html";
 
+        $scope.rowCount=2;
         $scope.listofSolicitations = "";
+        this.friendFind;
 
         if (sessionStorage.userLogged != null) {
             $scope.showLoginButton = 1;
@@ -81,7 +83,11 @@
         }
 
         $scope.openChat = function(idUser) {
-            $window.open("view/chat.html?id=" + idUser, "_blank", "toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=500,left=500,width=400,height=400");
+            $window.open($scope.indexRoute +"view/chat.html?id=" + idUser, "_blank", "toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=500,left=500,width=400,height=400");
+        }
+
+        $scope.openFriendProfile = function(idUser) {
+            $window.open($scope.indexRoute +"view/userProfile.html?id=" + idUser, "_blank", "toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=500,left=500,width=400,height=400");
         }
 
         this.logOut = function() {
@@ -94,10 +100,9 @@
                     $scope.users = response.data;
                 });
             sessionStorage.removeItem("userLogged");
-            window.open("../index.html", "_self");
+            //window.open(Domain, "_self");
         };
 
-        //$scope.loadShoppingCart();
         $scope.loadShoppingCart = function() {
             $scope.$broadcast("loadShoppingCart", {});
         };
@@ -106,13 +111,12 @@
             localStorage.clear();
             $window.open(Domain + 'view/shop.html', "_self");
         }
-        this.addFriend = function() {
+        $scope.addFriend = function() {
+            console.log(this.friendFind);
             $scope.user = new User();
             var userObj = JSON.parse(sessionStorage.userLogged);
             $scope.user.construct(userObj.users_id_user, userObj.users_username, userObj.users_name, userObj.users_firstname, userObj.users_lastname, userObj.users_email, userObj.users_phone, userObj.users_image, userObj.users_summary, userObj.users_address, userObj.users_profile, userObj.users_status, userObj.users_language);
-            $http.post(Domain + "api/public/users/friendShip", {
-                    "username": $scope.friendFind
-                })
+            $http.post(Domain + "api/public/users/friendShip", {"username": this.friendFind})
                 .then(function(response) {
                     $scope.freindShipFriend = response.data;
                     if ($scope.freindShipFriend != "") {
@@ -126,6 +130,7 @@
                             });
                     } else {
                         console.log("User not found!");
+                        $scope.rowCount=0;
                     }
                 });
         };
