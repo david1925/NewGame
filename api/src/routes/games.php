@@ -50,7 +50,7 @@ $app->get('/games/featured', function(Request $request, Response $response){
 	try{
      	$result = "";
         $helper = new GameDAO();
-        $result = $helper->getFeatured();    
+        $result = $helper->getFeatured();
        	echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}';

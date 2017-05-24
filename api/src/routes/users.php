@@ -271,3 +271,79 @@ $app->get('/users/login/check', function(Request $request, Response $response){
         echo json_encode(true);
     }
 });
+
+//Get username and id from user (header.js)
+$app->post('/users/friendShip', function(Request $request, Response $response){
+    $username = $request->getParam("username");
+    try{
+        $result = "";
+        $user = new User("", $username, "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->sendFriendshipSolicitation($user);
+        echo json_encode($result);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//Insert friendship solicitation (header.js)
+$app->post('/users/friendShip/insert', function(Request $request, Response $response){
+    $user_send = $request->getParam("user_send");
+    $user_received = $request->getParam("user_received");
+    try{
+        $result = "";
+        $user = new User("", $user_send, "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $user2 = new User("", $user_received, "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->insertFriendshipSolicitation($user, $user2);
+        echo json_encode($result);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//Select all pending friendShip solicitations (header.js)
+$app->get('/users/friendShip/pending/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    try{
+        $result = "";
+        $user = new User($id,"", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->friendshipSolicitationPending($user);
+        echo json_encode($result);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//update friendship solicitation (header.js)
+$app->post('/users/friendShip/update', function(Request $request, Response $response){
+    $user_send = $request->getParam("user_send");
+    $user_received = $request->getParam("user_received");
+    try{
+        $result = "";
+        $user = new User($user_send, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $user2 = new User($user_received, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->updateFriendshipSolicitation($user, $user2);
+        echo "Actualizado";
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//decline friendship solicitation (header.js)
+$app->post('/users/friendShip/delete', function(Request $request, Response $response){
+    $user_send = $request->getParam("user_send");
+    $user_received = $request->getParam("user_received");
+    try{
+        $result = "";
+        $user = new User($user_send, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $user2 = new User($user_received, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->deleteFriendshipSolicitation($user, $user2);
+        echo "Actualizado";
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});

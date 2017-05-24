@@ -56,6 +56,50 @@ class UserDAO {
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->rowCount();
     }
+
+    public function sendFriendshipSolicitation($User) {
+        $response = array($User->getUsername());
+        $sql = "SELECT Users.users_id_user,Users.users_username FROM Users WHERE Users.users_username=?";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public function insertFriendshipSolicitation($User, $User2) {
+        $response = array($User->getUsername(),$User2->getUsername());
+        $sql = "INSERT INTO Friendship_Solicitations (Friendship_Solicitations.Users_users_id_send,Friendship_Solicitations.Users_users_id_receive,Friendship_Solicitations.friendship_solicitations_status) VALUES (?,?,0);";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->rowCount();
+    }
+
+    public function friendshipSolicitationPending($User) {
+        $response = array($User->getUserId());
+        $sql = "SELECT Users.users_username,Users.users_id_user FROM Friendship_solicitations
+                INNER JOIN Users ON Users.users_id_user=Friendship_solicitations.Users_users_id_send
+                INNER JOIN Users u ON u.users_id_user=Friendship_solicitations.Users_users_id_receive
+                WHERE Friendship_solicitations.Users_users_id_receive=? AND Friendship_solicitations.friendship_solicitations_status=0;";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function updateFriendshipSolicitation($User, $User2) {
+        $response = array($User->getUserId(),$User2->getUserId());
+        var_dump($response);
+        $sql = "UPDATE Friendship_Solicitations
+                SET Friendship_Solicitations.friendship_solicitations_status=1
+                WHERE Friendship_solicitations.Users_users_id_send=? AND Friendship_solicitations.Users_users_id_receive=?;";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->rowCount();
+    }
+
+    public function deleteFriendshipSolicitation($User, $User2) {
+        $response = array($User->getUserId(),$User2->getUserId());
+        var_dump($response);
+        $sql = "DELETE FROM Friendship_solicitations WHERE Friendship_solicitations.Users_users_id_send=? AND Friendship_solicitations.Users_users_id_receive=?;";
+        $response = $this->dbConnect->selectQuery($sql, $response);
+        return $response->rowCount();
+    }
+
 }
 
 ?>

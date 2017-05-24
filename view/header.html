@@ -81,17 +81,38 @@
                     <span class="navbar-text col align-self-center">Something useful</span>
                 </div>
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7"></div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <div class="collapse navbar-collapse" id="desplegable">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-if="showLoginButton==1">
+                    <div class="collapse navbar-collapse" id="desplegable">                    
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
                                 <a href="#" style="background-color: grey; color: white" data-toggle="dropdown" class="dropdown-toggle" translate="FRIENDS"><b class="caret"></b></a>
                                 <ul id="friends" class="dropdown-menu">
-                                    <li class="friend" ng-repeat="userFriend in userFriends">
+                                <li>
+                                	<form class="navbar-form navbar-left" method="post" name="addFriendManagement" novalidate ng-submit="addFriendManagement.$valid">
+        								<div class="form-group">
+          									<input type="text" class="form-control" placeholder="Add Friend" ng-model="friendFind" required/>
+          									<input type="submit" name="addFriend" id="addFriendButton" ng-disabled="addFriendManagement.$invalid" ng-click="headerCtrl.addFriend()"/>       									
+        								</div>
+        							</form>
+        						</li>
+        						<li ng-if="rowCount==1"><div class="alert alert-success"><strong translate="Success! friendship solicitation has send!"></strong></div></li>
+                                    <li class="friend" ng-repeat="userFriend in userFriends">                                    
                                         <a href="#">
                                             <h6 class="h6">{{userFriend.users_username}}
                                                 <i ng-click="openFriendProfile()" class="glyphicon glyphicon-eye-open friendIcons"></i>
                                                 <i ng-click="openChat(userFriend.users_id_user)"  class="glyphicon glyphicon-comment friendIcons">&nbsp</i>
+                                            </h6>
+                                        </a>
+                                    </li>
+                                    <hr ng-if="listofSolicitations!=''">
+                                    <li id="FriendshipSolicitationsHeader" ng-if="listofSolicitations!=''">Friendship Solicitations</li>
+                                    <hr ng-if="listofSolicitations!=''">
+                                    <li class="friend" ng-repeat="solicitation in listofSolicitations">                                    
+                                        <a href="#">
+                                            <h6 class="h6">{{solicitation.users_username}}
+                                            	<i ng-click="acceptSolicitation(solicitation.users_id_user)" class="glyphicon glyphicon-ok acceptSolicitation"></i>
+                                            	<i ng-click="declineProfile(solicitation.users_id_user)" class="glyphicon glyphicon glyphicon-remove declineSolicitation"></i>
+                                                <i ng-click="openFriendProfile()" class="glyphicon glyphicon-eye-open friendIcons"></i>
                                             </h6>
                                         </a>
                                     </li>
@@ -103,20 +124,3 @@
             </nav>
         </div>
     </div>
-
-
-    <!-- 
-        glyphicon glyphicon-pencil
-        glyphicon glyphicon-user || glyphicon glyphicon-eye-open
-    -->
-
-    <!--< <div class="col-sm-3 col-md-4 pull-right">
-        form class="navbar-form" role="search">
-        <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-            <div class="input-group-btn">
-                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-            </div>
-        </div>
-        </form>
-    </div>-->

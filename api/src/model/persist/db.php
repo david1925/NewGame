@@ -16,7 +16,7 @@
         }
 
 
-        public function selectQuery($sql,$vector) {
+        public function selectQuery($sql, $vector) {
         //select 
         if ($this->connect()) {
             $sentencia = $this->connect()->prepare($sql);

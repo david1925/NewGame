@@ -82,3 +82,37 @@ img{
 a .btn-success {
   text-decoration: none;
 }
+/*********header.html(friendshipSolicitations)*********/
+#addFriendButton{
+  position: absolute;
+  right: 18px;
+  top: 19px;
+  color: #000000 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;    
+  border: none;
+  background: #ededed;
+  border-radius: 3px;
+    
+    transition: all .2s;
+}
+
+#addFriendButton:hover{
+  background-color: #37C88D;
+  color: #FFFFFF !important;
+}
+
+#FriendshipSolicitationsHeader{
+  color: #000000;
+  margin-left: 18%;
+}
+
+.acceptSolicitation{
+  color: green;
+  margin-left: 15%;
+}
+
+.declineSolicitation{
+  color: red;
+  margin-left: 20%;
+}

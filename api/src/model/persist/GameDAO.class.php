@@ -21,21 +21,21 @@ class GameDAO {
                                 INNER JOIN Games ON Games.games_id_game = Games_libraries.Games_games_id_game
                                 WHERE Users.users_id_user=? ORDER BY Games.games_name";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getShop() {
         $response = array();
         $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image, Games.games_rating, Games.Genders_genders_id_gender FROM Games ORDER BY Games.games_name";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getAll() {
         $response = array();
         $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_price,Games.games_rating FROM Games ORDER BY Games.games_name";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }    
 
 
@@ -43,14 +43,14 @@ class GameDAO {
         $response = array();
         $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_rating DESC LIMIT 4";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getPublicationDate() {
         $response = array();
         $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_publication_date DESC LIMIT 4";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }     
 
 
@@ -71,7 +71,7 @@ class GameDAO {
             INNER JOIN Game_Requirements ON Game_Requirements.Games_games_id_game=Games.games_id_game
             WHERE Games.games_id_game=?";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
 
@@ -89,7 +89,7 @@ class GameDAO {
                 INNER JOIN Users ON Users.users_id_user=Reviews.Users_users_id_user
                 WHERE Games.games_id_game=?";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
     
     public function getShoppingCart($Game) {
@@ -97,7 +97,7 @@ class GameDAO {
         $sql = "SELECT Games.games_id_game, Games.games_name, Games.games_price, Games.games_url_image FROM Games
                 WHERE Games.games_id_game=?";
         $response = $this->dbConnect->selectQuery($sql, $response);
-        return $response->fetchAll();
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
     
 }
