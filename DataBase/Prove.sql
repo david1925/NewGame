@@ -425,34 +425,34 @@ VALUES ("Bloodborne","Bloodborne follows the player character, the Hunter, throu
 
 /**********************************************************Users**************************************************/
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"a.png","Alumne account",1,8,1,"en");
+VALUES("alumne",md5("alumne"),"alumne","alumne","alumne","alumne@gmail.com",123456789,"1.png","Alumne account",1,8,1,"en");
 
 INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne2",md5("alumne2"),"alumne2","alumne2","alumne2","alumne2@gmail.com",987654321,"b.png","Alumne2 account",1,8,1,"en");
+VALUES("alumne2",md5("alumne2"),"alumne2","alumne2","alumne2","alumne2@gmail.com",987654321,"1.png","Alumne2 account",1,8,1,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne3",md5("alumne3"),"alumne3","alumne3","alumne3","alumne3@gmail.com",654987321,"c.jpg","Alumne3 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne3",md5("alumne3"),"alumne3","alumne3","alumne3","alumne3@gmail.com",654987321,"Alumne3 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne4",md5("alumne4"),"alumne4","alumne4","alumne4","alumne4@gmail.com",546798132,"d.jpg","Alumne4 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne4",md5("alumne4"),"alumne4","alumne4","alumne4","alumne4@gmail.com",546798132,"Alumne4 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne5",md5("alumne5"),"alumne5","alumne5","alumne5","alumne5@gmail.com",111222333,"e.jpg","Alumne5 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne5",md5("alumne5"),"alumne5","alumne5","alumne5","alumne5@gmail.com",111222333,"Alumne5 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne6",md5("alumne6"),"alumne6","alumne6","alumne6","alumne6@gmail.com",222111333,"f.jpg","Alumne6 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne6",md5("alumne6"),"alumne6","alumne6","alumne6","alumne6@gmail.com",222111333,"Alumne6 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne7",md5("alumne7"),"alumne7","alumne7","alumne7","alumne7@gmail.com",333222111,"g.jpg","Alumne7 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne7",md5("alumne7"),"alumne7","alumne7","alumne7","alumne7@gmail.com",333222111,"Alumne7 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne8",md5("alumne8"),"alumne8","alumne8","alumne8","alumne8@gmail.com",444555666,"h.jpg","Alumn8 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne8",md5("alumne8"),"alumne8","alumne8","alumne8","alumne8@gmail.com",444555666,"Alumn8 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne9",md5("alumne9"),"alumne9","alumne9","alumne9","alumne9@gmail.com",555666444,"i.jpg","Alumne9 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne9",md5("alumne9"),"alumne9","alumne9","alumne9","alumne9@gmail.com",555666444,"Alumne9 account",1,8,0,"en");
 
-INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_image,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
-VALUES("alumne10",md5("alumne10"),"alumne10","alumne10","alumne10","alumne10@gmail.com",666555444,"j.jpg","Alumne10 account",1,8,0,"en");
+INSERT INTO Users (users_username,users_password,users_name,users_firstname,users_lastname,users_email,users_phone,users_summary,users_public_profile,Provinces_provinces_id_province,users_status,users_language)
+VALUES("alumne10",md5("alumne10"),"alumne10","alumne10","alumne10","alumne10@gmail.com",666555444,"Alumne10 account",1,8,0,"en");
 
 /**********************************************************Chats**************************************************/
 INSERT INTO Chats (chats_text,chats_datetime,users_users_id_user_send,users_users_id_user_receive)

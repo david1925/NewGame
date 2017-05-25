@@ -1,31 +1,35 @@
 <div id="wall">
-				<h4 class="h4">{{forumsTopicsMessages[0].games_name}} | {{forumsTopicsMessages[0].topics_title}}</h4>
-				<hr>
-			<div class="thread" dir-paginate="forumTopicsMessage in forumTopicsMessages | itemsPerPage: pageSize" current-page="currentPage">	
-				<p>{{forumTopicsMessage.replies_text}}</p>
-				<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i>{{forumTopicsMessage.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{forumTopicsMessage.replies_datetime}}</h6>
-			</div>
-			<div class="text-left" boundary-links="true">
-	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
-	          </div>
-        	</span>
-        	<div ng-if="checkUser=='true'">
-				<hr>
-				<form  method="post" name="addAnswerManagement" novalidate ng-submit="addAnswerManagement.$valid && !forumCtrl.checkAddAnswer()">
-		        <div class="form-group">
-		       		<div class="input-group">
-		       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-				  		<textarea class="form-control" name="answerDescription" ng-model="forumCtrl.answerDescription" placeholder="Write your answer for this Topic." rows="3" required/></textarea>
-			  		</div>
-			    </div>
-		  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addAnswerManagement.$invalid" ng-click="forumCtrl.checkAddAnswer(forumCtrl.answerDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
-		  	</form>
-		</div>
-		<div ng-if="showAddAnswerMessage==1">
-			<hr>
-			<div class="alert alert-success" translate="Your topic has been saved!"></div>
-		</div>
-		<div ng-if="showAddAnswerMessage==0">
-			<hr>
-			<div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
-		</div>
+   <h4 class="h4">{{forumsTopicsMessages[0].games_name}} | {{forumsTopicsMessages[0].topics_title}}</h4>
+   <hr>
+   <div class="content" dir-paginate="forumTopicsMessage in forumTopicsMessages | itemsPerPage: pageSize" current-page="currentPage">
+      <p>{{forumTopicsMessage.replies_text}}</p>
+      <br>
+      <h6 class="h6"><i class="glyphicon glyphicon-user"></i><a href="{{userProfileRoute}}?id={{forumTopicsMessage.users_id_user}}">{{forumTopicsMessage.users_username}}</a><br><i class="glyphicon glyphicon-time"></i> {{forumTopicsMessage.replies_datetime}}</h6>
+   </div>
+   <div class="text-left" boundary-links="true">
+      <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
+   </div>
+   <div ng-if="checkUser=='true'">
+      <hr>
+      <form method="post" name="addAnswerManagement" novalidate ng-submit="addAnswerManagement.$valid && !forumCtrl.checkAddAnswer()">
+         <div class="form-group">
+            <div class="input-group ">
+               <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+               <textarea class="form-control" name="answerDescription" ng-model="forumCtrl.answerDescription" placeholder="Write your answer for this Topic." rows="3" required></textarea>
+            </div>
+         </div>
+         <button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addAnswerManagement.$invalid" ng-click="forumCtrl.checkAddAnswer(forumCtrl.answerDescription)">
+			<span class="glyphicon glyphicon-send"></span>
+			Submit
+         </button>
+      </form>
+   </div>
+   <div ng-if="showAddAnswerMessage==1">
+      <hr>
+      <div class="alert alert-success" translate="Your topic has been saved!"></div>
+   </div>
+   <div ng-if="showAddAnswerMessage==0">
+      <hr>
+      <div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
+   </div>
+</div>

@@ -3,7 +3,7 @@
 
     //scope variables
     $scope.forums="";
-    $scope.pageSize=5;
+    $scope.pageSize=8;
     $scope.currentPage= 1;
     $scope.topicsArray = [];
     $scope.prize;
@@ -13,6 +13,7 @@
     $scope.showAddTopicForm=0;
     $scope.showAddTopicMessage;
     $scope.addTopicManagement;
+    $scope.userProfileRoute = Domain + "view/userProfile.html";
     //Attributes
     this.topicTitle;
     this.topicDescription;
@@ -30,8 +31,6 @@
         .then(function (response) {
           $scope.topicsArray.push(response.data)});
       }
-
-
     });
 
     $scope.changeLanguage = function (translate) {

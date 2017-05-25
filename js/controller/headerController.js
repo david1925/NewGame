@@ -87,7 +87,7 @@
         }
 
         $scope.openFriendProfile = function(idUser) {
-            $window.open($scope.indexRoute +"view/userProfile.html?id=" + idUser, "_blank", "toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=500,left=500,width=400,height=400");
+            $window.open($scope.indexRoute +"view/userProfile.html?id=" + idUser, "_self", "toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=500,left=500,width=400,height=400");
         }
 
         this.logOut = function() {

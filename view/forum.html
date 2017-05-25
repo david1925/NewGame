@@ -29,7 +29,7 @@
 	<!--Favicon ico-->
 	<link rel="icon" href="../images/favicon.jpg">
 	<!-- Css -->
-	<link rel="stylesheet" type="text/css" href="../css/forum.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 
 	<!-- app -->
@@ -46,22 +46,44 @@
 	<!-- HEADER -->
 	<header ng-include="'header.html'"></header>
 	<main>
-	<div ng-if="showButtons==1">
-		<h3 class="h3" translate="Forums"></h3>
-		<hr>
-		<a ng-href="#/forumThread" ng-click="forumCtrl.showTopics(forum.games_id_game)" class="btn btn-primary widthButton" type="submit" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage" ng-model="idGame">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forum.games_name}}</h4>
-			<h6 class="h6"> {{topicsArray[$index][0].Topics}} <i class="glyphicon glyphicon-comment"></i></h6> 			
-		</a>
-		<div boundary-links="true">
-	        <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
-	    </div>
-	</div>
-		<div ng-if="showButtons==0">
-			<show-games-forums></show-games-forums>
+		<div ng-if="showButtons==1">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						<h3 class="h3" translate="Forums"></h3>
+						<hr>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<a class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content align" dir-paginate="forum in forums | itemsPerPage: pageSize" current-page="currentPage" ng-href="#/forumThread" ng-click="forumCtrl.showTopics(forum.games_id_game)" type="submit" ng-model="idGame">
+						<span class="h4"></i> {{forum.games_name}}</span><br>
+						<span class="h6"> {{topicsArray[$index][0].Topics}} <i class="glyphicon glyphicon-comment"></i></span> 			
+					</a>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div boundary-links="true">
+								<dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div ng-if="showButtons==2">
-			<show-forum-threat></show-forum-threat>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div ng-if="showButtons==0">
+						<show-games-forums></show-games-forums>
+					</div>
+					<div ng-if="showButtons==2">
+						<show-forum-threat></show-forum-threat>
+					</div>
+				</div>
+			</div>
 		</div>
 	</main>
 </body>

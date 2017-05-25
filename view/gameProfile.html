@@ -177,7 +177,7 @@
 					<div>{{thisGame.reviews_text}}</div>
 					<br>
 					<div>
-					<i class="glyphicon glyphicon-user"></i> {{thisGame.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{thisGame.review_datetime}}<i ng-if="thisGame.reviews_rating==1" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="thisGame.reviews_rating==0" class='glyphicon glyphicon-thumbs-down'></i>
+					<i class="glyphicon glyphicon-user"></i> <a href="{{userProfileRoute}}?id={{thisGame.users_id_user}}">{{thisGame.users_username}}</a><br><i class="glyphicon glyphicon-time"></i> {{thisGame.review_datetime}}<i ng-if="thisGame.reviews_rating==1" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="thisGame.reviews_rating==0" class='glyphicon glyphicon-thumbs-down'></i>
 				</div>
 				</div>
 				<hr>

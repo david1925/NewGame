@@ -240,6 +240,21 @@ $app->get('/users/update/{id}', function(Request $request, Response $response){
         echo '{"error": {"text": '.$e->getMessage().'}';
     }
 });
+
+// Activate a user account
+$app->get('/users/games/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    try {
+        $result = "";
+        $user = new User($id, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getUserGames($user);
+        echo json_encode($result);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}';
+    }
+});
+
 // Destoys a user session
 $app->get('/users/logout/{id}', function(Request $request, Response $response){
     $id = $request->getAttribute("id");
@@ -343,6 +358,20 @@ $app->post('/users/friendShip/delete', function(Request $request, Response $resp
         $helper = new UserDAO();
         $result = $helper->deleteFriendshipSolicitation($user, $user2);
         echo "Actualizado";
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//Select all pending friendShip solicitations (header.js)
+$app->get('/users/publicProfile/{id}', function(Request $request, Response $response){
+    $id = $request->getAttribute("id");
+    try{
+        $result = "";
+        $user = new User($id,"", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->getPublicProfile($user);
+        echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';
     }

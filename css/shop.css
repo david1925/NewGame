@@ -32,6 +32,15 @@
   opacity: 0.7;
 }
 
+.priceButton {
+  margin-top:3.5%;
+}
+
+.textContainerShop { 
+    height: 80px; 
+    line-height: 80px;
+}
+
 
 
 /****************************** INPUT RANGE ******************************/

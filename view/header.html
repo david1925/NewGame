@@ -1,150 +1,159 @@
 <div ng-controller="headerController as headerCtrl">
-    <div class="container">
-        <div class="row">
-            <nav id="myNavbar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#desplegable">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="{{indexRoute}}"><i class="glyphicon glyphicon-home"></i> NewGame</a>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="desplegable">
-                    <ul class="nav navbar-nav">
-                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{storeRoute}}" translate="Store" ng-if="showLoginButton==1"></a>
-                        </li>
-                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{shopRoute}}" translate="Shop"></a>
-                        </li>
-                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{communityRoute}}" translate="Community"></a>
-                        </li>
-                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                            <a href="{{contactRoute}}" translate="Contact"></a>
-                        </li>
-                        <li class="col-xs-2 col-sm-2 col-md-2 col-lg-2" class="dropdown">
-                            <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" ng-click="changeLanguage('es')"><h6 class="h6"><span class="flag flag-es"></span> Spanish</h6></a></li>
-                                <li><a href="#" ng-click="changeLanguage('ca')"><h6 class="h6"><span class="flag flag-cat"></span> Catalan</h6></a></li>
-                                <li><a href="#" ng-click="changeLanguage('en')"><h6 class="h6"><span class="flag flag-us"></span> English</h6></a></li>
-                            </ul>
-                        </li>    
-                    </ul>    
-                </div>                     
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                     <ul class="nav navbar-nav" ng-if="showLoginButton==1">
-                        <li class="dropdown pull-left">
-                            <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-cog"></i></a>
-                            <ul class="dropdown-menu dropdown-menu-left" id="shoppingCartDiv">
-                                <li>
-                                    <a href="#">
-                                        <span class="h6">edit user info</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="h6">change password</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <span class="h6">your own profile</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li> 
-                    </ul>
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown pull-left">
-                            <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
-                            <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
-                                <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index">
-                                    <a href="#">
-                                        <h6 class="h6">{{gameToShow[0].games_name}}   <strong>{{gameToShow[0].games_price}}€</strong>  <!--<button type="button" class="btn btn-danger">X</button>--></h6>
-                                    </a>
-                                </li>
-                                <div ng-if="gamesToShow!=''">
-                                    <li><hr></li>
-                                    <br><br>
-                                    <li id="blackText">Total: {{totalPrice}}€ <a href="{{purchaseRoute}}" class="btn btn-success" translate="Finalize purchase"></a></li>
-                                    <li><a href="#" type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></a></li>
-                                </div>
-                            </ul>
-                        </li> 
-                    </ul>
-                </div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <ul class="nav navbar-nav">                           
+   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Desplegar navegación</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{indexRoute}}"><i class="glyphicon glyphicon-home"></i> NewGame</a> 
+         </div>
+         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+               <li>
+                  <a href="{{storeRoute}}" translate="Store" ng-if="showLoginButton==1"></a>
+               </li>
+               <li>
+                  <a href="{{shopRoute}}" translate="Shop"></a>
+               </li>
+               <li>
+                  <a href="{{communityRoute}}" translate="Community"></a>
+               </li>
+               <li>
+                  <a href="{{contactRoute}}" translate="Contact"></a>
+               </li>
+               <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                     <li>
+                        <a href="#" ng-click="changeLanguage('es')">
+                           <h6 class="h6"><span class="flag flag-es"></span> Spanish</h6>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" ng-click="changeLanguage('ca')">
+                           <h6 class="h6"><span class="flag flag-cat"></span> Catalan</h6>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#" ng-click="changeLanguage('en')">
+                           <h6 class="h6"><span class="flag flag-us"></span> English</h6>
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <ul class="nav navbar-nav" ng-if="showLoginButton==1">
+               <li class="dropdown pull-left">
+                  <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-cog"></i></a>
+                  <ul class="dropdown-menu dropdown-menu-left" id="shoppingCartDiv">
+                     <li>
+                        <a href="#">
+                        <span class="h6">edit user info</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                        <span class="h6">change password</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="#">
+                        <span class="h6">your own profile</span>
+                        </a>
+                     </li>
+                  </ul>
+               </li>
+            </ul>
+            <ul class="nav navbar-nav">
+               <li class="dropdown pull-left">
+                  <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
+                  <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
+                     <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index">
+                        <a href="#">
+                           <h6 class="h6">
+                              {{gameToShow[0].games_name}}   <strong>{{gameToShow[0].games_price}}€</strong>
+                           </h6>
+                        </a>
+                     </li>
+                     <div ng-if="gamesToShow!=''">
                         <li>
-                            <a href="{{loginRoute}}" style="background-color: #008000; color: white" ng-if="showLoginButton==0" translate="Login"></a>
+                           <hr>
                         </li>
-                        <li>
-                            <a href="{{indexRoute}}" ng-click="headerCtrl.logOut()" style="background-color: #990000; color: white" ng-if="showLoginButton==1" translate="Logout"></a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-
-    <div class="container">        
-        <div class="row">
-            <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                    <span class="navbar-text col align-self-center">Something useful</span>
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
-                <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                    <div class="collapse navbar-collapse" id="desplegable"  ng-if="showLoginButton==1">                    
-                        <ul class="nav navbar-nav">
-                            <li class="dropdown">
-                                <a href="#" style="background-color: grey; color: white" data-toggle="dropdown" class="dropdown-toggle" translate="FRIENDS"><b class="caret"></b></a>
-                                <ul id="friends" class="dropdown-menu dropdown-menu-right">
-                                <li>
-                                	<form class="navbar-form navbar-left" name="addFriendManagement" novalidate ng-submit="addFriendManagement.$valid">
-        								<div class="form-group">
-          									<input type="text" class="form-control" placeholder="Add Friend" ng-model="friendFind" required/>
-          									<input type="submit" name="addFriend" id="addFriendButton" ng-disabled="addFriendManagement.$invalid" ng-click="addFriend()"/>       									
-        								</div>
-        							</form>
-        						</li>
-        						<li ng-if="rowCount==1"><div class="alert alert-success"><strong translate="Success! friendship solicitation has send!"></strong></div></li>
-                                <li ng-if="rowCount<1"><div class="alert alert-danger"><strong translate="Error! There has been a problem with the petition or uer not found!"></strong></div></li>
-                                    <li class="friend" ng-repeat="userFriend in userFriends">                                    
-                                        <a href="#">
-                                            <h6 class="h6">{{userFriend.users_username}}
-                                                <i ng-click="openFriendProfile(userFriend.users_id_user)" class="glyphicon glyphicon-eye-open friendIcons"></i>
-                                                <i ng-click="openChat(userFriend.users_id_user)"  class="glyphicon glyphicon-comment friendIcons">&nbsp</i>
-                                            </h6>
-                                        </a>
-                                    </li>
-                                    <hr ng-if="listofSolicitations!=''">
-                                    <li id="FriendshipSolicitationsHeader" ng-if="listofSolicitations!=''">Friendship Solicitations</li>
-                                    <hr ng-if="listofSolicitations!=''">
-                                    <li class="friend" ng-repeat="solicitation in listofSolicitations">                                    
-                                        <a href="#">
-                                            <h6 class="h6">{{solicitation.users_username}}
-                                            	<i ng-click="acceptSolicitation(solicitation.users_id_user)" class="glyphicon glyphicon-ok acceptSolicitation"></i>
-                                            	<i ng-click="declineProfile(solicitation.users_id_user)" class="glyphicon glyphicon glyphicon-remove declineSolicitation"></i>
-                                                <i ng-click="openFriendProfile()" class="glyphicon glyphicon-eye-open friendIcons"></i>
-                                            </h6>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li> 
+                        <br><br>
+                        <li id="blackText">Total: {{totalPrice}}€ <a href="{{purchaseRoute}}" class="btn btn-success" translate="Finalize purchase"></a></li>
+                        <li><a href="#" type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></a></li>
+                     </div>
+                  </ul>
+               </li>
+            </ul>
+            <ul class="nav navbar-nav">
+               <li>
+                  <a href="{{loginRoute}}" style="background-color: #008000; color: white" class="login" ng-if="showLoginButton==0" translate="Login"></a>
+               </li>
+               <li>
+                  <a href="{{indexRoute}}" ng-click="headerCtrl.logOut()" style="background-color: #990000; color: white" ng-if="showLoginButton==1" translate="Logout"></a>
+               </li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+   <div class="container">
+      <div class="row">
+         <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+               <span class="navbar-text col align-self-center">Something useful</span>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+               <div class="collapse navbar-collapse" id="desplegable"  ng-if="showLoginButton==1">
+                  <ul class="nav navbar-nav">
+                     <li class="dropdown">
+                        <a href="#" style="background-color: grey; color: white" data-toggle="dropdown" class="dropdown-toggle" translate="FRIENDS"><b class="caret"></b></a>
+                        <ul id="friends" class="dropdown-menu dropdown-menu-right">
+                           <li>
+                              <form class="navbar-form navbar-left" name="addFriendManagement" novalidate ng-submit="addFriendManagement.$valid">
+                                 <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Add Friend" ng-model="friendFind" required/>
+                                    <input type="submit" name="addFriend" id="addFriendButton" ng-disabled="addFriendManagement.$invalid" ng-click="addFriend()"/>       									
+                                 </div>
+                              </form>
+                           </li>
+                           <li ng-if="rowCount==1">
+                              <div class="alert alert-success"><strong translate="Success! friendship solicitation has send!"></strong></div>
+                           </li>
+                           <li ng-if="rowCount<1">
+                              <div class="alert alert-danger"><strong translate="Error! There has been a problem with the petition or uer not found!"></strong></div>
+                           </li>
+                           <li class="friend" ng-repeat="userFriend in userFriends">
+                              <a href="#">
+                                 <h6 class="h6">{{userFriend.users_username}}
+                                    <i ng-click="openFriendProfile(userFriend.users_id_user)" class="glyphicon glyphicon-eye-open friendIcons"></i>
+                                    <i ng-click="openChat(userFriend.users_id_user)"  class="glyphicon glyphicon-comment friendIcons">&nbsp</i>
+                                 </h6>
+                              </a>
+                           </li>
+                           <hr ng-if="listofSolicitations!=''">
+                           <li id="FriendshipSolicitationsHeader" ng-if="listofSolicitations!=''">Friendship Solicitations</li>
+                           <hr ng-if="listofSolicitations!=''">
+                           <li class="friend" ng-repeat="solicitation in listofSolicitations">
+                              <a href="#">
+                                 <h6 class="h6">{{solicitation.users_username}}
+                                    <i ng-click="acceptSolicitation(solicitation.users_id_user)" class="glyphicon glyphicon-ok acceptSolicitation"></i>
+                                    <i ng-click="declineProfile(solicitation.users_id_user)" class="glyphicon glyphicon glyphicon-remove declineSolicitation"></i>
+                                    <i ng-click="openFriendProfile()" class="glyphicon glyphicon-eye-open friendIcons"></i>
+                                 </h6>
+                              </a>
+                           </li>
                         </ul>
-                    </div> 
-                </div>
-            </nav>
-        </div>
-    </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+   </div>
+</div>

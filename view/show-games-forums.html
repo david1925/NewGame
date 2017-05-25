@@ -1,33 +1,34 @@
-<h3 class="h3">{{forumThreads[0].games_name}} <button type="button" ng-if="checkUser=='true'" ng-click="forumCtrl.showAddTopicForm()" class="btn btn-info" translate="Add Topic"></button></h3>
-	
-		<hr>
-		<a ng-href="#/forumThread" ng-click="forumCtrl.showTopicsMessages(forumThread.topics_id_topic)" class="btn btn-primary widthButton" type="submit" dir-paginate="forumThread in forumThreads | itemsPerPage: pageSize" current-page="currentPage" ng-model="idGame">
-			<h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forumThread.topics_title}}</h4>
-		</a>
-		<div boundary-links="true">
-	        <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
-	    </div>
-	    <div ng-if="showAddTopicForm==1">
-				<hr>
-				<form  method="post" name="addTopicManagement" novalidate ng-submit="addTopicManagement.$valid && !forumCtrl.checkAddTopic()">
-		        <div class="form-group">
-		        	<div class='form-group'>
-	               		<div class='input-group'>
-	               			<span class='input-group-addon'><i class='glyphicon glyphicon-comment'></i></span>
-							<input type='text' name="topicTitle" ng-model="forumCtrl.topicTitle" class='form-control' placeholder="Topic title*" required/>
-						</div>
-					</div>
-		       		<div class="input-group">
-		       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-				  		<textarea class="form-control" name="topicDescription" ng-model="forumCtrl.topicDescription" placeholder="Write the description for your Topic." rows="3" required/></textarea>
-			  		</div>
-			    </div>
-		  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addTopicManagement.$invalid" ng-click="forumCtrl.checkAddTopic(forumCtrl.topicTitle,forumCtrl.topicDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
-		  	</form>
-		</div>
-		<div ng-if="showAddTopicMessage==1">
-			<div class="alert alert-success" translate="Your topic has been saved!"></div>
-		</div>
-		<div ng-if="showAddTopicMessage==0">
-			<div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
-		</div>
+<h3 class="h3">{{forumThreads[0].games_name}}</h3>
+    <button type="button" ng-if="checkUser=='true'" ng-click="forumCtrl.showAddTopicForm()" class="btn btn-info" translate="Add Topic"></button>
+<hr>
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content"
+<a ng-href="#/forumThread" ng-click="forumCtrl.showTopicsMessages(forumThread.topics_id_topic)" type="submit" dir-paginate="forumThread in forumThreads | itemsPerPage: pageSize" current-page="currentPage" ng-model="idGame">
+   <h4 class="h4"><i class="glyphicon glyphicon-envelope"></i> {{forumThread.topics_title}}</h4>
+</a>
+<div boundary-links="true">
+   <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
+</div>
+<div ng-if="showAddTopicForm==1">
+   <hr>
+   <form  method="post" name="addTopicManagement" novalidate ng-submit="addTopicManagement.$valid && !forumCtrl.checkAddTopic()">
+      <div class="form-group">
+         <div class='form-group'>
+            <div class='input-group'>
+               <span class='input-group-addon'><i class='glyphicon glyphicon-comment'></i></span>
+               <input type='text' name="topicTitle" ng-model="forumCtrl.topicTitle" class='form-control' placeholder="Topic title*" required/>
+            </div>
+         </div>
+         <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+            <textarea class="form-control" name="topicDescription" ng-model="forumCtrl.topicDescription" placeholder="Write the description for your Topic." rows="3" required/></textarea>
+         </div>
+      </div>
+      <button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addTopicManagement.$invalid" ng-click="forumCtrl.checkAddTopic(forumCtrl.topicTitle,forumCtrl.topicDescription)"><span class="glyphicon glyphicon-send"></span> Submit</button>
+   </form>
+</div>
+<div ng-if="showAddTopicMessage==1">
+   <div class="alert alert-success" translate="Your topic has been saved!"></div>
+</div>
+<div ng-if="showAddTopicMessage==0">
+   <div class="alert alert-danger" translate="¡Error! There has been an error with the topic"></div>
+</div>

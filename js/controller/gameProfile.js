@@ -5,6 +5,7 @@
     $scope.pageSize=10;
     $scope.currentPage= 1;
     $scope.likeButton=0;
+    $scope.userProfileRoute = Domain + "view/userProfile.html";
 
     //Get id from url
     var url = $location.absUrl();

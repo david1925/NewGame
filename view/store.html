@@ -28,7 +28,7 @@
 
 
 	<!-- Css -->
-	<link rel="stylesheet" type="text/css" href="../css/store.css">
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 
 	<!-- app -->
@@ -36,26 +36,43 @@
 	<script src="../js/controller/store.js" type="text/javascript" xml:space="preserve"></script>
 	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
 
+	<!-- Model -->
+	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/model/Game.js" type="text/javascript" xml:space="preserve"></script>
+
+
 </head>
 <body ng-controller="storeController as storeCtrl">
 	
 	<!-- HEADER -->	
-	<header ng-include="'header.html'"></header>	
-
-	<main>			
-		<h3 class="h3"></h3>
-		<hr>
-		<!--<button class="btn btn-primary chivalry" type="submit">Chivalry medieval warfare</button>-->
-		<div class="games" dir-paginate="game in games | itemsPerPage: pageSize" current-page="currentPage">	
-			<figure><a href="gameProfile.html">
-						<img class="images" src="../images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
-						<figcaption>{{game.games_name}} {{game.games_price}}€ <i ng-if="game.games_rating>=0.5" class='glyphicon glyphicon-thumbs-up'></i><i ng-if="game.games_rating<0.5 && game.games_rating!=null" class='glyphicon glyphicon-thumbs-down'></i><i ng-if="game.games_rating==null">Not rated</i></figcaption>
-					</a>
-				</figure>
+	<header ng-include="'header.html'"></header>
+	<main>	
+		<div class="container">	
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="h1">Owned games</h1>
+                    <hr>    
+                </div>
+            </div>
 		</div>
-		<div  boundary-links="true">
-	            <dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html" ></dir-pagination-controls>
-	    </div>
+		<div class="container">	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div ng-repeat="game in userGames">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<figure class="content align">
+								<a href="gameProfile.html">
+									<img class="images" src="../images/games/{{game.getUrlImage()}}/{{game.getUrlImage()}}" alt="{{game.getName()}}">
+									<figcaption>
+										{{game.getName()}} 
+									</figcaption>
+								</a>
+							</figure>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</main>
 </body>
 </html>

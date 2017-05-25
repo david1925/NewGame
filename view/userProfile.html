@@ -27,6 +27,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- Css -->
 	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/userProfile.css">
 	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
 	<!-- app -->
     <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
@@ -42,7 +43,7 @@
 
 	<header ng-include="'header.html'"></header>
 
-	<main>
+	<main>	
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">		
@@ -54,40 +55,63 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">	
-					<ul id="headingUl">
-						<li><h4><span class="h4" translate="Username"></span><small>{{username[0].users_username}}</small></h4></li>
-						<li><h4><span class="h4" translate="Country"></span><small></small></h4></li>
-						<li><h4><span class="h4" translate="Province"></span><small></small></h4></li>
-						<li><h4><span class="h4" translate="Language"></span><small>{{language}}</small></h4></li>
-					</ul>
-					<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Add friend</button>
-					<img src="../images/profile/{{user_image[0].users_image}}" alt="profile">
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<img src="../images/profile/{{user_image.users_image}}" alt="profile">
+						<!--<img src="../images/profile/defaultImage.svg" alt="profile" ng-if="user_image==''">-->
+					</div>
+					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+						<ul>
+							<li><h4><span class="h4" translate="Username"></span><small>&nbsp&nbsp&nbsp{{username.users_username}}</small></h4></li>
+							<li><h4><span class="h4" translate="Country"></span><small></small></h4></li>
+							<li><h4><span class="h4" translate="Province"></span><small></small></h4></li>
+							<li><h4><span class="h4" translate="Language"></span><small>&nbsp&nbsp&nbsp{{language}}</small></h4></li>
+						</ul>
+					</div>
+					<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+						<button type="submit" class="btn btn-primary">
+							<span class="glyphicon glyphicon-send"></span> 
+							Add friend
+						</button>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">	
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">	
 					<h3 class="h4">PURCHASED GAMES</h3>
 					<hr>
 				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">	
+					<h3 class="h4">FRIENDS LIST</h3>
+					<hr>
+				</div>
 			</div>
-		</div>
-		<div class="container col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		</dav>
+		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">	
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 ">	
 					<div class="images" ng-repeat="image in images">
-						<figure>
-							<img class="images" src="../images/games/{{image.games_url_image}}/{{image.games_url_image}}" alt="{{image.games_name}}">
-							<figcaption>{{image.games_name}}</figcaption>
-						</figure>
+						<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+							<figure class="content align">
+								<img class="images" src="../images/games/{{image.games_url_image}}/{{image.games_url_image}}" alt="{{image.games_name}}">
+								<figcaption>
+									{{image.games_name}}
+								</figcaption>
+							</figure>
+						</div>
 					</div>
-				</div>	
+				</div>
+				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+					<ul class="content">
+						<li ng-repeat="friend in friends">{{friend.users_username}}</li>
+					</ul>						
+				</div>
 			</div>
-		</div>
-		<div class="container col-xs-8 col-sm-8 col-md-8 col-lg-8">
+		</div>	
+		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">
+				<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">	
 					<div ng-if="messages!=null">
 						<h4 class="h4">WALL</h4>
 						<hr>
@@ -95,12 +119,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="containe col-xs-8 col-sm-8 col-md-8 col-lg-8">
-			<div class="row">
-				<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 content">
-					<div class="thread" dir-paginate="message in messages | itemsPerPage: pageSize" current-page="currentPage">	
-						<p>{{message.messages_text}}</p>
-						<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i>{{message.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{message.messages_datetime}}</h6>
+		<div class="container">
+			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+				<div class="row">
+					<div dir-paginate="message in messages | itemsPerPage: pageSize" current-page="currentPage">	
+						<div class="content">
+							<p>{{message.messages_text}}</p>
+							<br><h6 class="h6"><i class="glyphicon glyphicon-user"></i>{{message.users_username}}<br><i class="glyphicon glyphicon-time"></i> {{message.messages_datetime}}</h6>
+						</div>
 					</div>
 					<div class="text-left" boundary-links="true">
 						<dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
@@ -117,25 +143,8 @@
 						<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
 					</div>
 				</div>
-			</div>
-		</div> 
-		<div class="container col-xs-4 col-sm4 col-md-4 col-lg-4">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">	
-					<h4 class="h4">FRIENDS LIST</h3>
-					<hr>
-				</div>
-			</div>
-		</div>
-		<div class="container col-xs-4 col-sm4 col-md-4 col-lg-4">
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 content">	
-					<ul>
-						<li ng-repeat="friend in friends">{{friend.users_username}}</li>
-					</ul>						
-				</div>
-			</div>
-		</div>
+			</div> 	
+		</div> 	
 	</main>
 </body>
 </html>

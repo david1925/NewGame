@@ -49,7 +49,7 @@ class ForumDAO {
 
     public function getTopicsMessagesFromGame($Game) {
         $response = array($Game->getGameId());
-        $sql = "SELECT Games.games_name,Topics.topics_title,Replies.replies_text,Users.users_username,date_format(Replies.replies_created_date,'%H:%i %d/%m') as 'replies_datetime',Topics.topics_id_topic FROM Games
+        $sql = "SELECT Games.games_name,Topics.topics_title,Replies.replies_text,Users.users_id_user,Users.users_username,date_format(Replies.replies_created_date,'%H:%i %d/%m') as 'replies_datetime',Topics.topics_id_topic FROM Games
             INNER JOIN Forums ON Forums.Games_games_id_game=Games.games_id_game
             INNER JOIN Topics ON Topics.Forums_forums_id_forum=Forums.forums_id_forum
             INNER JOIN Replies ON Replies.Topics_topics_id_topic=Topics.topics_id_topic
