@@ -17,8 +17,8 @@ class GameDAO {
         $response = array($Game->getGameId());
         $sql = "SELECT Games.games_url_image,Games.games_name FROM Users
                                 INNER JOIN Libraries ON Libraries.Users_users_id_user=Users.users_id_user
-                                INNER JOIN Games_libraries ON Games_libraries.Libraries_libraries_id_library=Libraries.libraries_id_library
-                                INNER JOIN Games ON Games.games_id_game = Games_libraries.Games_games_id_game
+                                INNER JOIN Games_Libraries ON Games_Libraries.Libraries_libraries_id_library=Libraries.libraries_id_library
+                                INNER JOIN Games ON Games.games_id_game = Games_Libraries.Games_games_id_game
                                 WHERE Users.users_id_user=? ORDER BY Games.games_name";
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll(PDO::FETCH_ASSOC);

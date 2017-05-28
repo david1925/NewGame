@@ -87,15 +87,18 @@
     };
 
     $scope.confirmPurchase = function() {
-        if(JSON.parse(sessionStorage.userLogged)=="null"){
-          $window.open(Domain + 'view/login.html', "_self");
+        if($scope.isLoged=="false"){
+        	alert("You must be logged in to buy");
+		$window.open(Domain + 'view/login.html', "_self");
         }else{
           if(JSON.parse(localStorage.getItem("shoppingCart"))!=null){
             $scope.gamesArrayToConfirm = JSON.parse(localStorage.getItem("shoppingCart"));
               $http.post(Domain + 'api/public/games/confirmPurchase', {"gamesArray" : $scope.gamesArrayToConfirm, "total" : $scope.totalPrice, "userId": $scope.user.getId()}).then(function (response) {
-                $scope.showPaypalForm =1;    
+                $scope.showPaypalForm =1;
+                localStorage.clear();
               });
               console.log("Este es el total que se envia a la api " + $scope.totalPrice);
+
             
           }
           else{

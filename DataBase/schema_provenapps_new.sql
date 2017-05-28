@@ -301,22 +301,22 @@ COMMENT = 'Libraries table';
 
 
 -- -----------------------------------------------------
--- Table `daw1703`.`Games_libraries`
+-- Table `daw1703`.`Games_Libraries`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `daw1703`.`Games_libraries` ;
+DROP TABLE IF EXISTS `daw1703`.`Games_Libraries` ;
 
-CREATE TABLE IF NOT EXISTS `daw1703`.`Games_libraries` (
+CREATE TABLE IF NOT EXISTS `daw1703`.`Games_Libraries` (
   `Libraries_libraries_id_library` INT NOT NULL,
   `Games_games_id_game` INT NOT NULL,
-  INDEX `fk_Games_libraries_Libraries1_idx` (`Libraries_libraries_id_library` ASC),
+  INDEX `fk_Games_Libraries_Libraries1_idx` (`Libraries_libraries_id_library` ASC),
   PRIMARY KEY (`Libraries_libraries_id_library`, `Games_games_id_game`),
-  INDEX `fk_Games_libraries_Games1_idx` (`Games_games_id_game` ASC),
-  CONSTRAINT `fk_Games_libraries_Libraries1`
+  INDEX `fk_Games_Libraries_Games1_idx` (`Games_games_id_game` ASC),
+  CONSTRAINT `fk_Games_Libraries_Libraries1`
     FOREIGN KEY (`Libraries_libraries_id_library`)
     REFERENCES `daw1703`.`Libraries` (`libraries_id_library`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Games_libraries_Games1`
+  CONSTRAINT `fk_Games_Libraries_Games1`
     FOREIGN KEY (`Games_games_id_game`)
     REFERENCES `daw1703`.`Games` (`games_id_game`)
     ON DELETE NO ACTION
@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `daw1703`.`Games_libraries` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8
 COLLATE = utf8_unicode_ci
-COMMENT = 'Games_libraries table';
+COMMENT = 'Games_Libraries table';
 
 
 -- -----------------------------------------------------
@@ -574,14 +574,13 @@ DECLARE userId int;
 SELECT Bill_Details.Games_games_id_game FROM Bill_Details
 ORDER BY Bill_Details.Bill_Details_counter DESC LIMIT 1 INTO gameId;
 
-SELECT Libraries.libraries_id_library FROM Bills
+SELECT Users.users_id_user FROM Bill_Details
+INNER JOIN Bills ON Bills.bills_id_bill=Bill_Details.Bills_bills_id_bill
 INNER JOIN Users ON Users.users_id_user=Bills.Users_users_id_user
-INNER JOIN Libraries ON Libraries.Users_users_id_user=Users.users_id_user
-INNER JOIN Bill_Details ON Bill_Details.Bills_bills_id_bill=Bills.Users_users_id_user
-ORDER BY Bill_Details.Bill_Details_counter DESC LIMIT 1 INTO userId;
+ORDER BY Bill_Details_counter DESC LIMIT 1 INTO userId;
 
 
-INSERT INTO Games_libraries (Libraries_libraries_id_library,Games_games_id_game) VALUES (userId,gameId);
+INSERT INTO Games_Libraries (Libraries_libraries_id_library,Games_games_id_game) VALUES (userId,gameId);
 
 END$$
 

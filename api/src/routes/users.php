@@ -68,7 +68,7 @@ $app->get('/users/username/{id}', function(Request $request, Response $response)
         $helper = new UserDAO();
         $result = $helper->getUser($user);
         $reqUser = [
-            "users_username" => $result[0][1]
+            "users_username" => $result[0][1],
         ];
         echo json_encode($reqUser);
     } catch(PDOException $e){

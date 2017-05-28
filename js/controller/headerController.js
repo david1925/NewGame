@@ -10,6 +10,7 @@
         $scope.storeRoute = Domain + "view/store.html";
         $scope.communityRoute = Domain + "view/forum.html";
         $scope.contactRoute = Domain + "view/contact.html";
+        $scope.userProfileRoute = Domain + "view/userProfile.html";
 
         $scope.rowCount=2;
         $scope.listofSolicitations = "";

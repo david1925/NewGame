@@ -22,7 +22,7 @@
                   <a href="{{communityRoute}}" translate="Community"></a>
                </li>
                <li>
-                  <a href="{{contactRoute}}" translate="Contact"></a>
+                  <a href="{{contactRoute}}" translate="Contact" ng-if="showLoginButton==1"></a>
                </li>
                <li class="dropdown">
                   <a href="#" data-toggle="dropdown" class="dropdown-toggle" translate="Languages"><b class="caret"></b></a>
@@ -50,18 +50,8 @@
                   <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-cog"></i></a>
                   <ul class="dropdown-menu dropdown-menu-left" id="shoppingCartDiv">
                      <li>
-                        <a href="#">
-                        <span class="h6">edit user info</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#">
-                        <span class="h6">change password</span>
-                        </a>
-                     </li>
-                     <li>
-                        <a href="#">
-                        <span class="h6">your own profile</span>
+                        <a href="{{userProfileRoute}}">
+                        <span class="h6" translate="My profile"></span>
                         </a>
                      </li>
                   </ul>

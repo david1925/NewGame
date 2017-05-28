@@ -60,7 +60,7 @@ class UserDAO {
                 FROM Users
                 INNER JOIN Libraries ON Libraries.Users_users_id_user = Users.users_id_user
                 INNER JOIN Games_Libraries ON Games_Libraries.Libraries_libraries_id_library = Libraries.libraries_id_library
-                INNER JOIN Games ON Games.games_id_game=Games_libraries.Games_games_id_game
+                INNER JOIN Games ON Games.games_id_game=Games_Libraries.Games_games_id_game
                 WHERE Users.users_id_user = ?";    
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll(PDO::FETCH_ASSOC);    
