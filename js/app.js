@@ -13,7 +13,7 @@
     "PROFILE IMAGE": "Profile image",
     "FILL THE FORM": "Fill the form",
     "Store": "Store",
-    "SHOP": "Shop",
+    "Shop": "Shop",
     "Community": "Community",
     "Contact": "Contact",
     "Languages": "Languages",
@@ -29,7 +29,9 @@
     "Your topic has been saved!": "Your topic has been saved!",
     "¡Error! There has been an error with the topic": "¡Error! There has been an error with the topic",
     "Add Topic": "Add Topic",
-    "Error! There has been a problem with the petition or uer not found!": "Error! There has been a problem with the petition or uer not found!"
+    "Error! There has been a problem with the petition or uer not found!": "Error! There has been a problem with the petition or uer not found!",
+    "Check your email, a confirmation link has been sent": "Check your email, a confirmation link has been sent",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Congratulations, your email has been sent correctly, we will reply you as soon as possible"
   });
  
   $translateProvider.translations("es", {
@@ -41,7 +43,7 @@
     "PROFILE IMAGE": "Imagen de perfil",
     "FILL THE FORM": "Rellena el formulario",
     "Store": "Biblioteca",
-    "SHOP": "Tienda",
+    "Shop": "Tienda",
     "Community": "Comunidad",
     "Contact": "Contacto",
     "Languages": "Idiomas",
@@ -57,7 +59,9 @@
     "Your topic has been saved!": "¡Tu pregunta ha sido guardada!",
     "¡Error! There has been an error with the topic": "¡Error! Ha ocurrido un error con el mensaje",
     "Add Topic": "Añadir pregunta",
-    "Error! There has been a problem with the petition or uer not found!": "Error! Ha habido algún problema con la solicitud o el usuario no existe"
+    "Error! There has been a problem with the petition or uer not found!": "Error! Ha habido algún problema con la solicitud o el usuario no existe",
+    "Check your email, a confirmation link has been sent": "Revisa tu correo, se te ha enviado un link de confirmación",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Felicidades, tu correo se ha enviado correctamente, te responderemos con la mayor brevedad posible"
   });
   
   $translateProvider.translations("ca", {
@@ -69,7 +73,7 @@
     "PROFILE IMAGE": "imatge de perfil",
     "FILL THE FORM": "Omple el formulari",
     "Store": "Biblioteca",
-    "SHOP": "Tenda",
+    "Shop": "Tenda",
     "Community": "Comunitat",
     "Contact": "Contacte",
     "Languages": "Idiomes",
@@ -85,7 +89,9 @@
     "Your topic has been saved!": "¡La teva pregunta ha sigut desada!",
     "¡Error! There has been an error with the topic": "¡Error! Ha hagut un error amb el missatge",
     "Add Topic": "Afegir pregunta",
-    "Error! There has been a problem with the petition or uer not found!": "Error! Hi ha hagut algún problema amb la sol·licitud o l'usuari no existeix"
+    "Error! There has been a problem with the petition or uer not found!": "Error! Hi ha hagut algún problema amb la sol·licitud o l'usuari no existeix",
+    "Check your email, a confirmation link has been sent": "Revisa el teu correu, se t'ha enviat un correu de confirmació",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Felicitats, el teu correu s'ha enviat correctament, et respondrem amb la major brevetat possible"
   });
  
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="NewGameApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>NewGame</title>
+
+
+	<!--Frameworks-->
+	<!--Bootstrap-->
+	<link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/> 
+	<!--JQuery-->
+	<script src="../vendors/jquery/jquery-3.1.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-->
+	<script src="../vendors/angular/angular.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular Translate-->
+	<script src="../vendors/angular-translate/angular-translate.js" type="text/javascript" xml:space="preserve"></script>
+  	<script src="../vendors/angular-translate/angular-translate.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Angular Route -->
+	<script src="../vendors/angular-route/angular-route.js" type="text/javascript" xml:space="preserve"></script>
+  	<!--Angular pagination-->
+  	<script src="../vendors/angular/dirPagination.js" type="text/javascript" xml:space="preserve"></script>
+	<!--Angular-Bootstrap-->
+	<script src="../vendors/bootstrap/js/ui-bootstrap-tpls-2.3.1.min.js" type="text/javascript" xml:space="preserve"></script>
+	<!-- Dropdown menu -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+	<!-- Css -->
+	<link rel="stylesheet" type="text/css" href="../css/common.css">
+	<link rel="stylesheet" type="text/css" href="../css/languages.min.css">
+
+	<!-- app -->
+    <script src="../js/app.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/store.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/controller/headerController.js" type="text/javascript" xml:space="preserve"></script>
+
+	<!-- Model -->
+	<script src="../js/model/User.js" type="text/javascript" xml:space="preserve"></script>
+	<script src="../js/model/Game.js" type="text/javascript" xml:space="preserve"></script>
+
+
+</head>
+<body ng-controller="storeController as storeCtrl">
+	
+	<!-- HEADER -->	
+	<header ng-include="'header.html'"></header>
+	<main>	
+		<div class="container">	
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h1 class="h1">Owned games</h1>
+                    <hr>    
+                </div>
+            </div>
+		</div>
+		<div class="container">	
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<div ng-repeat="game in userGames">
+						<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+							<figure class="content align">
+								<a href="gameProfile.html?id={{game.getIdGame()}}">
+									<img class="images" src="../images/games/{{game.getUrlImage()}}/{{game.getUrlImage()}}" alt="{{game.getName()}}">
+									<figcaption>
+										{{game.getName()}} 
+										<a href="{{routeToFile}}downloads/{{game.getIdGame()}}.txt" download="{{game.getName()}}.txt">
+											<span class="pull-right"><i class="glyphicon glyphicon-download-alt"></i></span>
+										</a>
+									</figcaption>
+								</a>
+							</figure>					
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+</body>
+</html>

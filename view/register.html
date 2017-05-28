@@ -74,6 +74,9 @@
 						<hr>
 						<button type="submit" class="btn btn-primary" name="insert_user" value="ok" ng-disabled="registerManagement.$invalid"><span class="glyphicon glyphicon-send"></span> Submit</button>
 					</form>
+					<div class="alert alert-success" ng-if="showConfirmationAlert==1">
+  						<strong translate="Check your email, a confirmation link has been sent"></strong>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,7 +1,7 @@
 (function(){
   angular.module("NewGameApp").controller("ContactController", ['$scope', '$http', 'Domain', '$translate', function($scope, $http, Domain, $translate) {
 
-        
+        $scope.showConfirmationAlert =0;
         //Change language
         $scope.changeLanguage = function (translate) {
                 $translate.use(translate);
@@ -42,13 +42,13 @@
         });
 
         this.submit = function () {
-                console.log("submited");
                 $http.post(Domain + 'api/public/users/contact/', {
                         "username" : $scope.user.getUsername(), 
                         "email" : $scope.user.getEmail(), 
                         "subject" : $scope.contact.subject, 
                         "description" : $scope.contact.description
                 })
+                $scope.showConfirmationAlert =1;
         };
 
   }]);
