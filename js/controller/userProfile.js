@@ -15,7 +15,7 @@
         
 $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
 
-        //console.log($scope.user_image);
+        console.log($scope.user_image);
 
         var url = $location.absUrl();
         url = url.substr(50, 52);
@@ -28,6 +28,7 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
 
                 if ($scope.isLoged == "true") {
                     $scope.user = new User();
+                    console.log($scope.user);
                     var userObj = JSON.parse(sessionStorage.userLogged);
                     $scope.user.construct(
                         userObj.users_id_user,
@@ -67,9 +68,10 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 $scope.images = response.data;
                             });
                          //GET Users image
-                        $http.get(Domain + "api/public/users/image/" + $scope.user.getId())
+                        $http.get(Domain + "api/public/users/image/" + url)
                             .then(function(response) {
                                 $scope.user_image = response.data;
+
                                 if (response.data.users_image === null) {
                                     $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 }
@@ -90,6 +92,7 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                         break;
                                 }
                             });
+                        console.log("Entro en el de getuserid");
                     } else {
                         //GET Walls messages
                         $http.get(Domain + "api/public/users/messages/" + url)
@@ -115,10 +118,11 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                         $http.get(Domain + "api/public/users/image/" + url)
                             .then(function(response) {
                                 $scope.user_image = response.data;
-                                console.log(response.data.users_image);
+
                                 if (response.data.users_image === null) {
                                     $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 }
+
                             });
                         //GET users language
                         $http.get(Domain + "api/public/users/language/" + url)
@@ -136,6 +140,7 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                         break;
                                 }
                             });
+                        console.log("Entro en el de url");
                     }
 
                 } else {
@@ -169,6 +174,7 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                  //GET Users image
                         $http.get(Domain + "api/public/users/image/" + url)
                             .then(function(response) {
+                            	console.log("Entro en el segundo");
                                 $scope.user_image = response.data;
 
                                 if (response.data.users_image === null) {
@@ -195,5 +201,57 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                         });
                 }
             });
+    this.insertIntoUserWall = function(message){
+         $http.get(Domain + "api/public/users/login/check")
+            .then(function(response) {
+
+                $scope.isLoged = response.data;
+
+                if ($scope.isLoged == "true") {
+                    $scope.user = new User();
+                    var userObj = JSON.parse(sessionStorage.userLogged);
+                    $scope.user.construct(
+                        userObj.users_id_user,
+                        userObj.users_username,
+                        userObj.users_name,
+                        userObj.users_firstname,
+                        userObj.users_lastname,
+                        userObj.users_email,
+                        userObj.users_phone,
+                        userObj.users_image,
+                        userObj.users_summary,
+                        userObj.users_address,
+                        userObj.users_profile,
+                        userObj.users_status,
+                        userObj.users_language
+                    );
+                     if (isNaN(url) || url == "" || url == null || url == undefined) {
+                    $http.post(Domain + 'api/public/users/wall/add', {"userId" : $scope.user.getId(), "wallId" : $scope.user.getId(), "message": message}).then(function (response) {
+                            if(response.data){
+                                 $scope.showAddWallMessage=1;
+                            }else{
+                                $scope.showAddWallMessage=0;
+                            }                         
+                        });
+                    }else{
+                    $http.post(Domain + 'api/public/users/wall/add', {"userId" : $scope.user.getId(), "wallId" : url, "message": message}).then(function (response) {
+                            if(response.data){
+                                 $scope.showAddWallMessage=1;
+                            }else{
+                                $scope.showAddWallMessage=0;
+                            }
+                        });
+                        console.log("http://www.newgame.local/api/public/users/wall/add");
+                        console.log("Id del usuario que introduce: " + $scope.user.getId());
+                        console.log("Mensaje  que se insertara: " + message);
+                       
+                        console.log("Id del usuario que al que van a insertar: " + $scope.user.getId());    
+                    
+                        console.log("Id del usuario que al que van a insertar: " + url);    
+                        
+                }
+                    }
+            });
+        };
     }]);
 })();

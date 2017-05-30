@@ -41,14 +41,14 @@ class GameDAO {
 
     public function getFeatured() {
         $response = array();
-        $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_rating DESC LIMIT 4";
+        $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_rating DESC LIMIT 4";
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getPublicationDate() {
         $response = array();
-        $sql = "SELECT Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_publication_date DESC LIMIT 4";
+        $sql = "SELECT Games.games_id_game,Games.games_url_image,Games.games_name,Games.games_description FROM Games ORDER BY Games.games_publication_date DESC LIMIT 4";
         $response = $this->dbConnect->selectQuery($sql, $response);
         return $response->fetchAll(PDO::FETCH_ASSOC);
     }     

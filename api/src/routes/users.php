@@ -68,7 +68,7 @@ $app->get('/users/username/{id}', function(Request $request, Response $response)
         $helper = new UserDAO();
         $result = $helper->getUser($user);
         $reqUser = [
-            "users_username" => $result[0][1],
+            "users_username" => $result[0][1]
         ];
         echo json_encode($reqUser);
     } catch(PDOException $e){
@@ -371,6 +371,26 @@ $app->get('/users/publicProfile/{id}', function(Request $request, Response $resp
         $user = new User($id,"", "", "", "", "", "", "", "", "", "", "", "", "", "");
         $helper = new UserDAO();
         $result = $helper->getPublicProfile($user);
+        echo json_encode($result);
+    } catch(PDOException $e){
+        echo '{"error": {"text": '.$e->getMessage().'}}';
+    }
+});
+
+//Insert message in wall
+$app->post('/users/wall/add', function(Request $request, Response $response){
+    $userId = $request->getParam("userId");
+    $wallId = $request->getParam("wallId");
+    $message = $request->getParam("message");
+    echo $userId;
+    echo "<br/>";
+    echo $wallId;
+    try{
+        $result = "";        
+        $user = new User($wallId, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $user2 = new User($userId, "", "", "", "", "", "", "", "", "", "", "", "", "", "");
+        $helper = new UserDAO();
+        $result = $helper->insertUserWallMessage($user, $user2, $message);
         echo json_encode($result);
     } catch(PDOException $e){
         echo '{"error": {"text": '.$e->getMessage().'}}';

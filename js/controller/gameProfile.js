@@ -6,6 +6,7 @@
     $scope.currentPage= 1;
     $scope.likeButton=0;
     $scope.userProfileRoute = Domain + "view/userProfile.html";
+    $scope.carrouselArray=["1","2","3","4"];
 
     //Get id from url
     var url = $location.absUrl();

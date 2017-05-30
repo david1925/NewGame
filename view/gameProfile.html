@@ -42,6 +42,8 @@
 </head>
 <body ng-controller="gameProfileController as gameProfileCtrl">	
 
+
+
 	<header ng-include="'header.html'"></header>
 	<div class="container">
          <div class="row">
@@ -52,6 +54,8 @@
          </div>
       </div>
 	<main>
+
+
 		<div class="container">
             <div class="row content">
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -66,11 +70,13 @@
 									<li data-target="#myCarousel" data-slide-to="3"></li>
 								</ol>
 
+
+								
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
-									<div class="item" ng-class="{'active': $index==0}" ng-repeat="thisGame in game">
+									<div class="item" ng-class="{'active': $index==0}" ng-repeat="carrouseArray in carrouselArray">
 										<figure>
-											<img src="../images/games/{{thisGame.games_url_image}}/{{thisGame.games_id_game}}.{{$index+1}}.jpg" alt="{{thisGame.games_name}}">
+											<img src="../images/games/{{game[0].games_url_image}}/{{game[0].games_id_game}}.{{$index+1}}.jpg" alt="{{game.games_name}}">
 										</figure>
 									</div>
 								</div>
@@ -101,7 +107,7 @@
 		<div class="container titles">
             <div class="row">
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h2 id="requirements" class="h4">REQUIREMENTS</h2>
+                  <h2 id="requirements" class="h4" translate="Requirements"></h2>
                   <hr>
                </div>
             </div>
@@ -111,45 +117,45 @@
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                   <div class="table-responsive content">
                      <table class="table table-condensed" summary="Table with game requirements">
-                        <caption>Game requirements</caption>
+                        <caption translate="Game requirements"></caption>
                         <thead class="thead">
                            <tr>
                               <th></th>
-                              <th>MINIMUM</th>
-                              <th>RECOMMENDED</th>
+                              <th translate="Minimum"></th>
+                              <th translate="Recommended"></th>
                            </tr>
                         </thead>
                         <tbody>
 					<tr>
-						<td>OS</td>
+						<td translate="OS"></td>
 						<td>{{game[0].games_requirements_os_min}}</td>
 						<td>{{game[0].games_requirements_os_rec}}</td>
 					</tr>
 					<tr>
-						<td>Processor</td>
+						<td translate="Processor"></td>
 						<td>{{game[0].games_requirements_processor_min}}</td>
 						<td>{{game[0].games_requirements_processor_rec}}</td>
 					</tr>
 					<tr>
-						<td>Memory</td>
+						<td translate="Memory"></td>
 						<td>{{game[0].games_requirements_memory_min}}</td>
 						<td>{{game[0].games_requirements_memory_rec}}</td>
 					</tr>
 
 					<tr>
-						<td>Hard Disk</td>
+						<td translate="Hard Disk"></td>
 						<td>{{game[0].games_requirements_hd_min}}</td>
 						<td>{{game[0].games_requirements_hd_rec}}</td>
 					</tr>
 
 					<tr>
-						<td>Video Card</td>
+						<td translate="Video Card"></td>
 						<td>{{game[0].games_requirements_video_card_min}}</td>
 						<td>{{game[0].games_requirements_video_card_rec}}</td>
 					</tr>
 
 					<tr>
-						<td>DirectX®</td>
+						<td translate="DirectX®"></td>
 						<td>{{game[0].games_requirements_directx_min}}</td>
 						<td>{{game[0].games_requirements_directx_rec}}</td>
 					</tr>
@@ -165,7 +171,7 @@
 			<div class="container titles" ng-if="showReviews!=0">
             <div class="row">
                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <h2 id="valorations" class="h4">VALORATIONS</h2>
+                  <h2 id="valorations" class="h4" translate="VALORATIONS"></h2>
                   <hr>
                </div>
             </div>
@@ -184,7 +190,7 @@
 				<div ng-if="checkUser=='true'">
 				<form  method="post" name="addReviewManagement" novalidate ng-submit="addReviewManagement.$valid && !gameProfileCtrl.checkAddReview()">
 			        <div class="form-group">		        
-			       		<label for="review">Post your review</label>		        
+			       		<label for="review" translate="Post your review"></label>		        
                      <div class="input-group">
 			       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
 					  		<textarea class="form-control" id="reviewDescription" ng-model="gameProfileCtrl.reviewDescription" placeholder="Write here tour answer." rows="3" required></textarea>

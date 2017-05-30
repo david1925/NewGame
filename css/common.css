@@ -1,0 +1,131 @@
+html {
+  padding: 5% 0% 5% 0%;
+  background-color: rgb(25,70,97);
+  background: linear-gradient(to bottom right, rgb(20,68,94), rgb(30,30,56));
+  color: white;
+  min-height: 100%;
+}
+
+body {
+  background-color: transparent;  
+  min-height: 100%;
+}
+
+a {
+  color: white;
+}
+
+div {
+  color: white;
+}
+
+img{
+	max-width: 100%;
+}
+
+.well {
+	background-color: rgba(20,80,94, 0.4);
+}
+
+.content {
+  border-radius: 5px;
+	background-color: rgba(20,80,94, 0.4);
+  margin-top: 5px;
+  padding: 1%;
+}
+
+.glyphicon-thumbs-down{
+  color: red;
+}
+
+.glyphicon-thumbs-up{
+  color: green;
+}
+
+#friends {
+  max-height: 20em;
+  overflow: auto;
+}
+
+.friendIcons {
+  float: right;
+  margin-left: 1%;
+}
+
+.glyphicon-eye-open {
+  color: #0052cc;
+}
+
+#shoppingCartDiv{
+ max-height: 20em;
+  overflow: auto; 
+}
+
+#blackText{
+  color: black;
+  margin-left: 7%;
+}
+
+.textContainer { 
+    height: 40px; 
+    line-height: 42px;
+}
+
+.textContainer p {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.align {
+  text-align: center
+}
+
+a .btn-success {
+  text-decoration: none;
+}
+
+
+
+.glyphicon-download-alt {	
+	background-color: rgba(0,0,0, 0);
+	color: white;
+}
+/*********header.html(friendshipSolicitations)*********/
+#addFriendButton{
+  position: absolute;
+  right: 18px;
+  top: 19px;
+  color: #000000 !important;
+  -webkit-appearance: none;
+  -moz-appearance: none;    
+  border: none;
+  background: #ededed;
+  border-radius: 3px;
+    
+    transition: all .2s;
+}
+
+#addFriendButton:hover{
+  background-color: #37C88D;
+  color: #FFFFFF !important;
+}
+
+#FriendshipSolicitationsHeader{
+  color: #000000;
+  margin-left: 18%;
+}
+
+.acceptSolicitation{
+  color: green;
+  margin-left: 15%;
+}
+
+.declineSolicitation{
+  color: red;
+  margin-left: 20%;
+}
+
+#twitter{
+  max-width: 10%;
+  max-height: 10%;
+}

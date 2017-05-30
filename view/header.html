@@ -61,7 +61,8 @@
                <li class="dropdown pull-left">
                   <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
                   <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
-                     <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index">
+                  	<li ng-if="gamesToShow==''"><div class="alert alert-warning"><strong translate="Your shopping cart it's empty"></strong></div></li>
+                     <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index" ng-if="gamesToShow!=''">
                         <a href="#">
                            <h6 class="h6">
                               {{gameToShow[0].games_name}}   <strong>{{gameToShow[0].games_price}}€</strong>
@@ -72,9 +73,19 @@
                         <li>
                            <hr>
                         </li>
-                        <br><br>
-                        <li id="blackText">Total: {{totalPrice}}€ <a href="{{purchaseRoute}}" class="btn btn-success" translate="Finalize purchase"></a></li>
-                        <li><a href="#" type="button" class="btn btn-danger" translate="Empty shopping cart" ng-click="emptyShoppingCart()"></a></li>
+                        <li id="blackText">
+                           Total: {{totalPrice}}€
+                        </li>
+                        <li>
+                           <hr>
+                        </li>
+                        <li> 
+                            <a href="{{purchaseRoute}}" class="btn btn-success" translate="Checkout"></a>
+                            <a href="#" type="button" class="btn btn-danger" translate="Empty cart" ng-click="emptyShoppingCart()"></a>
+                        </li>
+                        <li>
+                            
+                        </li>
                      </div>
                   </ul>
                </li>
@@ -95,7 +106,7 @@
          <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-               <span class="navbar-text col align-self-center">Something useful</span>
+               <span class="navbar-text col align-self-center"><a href="https://twitter.com/newgameweb"><img src="{{indexRoute}}/images/system/twitter.png" id="twitter"></a></span>
             </div>
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8"></div>
             <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">

@@ -72,7 +72,7 @@
 								<div class="carousel-inner" role="listbox">
 									<div class="item" ng-class="{'active': $index==0}" ng-repeat="game in games">
 										<figure>
-											<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+											<a href="{{indexRoute}}/view/gameProfile.html?id={{game.games_id_game}}"><img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}"></a>
 											<figcaption> 
 												<h3>{{game.games_name}}</h3> 
 												<p>{{game.games_description}}</p> 
@@ -125,7 +125,7 @@
 								<div class="carousel-inner" role="listbox">
 									<div class="item" ng-class="{'active': $index==0}" ng-repeat="game in gamesPublicationDate">
 										<figure>
-											<img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}">
+											<a href="{{indexRoute}}/view/gameProfile.html?id={{game.games_id_game}}"><img src="images/games/{{game.games_url_image}}/{{game.games_url_image}}" alt="{{game.games_name}}"></a>
 											<figcaption> 
 												<h3>{{game.games_name}}</h3> 
 												<p>{{game.games_description}}</p> 

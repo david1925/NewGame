@@ -131,17 +131,26 @@
 					<div class="text-left" boundary-links="true">
 						<dir-pagination-controls boundary-links="true" template-url="dir-pagination-controls.html"></dir-pagination-controls>
 					</div>
-					<div ng-if="showMessagesFrom==1">
+					<div ng-if="showMessagesForm==1">
 						<hr>
-						<div class="form-group">		        
-							<div class="input-group">
-								<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
-								<textarea class="form-control" id="description" placeholder="Write here your answer." rows="3"></textarea>
-							</div>
-						</div>
-						<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-send"></span> Submit</button>
-						<button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> Refresh</button>
+						<form  method="post" name="addWallManagement" novalidate ng-submit="addWallManagement.$valid && !UserProfileCtrl.insertIntoUserWall()">
+			        <div class="form-group">		       
+                     <div class="input-group">
+			       			<span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+					  		<textarea class="form-control" id="messageWall" ng-model="UserProfileCtrl.messageWall" placeholder="Write here tour answer." rows="3" required></textarea>
+				  		</div>
+				    </div>				    
+				  	<button type="button" class="btn btn-primary" name="insert_topic" value="ok" ng-disabled="addWallManagement.$invalid || likeButton==0" ng-click="UserProfileCtrl.insertIntoUserWall(UserProfileCtrl.messageWall)"><span class="glyphicon glyphicon-send"></span> Submit</button>
+				</form>
 					</div>
+					<div ng-if="showAddWallMessage==1">
+				<hr>
+				<div class="alert alert-success" translate="Your message has been saved!"></div>
+			</div>
+			<div ng-if="showAddWallMessage==0">
+				<hr>
+				<div class="alert alert-danger" translate="¡Error! There has been an error with the message"></div>
+			</div>
 				</div>
 			</div> 	
 		</div> 	
