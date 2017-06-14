@@ -5,6 +5,9 @@
 
    angular.module("NewGameApp").config(['$translateProvider', function ($translateProvider) {
   $translateProvider.translations("en", {
+  	"Wall": "Wall",
+  	"Friends list": "Friends list",
+  	"Purchased games": "Purchased games",
     "Genres filter": "Genres filter",
     "Price filter": "Price filter",
     "Post your review": "Post your review",
@@ -31,7 +34,7 @@
     "Contact": "Contact",
     "Languages": "Languages",
     "All": "All",
-    "USER PROFILE": "USER PROFILE",
+    "User profile": "User profile",
     "Username": "Username",
     "Country": "Country",
     "Province": "Province",
@@ -43,10 +46,16 @@
     "¡Error! There has been an error with the topic": "¡Error! There has been an error with the topic",
     "Add Topic": "Add Topic",
     "Error! There has been a problem with the petition or uer not found!": "Error! There has been a problem with the petition or uer not found!",
-    "Your shopping cart it's empty": "Your shopping cart it's empty"
+    "Your shopping cart it's empty": "Your shopping cart it's empty",
+    "Check your email, a confirmation link has been sent": "Check your email, a confirmation link has been sent",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Congratulations, your email has been sent correctly, we will reply you as soon as possible"
+
   });
  
   $translateProvider.translations("es", {
+  	"Wall": "Muro",
+  	"Friends list": "Lista de amigos",
+  	"Purchased games": "Juegos comprados",
     "Genres filter": "Filtro por género",
     "Price filter": "Filtro por precio",
     "Post your review": "Publica tu análisis",
@@ -74,7 +83,7 @@
     "Contact": "Contacto",
     "Languages": "Idiomas",
     "All": "Todos",
-    "USER PROFILE": "PERFIL DE USUARIO",
+    "User profile": "Perfil de usuario",
     "Username": "Usuario",
     "Country": "País",
     "Province": "Província",
@@ -86,11 +95,15 @@
     "¡Error! There has been an error with the topic": "¡Error! Ha ocurrido un error con el mensaje",
     "Add Topic": "Añadir pregunta",
     "Error! There has been a problem with the petition or uer not found!": "Error! Ha habido algún problema con la solicitud o el usuario no existe",
-    "Your shopping cart it's empty": "Tu carrito de compra está vacio"
+    "Your shopping cart it's empty": "Tu carrito de compra está vacio",
+    "Check your email, a confirmation link has been sent": "Revisa tu correo, se te ha enviado un link de confirmación",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Felicidades, tu correo se ha enviado correctamente, te responderemos con la mayor brevedad posible"
   });
   
   $translateProvider.translations("ca", {
-    "Genres filter": "Filtre per gènere",
+  	"Wall": "Mur",
+  	"Friends list": "Llista d'amics",
+  	"Purchased games": "Jocs comprats",
     "Price filter": "Filtre per preu",
     "Post your review": "Publica el teu anàlisis",
     "Valorations": "Valoracions",
@@ -117,7 +130,7 @@
     "Contact": "Contacte",
     "Languages": "Idiomes",
     "All": "Tots",
-    "USER PROFILE": "PERFIL D'USUARI",
+    "User profile": "Perfil d'usuari",
     "Username": "Usuari",
     "Country": "País",
     "Province": "Província",
@@ -129,7 +142,9 @@
     "¡Error! There has been an error with the topic": "¡Error! Ha hagut un error amb el missatge",
     "Add Topic": "Afegir pregunta",
     "Error! There has been a problem with the petition or uer not found!": "Error! Hi ha hagut algún problema amb la sol·licitud o l'usuari no existeix",
-    "Your shopping cart it's empty": "El tue carret de compra está buit"
+    "Your shopping cart it's empty": "El teu carret de compra está buit",
+    "Check your email, a confirmation link has been sent": "Revisa el teu correu, se t'ha enviat un correu de confirmació",
+    "Congratulations, your email has been sent correctly, we will reply you as soon as possible": "Felicitats, el teu correu s'ha enviat correctament, et respondrem amb la major brevetat possible"
   });
  
 

@@ -60,8 +60,8 @@
             <ul class="nav navbar-nav">
                <li class="dropdown pull-left">
                   <a href="#" id="shoppingCart" data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-shopping-cart">{{shoppingCartGamesNumber}}</i></a>
-                  <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
-                  	<li ng-if="gamesToShow==''"><div class="alert alert-warning"><strong translate="Your shopping cart it's empty"></strong></div></li>
+                 <ul class="dropdown-menu dropdown-menu-right" id="shoppingCartDiv">
+                     <li ng-if="gamesToShow==''"><div class="alert alert-warning"><strong translate="Your shopping cart it's empty"></strong></div></li>
                      <li class="friend" ng-repeat="gameToShow in gamesToShow track by $index" ng-if="gamesToShow!=''">
                         <a href="#">
                            <h6 class="h6">

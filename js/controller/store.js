@@ -2,6 +2,7 @@
   angular.module("NewGameApp").controller("storeController", ['$scope', '$http', '$translate', 'Domain', function($scope, $http, $translate, Domain) {
 
     $scope.userGames = [];
+    $scope.routeToFile = Domain;
 
     $scope.changeLanguage = function (translate) {
         $translate.use(translate);

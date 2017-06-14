@@ -58,7 +58,7 @@
     		<div class="row">
     			<div class="col-xs-6">
     				<address>
-    				<strong translate="Billed To: "></strong> {{user.getName()}} {{user.getFirstName()}}
+    				<strong translate="Billed To: "></strong> {{user.getUsername()}}
     				</address>
     			</div>
     		</div>
@@ -130,7 +130,7 @@
         	<div class="col-md-4 offset-md-2">
             	<h3 class="text-center" translate="Other Info"></h3><hr>
             	<address>
-            	    <strong translate="Billed To: "></strong>{{user.getName()}}
+            	    <strong translate="Billed To: "></strong>{{user.getUsername()}}
             	    
             	 </address>
             	 <button type="button" class="btn btn-success" translate="Confirm purchase" ng-click="confirmPurchase()"></button>

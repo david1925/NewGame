@@ -7,10 +7,9 @@
     $scope.likeButton=0;
     $scope.userProfileRoute = Domain + "view/userProfile.html";
     $scope.carrouselArray=["1","2","3","4"];
-
     //Get id from url
     var url = $location.absUrl();
-    url = url.substr(50,52);
+    url = url.substr(56,58);
     console.log(url);
             //GET all attributes from a game
             $http.get(Domain + "api/public/games/" + url)

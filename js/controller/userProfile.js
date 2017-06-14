@@ -15,10 +15,10 @@
         
 $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
 
-        console.log($scope.user_image);
+        //console.log($scope.user_image);
 
         var url = $location.absUrl();
-        url = url.substr(50, 52);
+        url = url.substr(56, 58);
         console.log(url);
 
         $http.get(Domain + "api/public/users/login/check")
@@ -28,7 +28,6 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
 
                 if ($scope.isLoged == "true") {
                     $scope.user = new User();
-                    console.log($scope.user);
                     var userObj = JSON.parse(sessionStorage.userLogged);
                     $scope.user.construct(
                         userObj.users_id_user,
@@ -68,10 +67,9 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 $scope.images = response.data;
                             });
                          //GET Users image
-                        $http.get(Domain + "api/public/users/image/" + url)
+                        $http.get(Domain + "api/public/users/image/" + $scope.user.getId())
                             .then(function(response) {
                                 $scope.user_image = response.data;
-
                                 if (response.data.users_image === null) {
                                     $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 }
@@ -92,7 +90,6 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                         break;
                                 }
                             });
-                        console.log("Entro en el de getuserid");
                     } else {
                         //GET Walls messages
                         $http.get(Domain + "api/public/users/messages/" + url)
@@ -118,11 +115,10 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                         $http.get(Domain + "api/public/users/image/" + url)
                             .then(function(response) {
                                 $scope.user_image = response.data;
-
+                                console.log(response.data.users_image);
                                 if (response.data.users_image === null) {
                                     $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                 }
-
                             });
                         //GET users language
                         $http.get(Domain + "api/public/users/language/" + url)
@@ -140,7 +136,6 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                         break;
                                 }
                             });
-                        console.log("Entro en el de url");
                     }
 
                 } else {
@@ -174,7 +169,6 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                  //GET Users image
                         $http.get(Domain + "api/public/users/image/" + url)
                             .then(function(response) {
-                            	console.log("Entro en el segundo");
                                 $scope.user_image = response.data;
 
                                 if (response.data.users_image === null) {
@@ -197,11 +191,12 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                                                 break;
                                         }
                                     });
-                            }
-                        });
+                       }
+                  });
                 }
             });
-    this.insertIntoUserWall = function(message){
+        
+         this.insertIntoUserWall = function(message){
          $http.get(Domain + "api/public/users/login/check")
             .then(function(response) {
 
@@ -253,5 +248,8 @@ $scope.user_image = JSON.parse('{"users_image": "defaultImage.svg"}');
                     }
             });
         };
+
+
+
     }]);
 })();

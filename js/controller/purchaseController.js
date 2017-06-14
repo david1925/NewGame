@@ -87,8 +87,9 @@
     };
 
     $scope.confirmPurchase = function() {
-        if(JSON.parse(sessionStorage.userLogged)=="null"){
-          $window.open(Domain + 'view/login.html', "_self");
+        if($scope.isLoged=="false"){
+        	alert("You must be logged in to buy");
+		$window.open(Domain + 'view/login.html', "_self");
         }else{
           if(JSON.parse(localStorage.getItem("shoppingCart"))!=null){
             $scope.gamesArrayToConfirm = JSON.parse(localStorage.getItem("shoppingCart"));
